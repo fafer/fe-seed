@@ -7,21 +7,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = Merge(CommonConfig, {
     mode:'development',
     output: {
-        publicPath: `/${path.basename(__dirname)}/js/`
+        publicPath: '/'
     },
     devtool: 'inline-source-map',
     devServer: {
         host: '0.0.0.0',
-        port: 80,
+        port: 8041,
         disableHostCheck: true,
         allowedHosts: [
             '.58.com',
             '.58cdn.com.cn'
         ],
         hot: true,
-        contentBase: path.join(__dirname, '../'),
+        contentBase: __dirname,
         compress: true,
-        publicPath: `/${path.basename(__dirname)}/js/`,
+        publicPath: '/',
         // historyApiFallback: true,
         proxy: [
             {

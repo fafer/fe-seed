@@ -9,7 +9,7 @@ function getEntry(pathname,base,entry) {
         if(fs.lstatSync(join(pathname,file)).isDirectory()) {
             getEntry(join(pathname,file),`${base}/${file}`,entry);
         } else {
-            name = `${base}/${file.replace(/(.js)$/,'')}`;
+            name = `${base}/${file.replace(/(.jsx)$/,'')}`;
             entry[name] = join(pathname,file);
         }
     });
@@ -17,7 +17,7 @@ function getEntry(pathname,base,entry) {
 }
 
 module.exports = {
-    entry: Object.assign(getEntry(join(__dirname,'/src/js/pkg/wechat'),'pkg/wechat'),{
+    entry: Object.assign(getEntry(join(__dirname,'/src/pages/demo'),'demo'),{
         vendor:['react','react-dom']
     }),
     output: {
@@ -36,16 +36,11 @@ module.exports = {
                 loader:'babel-loader',
                 exclude:path.join(__dirname,'node_modules'),
                 options: {
-                    presets: ['env','stage-2','stage-3']
+                    presets: ["@babel/preset-env", "@babel/preset-react"],
+                    plugins: [
+                        "@babel/plugin-transform-runtime"
+                    ]
                 }
-            },
-            {
-                test:/\.art?$/,
-                loader:'art-template-loader'
-            },
-            {
-                test:/\.html?$/,
-                loader:'html-loader'
             },
             {
                 test:/\.css$/,
@@ -63,7 +58,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.ts', '.js', '.json','.jsx','.tsx','.html','.css','.less']
+        extensions: ['.ts', '.js', '.json','.jsx','.tsx','.css','.less']
     },
     optimization:{
         splitChunks:{
@@ -71,11 +66,10 @@ module.exports = {
                 vendor: {
                     name: "vendor",
                     chunks: "initial",
-                    minChunks: 10
+                    minChunks: Infinity
                 }
             }
         }
     },
-    plugins:[
-    ]
+    plugins:[]
 }

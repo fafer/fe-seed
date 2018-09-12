@@ -9,11 +9,16 @@ const Uglifyjs = require('uglifyjs-webpack-plugin');
 module.exports = Merge(CommonConfig,{
     mode:'production',
     output: {
-        publicPath: '//gj.58cdn.com.cn/global/js/',
+        publicPath: '//j1.58cdn.com.cn/js/',
         path: path.resolve(__dirname, 'dist')
     },
     plugins:[
         new CleanWebpackPlugin(['dist']),
+        new webpack.DefinePlugin({
+            'process.env':{
+                'NODE_ENV':JSON.stringify('production')
+            }
+        }),
         new Uglifyjs({
             sourceMap:false,
             extractComments:false,
