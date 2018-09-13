@@ -3,7 +3,8 @@ const fs = require('fs');
 const join = require('path').join;
 
 function getEntry(pathname,base,entry) {
-    var files = fs.readdirSync(pathname),name = '';
+    if(!base) base = path.basename(pathname)
+    let files = fs.readdirSync(pathname),name = '';
     if(!entry) entry = {};
     files.forEach(function(file) {
         if(fs.lstatSync(join(pathname,file)).isDirectory()) {
@@ -17,7 +18,7 @@ function getEntry(pathname,base,entry) {
 }
 
 module.exports = {
-    entry: Object.assign(getEntry(join(__dirname,'/src/pages/demo'),'demo'),{
+    entry: Object.assign(getEntry(join(__dirname,'/src/pages')),{
         vendor:['react','react-dom']
     }),
     output: {
@@ -65,8 +66,7 @@ module.exports = {
             cacheGroups: {
                 vendor: {
                     name: "vendor",
-                    chunks: "initial",
-                    minChunks: Infinity
+                    chunks: "initial"
                 }
             }
         }

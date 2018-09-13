@@ -1,0 +1,13 @@
+{
+  "vendor.js": "//j1.58cdn.com.cn/js/vendor.js",
+  "pages/demo/index.js": "//j1.58cdn.com.cn/js/pages/demo/index.js",
+  "pages/demo/test.js": "//j1.58cdn.com.cn/js/pages/demo/test.js",
+  "pages/demo1/index.js": "//j1.58cdn.com.cn/js/pages/demo1/index.js",
+  "pages/demo1/test.js": "//j1.58cdn.com.cn/js/pages/demo1/test.js",
+  "pages/demo2/demo1/index.js": "//j1.58cdn.com.cn/js/pages/demo2/demo1/index.js",
+  "pages/demo2/demo1/test.js": "//j1.58cdn.com.cn/js/pages/demo2/demo1/test.js",
+  "pages/demo2/index.js": "//j1.58cdn.com.cn/js/pages/demo2/index.js",
+  "pages/demo2/test.js": "//j1.58cdn.com.cn/js/pages/demo2/test.js",
+  "pages/demo3/index.js": "//j1.58cdn.com.cn/js/pages/demo3/index.js",
+  "pages/demo3/test.js": "//j1.58cdn.com.cn/js/pages/demo3/test.js"
+}
