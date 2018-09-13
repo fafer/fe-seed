@@ -1,13 +1,6 @@
-import React,{Component} from 'react'
+import React from 'react'
 import { render } from 'react-dom'
+import Demo from '../../components/demo/index'
+import './index.scss'
 
-class Demo extends Component {
-
-  render() {
-    return (
-      <div>demo run</div>
-    )
-  }
-}
-console.log(document.getElementById('app'))
 render(<Demo />,document.getElementById('app'))
