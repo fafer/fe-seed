@@ -1,26 +1,26 @@
 const path = require('path');
 const conf = require('./conf');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: Object.assign(conf.ENTRY,{
-        vendor:['react','react-dom']
+    entry: Object.assign(conf.ENTRY, {
+        vendor: ['react', 'react-dom']
     }),
     output: {
-        filename: '[name].js',
-        chunkFilename:'[name].js'
+        filename: '[name][hash].js',
+        chunkFilename: '[name][hash].js'
     },
     module: {
-        rules: [
-            {
-                test: /\.tsx?$/, 
+        rules: [{
+                test: /\.tsx?$/,
                 loader: "awesome-typescript-loader",
-                exclude:path.join(conf.ROOT_PATH,'node_modules')
+                exclude: path.join(conf.ROOT_PATH, 'node_modules')
             },
             {
-                test:/\.jsx?$/,
-                loader:'babel-loader',
-                exclude:path.join(conf.ROOT_PATH,'node_modules'),
+                test: /\.jsx?$/,
+                loader: 'babel-loader',
+                exclude: path.join(conf.ROOT_PATH, 'node_modules'),
                 options: {
                     presets: ["@babel/preset-env", "@babel/preset-react"],
                     plugins: [
@@ -29,27 +29,26 @@ module.exports = {
                 }
             },
             {
-                test:/\.scss$/,
-                use: [
-                    {
-                        loader:MiniCssExtractPlugin.loader
+                test: /\.scss$/,
+                use: [{
+                        loader: MiniCssExtractPlugin.loader
                     },
                     'css-loader',
                     'sass-loader'
                 ]
-            },{
-                 test: /\.(png|svg|jpg|jpeg|gif)$/,
-                 use:[
-                     'file-loader'
-                 ]
+            }, {
+                test: /\.(png|svg|jpg|jpeg|gif)$/,
+                use: [
+                    'file-loader'
+                ]
             }
         ]
     },
     resolve: {
-        extensions: ['.ts', '.js', '.json','.jsx','.tsx','.css','.scss']
+        extensions: ['.ts', '.js', '.json', '.jsx', '.tsx', '.css', '.scss']
     },
-    optimization:{
-        splitChunks:{
+    optimization: {
+        splitChunks: {
             cacheGroups: {
                 vendor: {
                     name: "vendor",
@@ -59,10 +58,11 @@ module.exports = {
             }
         }
     },
-    plugins:[
+    plugins: [
         new MiniCssExtractPlugin({
-            filename: "[name].css",
-            chunkFilename: "[name].css"
-          })
+            filename: "[name][hash].css",
+            chunkFilename: "[name][hash].css"
+        }),
+        new HtmlWebpackPlugin()
     ]
 }

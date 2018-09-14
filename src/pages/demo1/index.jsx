@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import { render } from 'react-dom'
-
+import './index.scss'
 class Demo3 extends Component {
 
   render() {
