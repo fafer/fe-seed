@@ -21,10 +21,17 @@ const ROOT_PATH = path.join(__dirname, '..');
 const OUT_PATH = path.join(__dirname, '../dist');
 const ENTRY_PATH = path.join(__dirname, '../src/pages');
 const ENTRY = getEntry(ENTRY_PATH);
+const HOST = {
+    js:'j1.58cdn.com.cn',
+    css:'c.58cdn.com.cn',
+    img:'img.58cdn.com.cn'
+}
+
 
 module.exports = {
   ROOT_PATH,
   OUT_PATH,
   ENTRY_PATH,
-  ENTRY
+  ENTRY,
+  HOST
 }

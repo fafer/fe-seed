@@ -1,10 +1,7 @@
 {
-  "pages/demo/index.css": "//j1.58cdn.com.cn/pages/demo/indexcfebe22338148c9fa4e2.css",
-  "pages/demo/index.js": "//j1.58cdn.com.cn/pages/demo/indexcfebe22338148c9fa4e2.js",
-  "pages/demo/tes.js": "//j1.58cdn.com.cn/pages/demo/tescfebe22338148c9fa4e2.js",
-  "pages/demo1/index.css": "//j1.58cdn.com.cn/pages/demo1/indexcfebe22338148c9fa4e2.css",
-  "pages/demo1/index.js": "//j1.58cdn.com.cn/pages/demo1/indexcfebe22338148c9fa4e2.js",
-  "pages/tt.js": "//j1.58cdn.com.cn/pages/ttcfebe22338148c9fa4e2.js",
-  "vendor.js": "//j1.58cdn.com.cn/vendorcfebe22338148c9fa4e2.js",
-  "index.html": "//j1.58cdn.com.cn/index.html"
+  "vendor.js": "//j1.58cdn.com.cn/vendor.js",
+  "pages/demo/index.css": "//j1.58cdn.com.cn/pages/demo/index.css",
+  "pages/demo/index.js": "//j1.58cdn.com.cn/pages/demo/index.js",
+  "pages/investmentv2/index.css": "//j1.58cdn.com.cn/pages/investmentv2/index.css",
+  "pages/investmentv2/index.js": "//j1.58cdn.com.cn/pages/investmentv2/index.js"
 }

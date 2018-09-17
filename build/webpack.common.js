@@ -1,15 +1,15 @@
 const path = require('path');
 const conf = require('./conf');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const minChunks = Object.keys(conf.ENTRY).length + 1;
 
 module.exports = {
     entry: Object.assign(conf.ENTRY, {
         vendor: ['react', 'react-dom']
     }),
     output: {
-        filename: '[name][hash].js',
-        chunkFilename: '[name][hash].js'
+        filename: '[name].js',
+        chunkFilename: '[name].js'
     },
     module: {
         rules: [{
@@ -36,7 +36,16 @@ module.exports = {
                     'css-loader',
                     'sass-loader'
                 ]
-            }, {
+            },
+            {
+                test: /\.css$/,
+                use: [{
+                        loader: MiniCssExtractPlugin.loader
+                    },
+                    'css-loader'
+                ]
+            },
+            {
                 test: /\.(png|svg|jpg|jpeg|gif)$/,
                 use: [
                     'file-loader'
@@ -53,16 +62,15 @@ module.exports = {
                 vendor: {
                     name: "vendor",
                     chunks: "initial",
-                    minChunks: 10
+                    minChunks: minChunks
                 }
             }
         }
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "[name][hash].css",
-            chunkFilename: "[name][hash].css"
-        }),
-        new HtmlWebpackPlugin()
+            filename: "[name].css",
+            chunkFilename: "[name].css"
+        })
     ]
 }
