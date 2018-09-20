@@ -2,6 +2,6 @@
   "vendor.js": "//j1.58cdn.com.cn/vendor.js",
   "pages/demo/index.css": "//j1.58cdn.com.cn/pages/demo/index.css",
   "pages/demo/index.js": "//j1.58cdn.com.cn/pages/demo/index.js",
-  "pages/investmentv2/index.css": "//j1.58cdn.com.cn/pages/investmentv2/index.css",
-  "pages/investmentv2/index.js": "//j1.58cdn.com.cn/pages/investmentv2/index.js"
+  "pages/test/index.css": "//j1.58cdn.com.cn/pages/test/index.css",
+  "pages/test/index.js": "//j1.58cdn.com.cn/pages/test/index.js"
 }
