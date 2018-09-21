@@ -23,22 +23,22 @@
 
 ## 相关指令
 
-### 初始化
+- 初始化
 ```
 npm i
 ```
 
-### 开发模式
+- 开发模式
 ```
 npm start
 ```
 
-### 编译输出生产资源
+- 编译输出生产资源
 ```
 npm run build
 ```
 
-### 创建一个页面入口,filename（文件名）必选、title（页面title）可选
+- 创建一个页面入口,filename（文件名）必选、title（页面title）可选
 ```
 npm run add filename title
 ```
