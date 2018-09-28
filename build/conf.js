@@ -20,6 +20,8 @@ const getEntry = function (pathname,base,entry) {
 const ROOT_PATH = path.join(__dirname, '..');
 const OUT_PATH = path.join(__dirname, '../dist');
 const ENTRY_PATH = path.join(__dirname, '../src/pages');
+const COPY_PATH = path.join(__dirname,'../src/lib');
+const COPY_DEST_PATH = path.join(OUT_PATH,'lib');
 const ENTRY = getEntry(ENTRY_PATH);
 const PUBLICBASE = '';
 const HOST = {
@@ -33,6 +35,8 @@ module.exports = {
   ROOT_PATH,
   OUT_PATH,
   ENTRY_PATH,
+  COPY_PATH,
+  COPY_DEST_PATH,
   ENTRY,
   HOST,
   PUBLICBASE

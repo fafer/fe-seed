@@ -1,6 +1,7 @@
 const path = require('path');
 const conf = require('./conf');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const minChunks = Object.keys(conf.ENTRY).length + 1;
 
 module.exports = {
@@ -68,6 +69,9 @@ module.exports = {
         }
     },
     plugins: [
+        new CopyWebpackPlugin([
+            {from:conf.COPY_PATH,to:conf.COPY_DEST_PATH}
+        ]),
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[name].css"
