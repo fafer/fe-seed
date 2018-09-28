@@ -18,7 +18,7 @@ function add(name, title = '') {
     fs.mkdirSync(addPath);
   }
   if (!htmlStr) htmlStr = fs.readFileSync(htmlTemplatePath).toString();
-  htmlTemp = htmlStr.replace(/\$\{name\}/gi, `${path.basename(conf.ENTRY_PATH)}/${name}/${scriptTemplate.replace(/\.jsx?$/,'')}`).replace(/\$\{title\}/gi,title);
+  htmlTemp = htmlStr.replace(/\$\{base\}/gi,conf.PUBLICBASE).replace(/\$\{name\}/gi, `${path.basename(conf.ENTRY_PATH)}/${name}/${scriptTemplate.replace(/\.jsx?$/,'')}`).replace(/\$\{title\}/gi,title);
   fs.writeFile(path.join(addPath,htmlTemplate),htmlTemp,err => {
     if(err) console.error(`write ${path.join(addPath,htmlTemplate)} failed`,err);
   });

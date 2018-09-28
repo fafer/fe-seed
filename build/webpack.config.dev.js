@@ -5,22 +5,16 @@ const CommonConfig = require('./webpack.common.js');
 
 module.exports = Merge(CommonConfig, {
     mode:'development',
-    output: {
-        publicPath: '/'
-    },
     devtool: 'inline-source-map',
     devServer: {
         host: '0.0.0.0',
-        port: 8041,
+        port: 80,
         disableHostCheck: true,
-        allowedHosts: [
-            '.58.com',
-            '.58cdn.com.cn'
-        ],
+        allowedHosts:[],
         hot: true,
-        contentBase: conf.ROOT_PATH,
+        contentBase: conf.ENTRY_PATH,
         compress: true,
-        publicPath: '/',
+        publicPath: conf.PUBLICBASE ? conf.PUBLICBASE + '/':'/',
         // historyApiFallback: true,
         proxy: [
             {
