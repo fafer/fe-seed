@@ -1,5 +1,4 @@
 const conf = require('./conf');
-const path = require('path');
 const webpack = require('webpack');
 const Merge = require('webpack-merge');
 const CommonConfig = require('./webpack.common.js');
@@ -9,7 +8,7 @@ module.exports = Merge(CommonConfig, {
     devtool: 'inline-source-map',
     devServer: {
         host: '0.0.0.0',
-        port: 80,
+        port: 8041,
         disableHostCheck: true,
         allowedHosts:[],
         hot: true,
