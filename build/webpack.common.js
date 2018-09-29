@@ -20,14 +20,21 @@ module.exports = {
             },
             {
                 test: /\.jsx?$/,
-                loader: 'babel-loader',
                 exclude: path.join(conf.ROOT_PATH, 'node_modules'),
-                options: {
-                    presets: ["@babel/preset-env", "@babel/preset-react"],
-                    plugins: [
-                        "@babel/plugin-transform-runtime"
-                    ]
-                }
+                use: [{
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ["@babel/preset-env", "@babel/preset-react"],
+                            plugins: [
+                                "@babel/plugin-transform-runtime"
+                            ]
+                        }
+                    },
+                    {
+                        loader: path.resolve(__dirname,'loaders/mockloader.js')
+                    }
+                ]
+
             },
             {
                 test: /\.scss$/,
@@ -48,16 +55,20 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/,
-                use: [
-                    {
-                        loader:'url-loader',
-                        options: {
-                            name: '/[path][name].[ext]',
-                            limit: 8192
-                        }
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        name: '/[path][name].[ext]',
+                        limit: 8192
                     }
-                ]
+                }]
             }
+        ]
+    },
+    resolveLoader: {
+        modules: [
+            'node_modules',
+            path.resolve(__dirname, 'loaders')
         ]
     },
     resolve: {
@@ -78,9 +89,10 @@ module.exports = {
         }
     },
     plugins: [
-        new CopyWebpackPlugin([
-            {from:conf.COPY_PATH,to:conf.COPY_DEST_PATH}
-        ]),
+        new CopyWebpackPlugin([{
+            from: conf.COPY_PATH,
+            to: conf.COPY_DEST_PATH
+        }]),
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[name].css"

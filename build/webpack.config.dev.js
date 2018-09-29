@@ -28,11 +28,12 @@ module.exports = Merge(CommonConfig, {
             poll: true
         },
         // setup(app) {},              //服务启动时执行中间件
-        before(app) {               //拦截请求
-            app.get('/some/path', function(req, res) {
-                res.json({ custom: 'response' });
-            });
-        },
+        // before(app) {               //拦截请求
+        //     app.get('/pages/demo/index.js', function(req, res) {
+        //         console.log('请求拦截')
+        //         //res.json({ custom: 'response' });
+        //     });
+        // },
         // after(app) {},            //请求输出时处理
         proxy: [                     //配置转发请求代理
             {
