@@ -30,7 +30,6 @@ const HOST = {
     img:'img.58cdn.com.cn'
 }
 
-
 module.exports = {
   ROOT_PATH,
   OUT_PATH,

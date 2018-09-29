@@ -12,7 +12,7 @@ module.exports = Merge(CommonConfig, {
         disableHostCheck: true,
         allowedHosts:[],
         hot: true,
-        contentBase: conf.ENTRY_PATH,
+        contentBase: conf.ROOT_PATH,
         compress: true,
         publicPath: conf.PUBLICBASE ? conf.PUBLICBASE + '/':'/',
         // historyApiFallback: true,

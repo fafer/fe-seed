@@ -49,13 +49,22 @@ module.exports = {
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/,
                 use: [
-                    'file-loader'
+                    {
+                        loader:'url-loader',
+                        options: {
+                            name: '/[path][name].[ext]',
+                            limit: 8192
+                        }
+                    }
                 ]
             }
         ]
     },
     resolve: {
-        extensions: ['.ts', '.js', '.json', '.jsx', '.tsx', '.css', '.scss']
+        extensions: ['.ts', '.js', '.json', '.jsx', '.tsx', '.css', '.scss'],
+        alias: {
+            '@': path.join(conf.ROOT_PATH, 'src')
+        }
     },
     optimization: {
         splitChunks: {
