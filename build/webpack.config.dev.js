@@ -1,4 +1,5 @@
 const conf = require('./conf');
+const path = require('path');
 const webpack = require('webpack');
 const Merge = require('webpack-merge');
 const CommonConfig = require('./webpack.common.js');
@@ -9,10 +10,11 @@ module.exports = Merge(CommonConfig, {
     devServer: {
         host: '0.0.0.0',
         port: 8041,
+        open:true,
         disableHostCheck: true,
         allowedHosts:[],
         hot: true,
-        contentBase: conf.ROOT_PATH,
+        contentBase: [conf.ENTRY_PATH,path.join(conf.ROOT_PATH)],
         compress: true,
         publicPath: conf.PUBLICBASE ? conf.PUBLICBASE + '/':'/',
         // historyApiFallback: true,
