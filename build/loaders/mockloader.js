@@ -14,7 +14,7 @@ module.exports = function(source) {
   const options = getOptions(this);
   // validateOptions(schema, options, 'Example Loader');
   // Apply some transformations to the source...
-  console.log('asdadasd')
+  console.log('asdasdasdasdasdasdasdasdadadasdasdasdasdadasaasdadasdasdasdadasdasdadada')
   source = source.replace(/\/\/@mock/g, '');
   return `export default ${ JSON.stringify(source) }`;
 }
