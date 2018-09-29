@@ -12,7 +12,7 @@
 |  └── webpack.config.prod.js       //生产环境构建配置
 ├── dist                            //构建打包输出目录
 ├── doc                             //存放文档
-├── resources                       //存放静态资源，例如图片。
+├── resources                       //存放小的静态资源,例如小图片，打包后，图片会被转成base64。
 ├── src                             //存放代码源文件
 |  └── common                       //存放公共部分
 |  └── components                   //存放组件
