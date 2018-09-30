@@ -12,8 +12,8 @@ module.exports = Merge(CommonConfig, {
         port: 8041,
         open:true,                  //服务启动后，打开浏览器默认访问：http://host:port/
         openPage:'',                //设置默认打开的页面路径
-        public: "localhost",        //配置服务启动后，打开浏览器访问http://host:port/失败后，转发到此//host:port
-        // useLocalIp: true,           //配置服务启动后，打开浏览器访问:http://本地ip:port/,如果失败，转发到public设置
+        public: "localhost",        //配置服务启动后，打开浏览器访问http://public,优先级最高>useLocalIp>默认
+        useLocalIp: true,           //配置服务启动后，打开浏览器访问:http://本地ip:port/,如果失败，转发到public设置
         // https: true,             //开启https
         disableHostCheck: false,     //允许所有host域名访问
         allowedHosts:[],            //设置允许访问的域名白名单

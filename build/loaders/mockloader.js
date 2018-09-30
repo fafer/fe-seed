@@ -16,5 +16,5 @@ module.exports = function(source) {
   // Apply some transformations to the source...
   console.log('asdasdasdasdasdasdasdasdadadasdasdasdasdadasaasdadasdasdasdadasdasdadada')
   source = source.replace(/\/\/@mock/g, '');
-  return `export default ${ JSON.stringify(source) }`;
+  return source;
 }

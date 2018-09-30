@@ -31,7 +31,7 @@ module.exports = {
                         }
                     },
                     {
-                        loader: path.resolve(__dirname,'loaders/mockloader.js')
+                        loader: 'mockloader.js'
                     }
                 ]
 
@@ -58,7 +58,7 @@ module.exports = {
                 use: [{
                     loader: 'url-loader',
                     options: {
-                        name: '/[path][name].[ext]',
+                        name: process.env.NODE_ENV === 'production'?'[path][name].[ext]':'/[path][name].[ext]',
                         limit: 8192
                     }
                 }]
