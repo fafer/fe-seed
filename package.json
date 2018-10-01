@@ -9,8 +9,12 @@
     "add": "node ./build/script/add",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:recmh/fe-seed.git"
+  },
   "keywords": [],
-  "author": "",
+  "author": "fafer",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.1.2",
