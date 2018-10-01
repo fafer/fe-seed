@@ -14,7 +14,7 @@ module.exports = function(source) {
   const options = getOptions(this);
   // validateOptions(schema, options, 'Example Loader');
   // Apply some transformations to the source...
-  if(process.env.MOCK_DATA === 'true') {
+  if(process.env.MOCK_DATA === 'mock') {
     source = source.replace(/\/\/@mock/g, '');
   }
   return source;
