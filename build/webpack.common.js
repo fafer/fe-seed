@@ -31,7 +31,7 @@ module.exports = {
                         }
                     },
                     {
-                        loader: 'mockloader.js'
+                        loader: 'mock-loader'
                     }
                 ]
 
@@ -58,8 +58,9 @@ module.exports = {
                 use: [{
                     loader: 'url-loader',
                     options: {
-                        name: process.env.NODE_ENV === 'production'?'[path][name].[ext]':'/[path][name].[ext]',
-                        limit: 8192
+                        name: '[path][name].[ext]',
+                        limit: 8192,
+                        publicPath:conf.IMGPUBLICPATH
                     }
                 }]
             }

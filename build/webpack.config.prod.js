@@ -7,12 +7,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const Uglifyjs = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const basePath = conf.PUBLICBASE ? conf.PUBLICBASE + '/' : '/';
 
 module.exports = Merge(CommonConfig,{
     mode:'production',
     output: {
-        publicPath: conf.HOST.js?`//${conf.HOST.js}${basePath}`:basePath,
+        publicPath: conf.PUBLICPATH,
         path: conf.OUT_PATH
     },
     optimization: {

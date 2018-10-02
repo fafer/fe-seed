@@ -15,13 +15,13 @@ module.exports = Merge(CommonConfig, {
         public: "localhost",        //配置服务启动后，打开浏览器访问http://public,优先级最高>useLocalIp>默认
         useLocalIp: true,           //配置服务启动后，打开浏览器访问:http://本地ip:port/,如果失败，转发到public设置
         // https: true,             //开启https
-        disableHostCheck: false,     //允许所有host域名访问
+        disableHostCheck: true,     //允许所有host域名访问
         allowedHosts:[],            //设置允许访问的域名白名单
         hot: true,                  //开启热更新
         hotOnly: true,              //编译失败后，再次编译成功，不需要刷新页面更新
         contentBase: [conf.ENTRY_PATH,path.join(conf.ROOT_PATH)], //配置访问静态资源根目录
         compress: true,             //请求的资源启用gzip
-        publicPath: conf.PUBLICBASE ? conf.PUBLICBASE + '/':'/', //设置打包文件访问地址
+        publicPath: conf.BASEPATH,  //设置打包文件访问地址
         // historyApiFallback: true, //historyApi路由404后，转发到index.html
         // stats: "errors-only",     //控制编译过程控制台输出
         watchOptions: {              //有些文件系统下，需要手动开启轮询监视文件变化

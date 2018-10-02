@@ -24,11 +24,14 @@ const COPY_PATH = path.join(__dirname,'../src/lib');
 const COPY_DEST_PATH = path.join(OUT_PATH,'lib');
 const ENTRY = getEntry(ENTRY_PATH);
 const PUBLICBASE = '';
+const BASEPATH = PUBLICBASE ? PUBLICBASE + '/' : '/';
 const HOST = {
     js:'j1.58cdn.com.cn',
     css:'c.58cdn.com.cn',
     img:'img.58cdn.com.cn'
-}
+};
+const PUBLICPATH = HOST.js?`//${HOST.js}${BASEPATH}`:BASEPATH;
+const IMGPUBLICPATH = HOST.img?`//${HOST.img}${BASEPATH}`:BASEPATH;
 
 module.exports = {
   ROOT_PATH,
@@ -38,5 +41,8 @@ module.exports = {
   COPY_DEST_PATH,
   ENTRY,
   HOST,
-  PUBLICBASE
+  PUBLICBASE,
+  BASEPATH,
+  PUBLICPATH,
+  IMGPUBLICPATH
 }
