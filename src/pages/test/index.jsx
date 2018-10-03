@@ -8,6 +8,7 @@ class Test extends Component {
   render() {
     return null;
   }
+
 }
 
 render(<Test />,document.getElementById('app'));
