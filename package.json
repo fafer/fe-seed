@@ -1,7 +1,7 @@
 {
   "name": "fe-seed",
   "version": "1.0.0",
-  "description": "",
+  "description": "fe develop seed project",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.config.dev.js --progress",
@@ -56,7 +56,7 @@
     "style-loader": "^0.23.0",
     "url-loader": "^1.1.1",
     "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.1",
+    "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9",
     "webpack-manifest-plugin": "^2.0.4",
     "webpack-merge": "^4.1.4"

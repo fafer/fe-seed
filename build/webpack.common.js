@@ -13,18 +13,14 @@ module.exports = {
         chunkFilename: '[name].js'
     },
     module: {
-        rules: [{
-                test: /\.tsx?$/,
-                loader: "awesome-typescript-loader",
-                exclude: path.join(conf.ROOT_PATH, 'node_modules')
-            },
+        rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.(jsx?|tsx?)$/,
                 exclude: path.join(conf.ROOT_PATH, 'node_modules'),
                 use: [{
                         loader: 'babel-loader',
                         options: {
-                            presets: ["@babel/preset-env", "@babel/preset-react"],
+                            presets: ["@babel/preset-env", "@babel/preset-react","@babel/preset-typescript"],
                             plugins: [
                                 "@babel/plugin-transform-runtime",
                                 //Stage 2
@@ -37,7 +33,8 @@ module.exports = {
                                 //Stage 3
                                 "@babel/plugin-syntax-import-meta",
                                 ["@babel/plugin-proposal-class-properties", { "loose": false }],
-                                "@babel/plugin-proposal-json-strings"
+                                "@babel/plugin-proposal-json-strings",
+                                ["@babel/plugin-transform-typescript",{isTSX:true}]
                             ]
                         }
                     },

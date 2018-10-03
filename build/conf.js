@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const resolveExtensions = /\.jsx?$/;
+const resolveExtensions = /\.(jsx?|tsx?)$/;
 
 const getEntry = function (pathname,base,entry) {
   if(!base) base = path.basename(pathname)
