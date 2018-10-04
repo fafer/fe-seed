@@ -16,7 +16,17 @@ module.exports = {
         rules: [
             {
                 test: /\.(jsx?|tsx?)$/,
-                exclude: path.join(conf.ROOT_PATH, 'node_modules'),
+                exclude: /node_modules/,
+                enforce: "pre",
+                loader: "eslint-loader",
+                options:{
+                    fix:true,
+                    cache:process.env.NODE_ENV === 'production' ? true : false
+                }
+            },
+            {
+                test: /\.(jsx?|tsx?)$/,
+                exclude: /node_modules/,
                 use: [{
                         loader: 'babel-loader',
                         options: {
@@ -38,11 +48,8 @@ module.exports = {
                             ]
                         }
                     },
-                    {
-                        loader: 'mock-loader'
-                    }
+                    'mock-loader'
                 ]
-
             },
             {
                 test: /\.scss$/,
@@ -68,7 +75,8 @@ module.exports = {
                     options: {
                         name: '[path][name].[ext]',
                         limit: 8192,
-                        publicPath:conf.IMGPUBLICPATH
+                        publicPath:conf.IMGPUBLICPATH,
+                        emitFile:true
                     }
                 }]
             }

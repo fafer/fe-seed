@@ -38,6 +38,18 @@ module.exports = Merge(CommonConfig,{
                 'NODE_ENV':JSON.stringify('production')
             }
         }),
-        new ManifestPlugin()
+        new ManifestPlugin({
+            basePath:conf.BASEPATH,
+            generate(seed, files) {
+                return files.reduce((manifest, {name, path}) => {
+                    if(/\.js$/.test(path)) {
+                        return {...manifest, [name]: path}
+                    } else if(/\.css$/.test(path)) {
+                        return {...manifest, [name]: path.replace(conf.PUBLICPATH,conf.CSSPUBLICPATH)}
+                    } 
+                    return {...manifest, [conf.BASEPATH + path.replace(conf.PUBLICPATH,'')]: path.replace(conf.PUBLICPATH,conf.IMGPUBLICPATH)}
+                }, seed)
+            }
+        })
     ]
 });

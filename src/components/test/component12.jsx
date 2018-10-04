@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 export default class Component12 extends Component {
   
   constructor(props) {
-    super(props)
+      super(props)
     console.log('初始化：Component12')
   }
  
@@ -19,8 +19,7 @@ export default class Component12 extends Component {
     console.log('将要卸载componentWillUnmount：Component12')
   }
 
-  shouldComponentUpdate(nextProps,nextState) {
-    
+  shouldComponentUpdate() {
     console.log('是否要更新shouldComponentUpdate：Component12')
     return true
   }

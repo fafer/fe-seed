@@ -32,6 +32,7 @@ const HOST = {
 };
 const PUBLICPATH = HOST.js?`//${HOST.js}${BASEPATH}`:BASEPATH;
 const IMGPUBLICPATH = HOST.img?`//${HOST.img}${BASEPATH}`:BASEPATH;
+const CSSPUBLICPATH = HOST.css?`//${HOST.css}${BASEPATH}`:BASEPATH;
 
 module.exports = {
   ROOT_PATH,
@@ -44,5 +45,6 @@ module.exports = {
   PUBLICBASE,
   BASEPATH,
   PUBLICPATH,
-  IMGPUBLICPATH
+  IMGPUBLICPATH,
+  CSSPUBLICPATH
 }
