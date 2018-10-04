@@ -6,8 +6,6 @@ import '../../common/base.css';
 class Test extends Component {
 
   render() {
-    const x:number = 1;
-    console.log(x);
     return null;
   }
 }
