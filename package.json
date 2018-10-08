@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git@github.com:recmh/fe-seed.git"
   },
-  "keywords": [],
+  "keywords": ["webpack","react"],
   "author": "fafer",
   "license": "ISC",
   "devDependencies": {
