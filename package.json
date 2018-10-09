@@ -14,7 +14,10 @@
     "type": "git",
     "url": "git@github.com:recmh/fe-seed.git"
   },
-  "keywords": ["webpack","react"],
+  "keywords": [
+    "webpack",
+    "react"
+  ],
   "author": "fafer",
   "license": "ISC",
   "devDependencies": {
@@ -53,7 +56,7 @@
     "node-sass": "^4.9.3",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.0",
+    "style-loader": "^0.23.1",
     "url-loader": "^1.1.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
