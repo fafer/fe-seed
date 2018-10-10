@@ -48,12 +48,10 @@ module.exports = Merge(CommonConfig, {
                     `/**/*_v*.js`,
                     `/**/*_v*.` + 'css'
                 ],
-                ssl: argv.https ? conf.ssl() : undefined,
-                secure: !!argv.https,
-                target: `${argv.https ? 'https':'http'}://127.0.0.1`,
+                secure: false,
+                target: `${argv.https ? 'https':'http'}://localhost`,
                 changeOrigin: true,
                 pathRewrite: function (path, req) {
-                    console.log(path)
                     if (/\.js$/.test(path)) {
                         return path.replace(/(_v.*\.js)$/i, '.js');
                     } else if (/\.css$/.test(path)) {
