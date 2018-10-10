@@ -1,7 +1,7 @@
 # 项目说明
 
 ## 目录结构
-```
+```hash
 ├── bin                             //存放可执行文件
 ├── build                           //存放构建脚本
 |  └── script                       //目录存放npm执行的脚本
@@ -24,24 +24,53 @@
 ## 相关指令
 
 - 初始化
-```
+```hash
 npm i
 ```
 
 - 开发模式
-```
+
+```hash
+http服务(mac下1024以内端口是要root权限，所以用8041端口，通过pf配置端口转发，80转发到8041)
 npm start
+
+https服务(mac下1024以内端口是要root权限，所以用8041端口，通过pf配置端口转发，443转发到8042)
+npm start -- --https
+```
+
+- mock数据开发模式
+```hash
+http服务
+npm run mock
+
+https服务
+npm run mock -- --https
 ```
 
 - 编译输出生产资源
-```
+```hash
 npm run build
 ```
 
 - 创建一个页面入口,filename（文件名）必选、title（页面title）可选
-```
+```hash
 npm run add filename title
 ```
+
+## Mac下端口转发配置
+修改/etc/pf.conf, 使用sudo vim /etc/pf.conf,在rdr-anchor "com.apple/*"后面添加一下配置
+
+```hash
+rdr on lo0 inet proto tcp from any to 127.0.0.1 port 80 -> 127.0.0.1 port 8041
+rdr on lo0 inet proto tcp from any to 127.0.0.1 port 80 -> 127.0.0.1 port 8042
+```
+修改后保存，执行一下命令
+```hash
+sudo pfctl -d
+sudo pfctl -f /etc/pf.conf
+sudo pfctl -e
+```
+可以以上命令做成开机自启动，这样就不用每次重启电脑后，需要手动执行以上命令来启用端口转发
 
 
 
