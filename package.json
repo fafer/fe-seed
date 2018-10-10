@@ -14,6 +14,7 @@
     "type": "git",
     "url": "git@github.com:recmh/fe-seed.git"
   },
+  "homepage": "https://github.com/recmh/fe-seed",
   "keywords": [
     "webpack",
     "react"
