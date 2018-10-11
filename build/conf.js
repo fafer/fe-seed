@@ -3,17 +3,17 @@ const fs = require('fs');
 const resolveExtensions = /\.(jsx?|tsx?)$/;
 
 const getEntry = function (pathname, base = path.basename(pathname), entry = {}) {
-    let files = fs.readdirSync(pathname),
-        name = '';
-    files.forEach(function (file) {
-        if (fs.lstatSync(path.join(pathname, file)).isDirectory()) {
-            getEntry(path.join(pathname, file), `${base}/${file}`, entry);
-        } else if (resolveExtensions.test(file)) {
-            name = `${base}/${file.replace(resolveExtensions,'')}`;
-            entry[name] = path.join(pathname, file);
-        }
-    });
-    return entry;
+  let files = fs.readdirSync(pathname),
+    name = '';
+  files.forEach(function (file) {
+    if (fs.lstatSync(path.join(pathname, file)).isDirectory()) {
+      getEntry(path.join(pathname, file), `${base}/${file}`, entry);
+    } else if (resolveExtensions.test(file)) {
+      name = `${base}/${file.replace(resolveExtensions,'')}`;
+      entry[name] = path.join(pathname, file);
+    }
+  });
+  return entry;
 }
 
 //项目根目录
@@ -40,25 +40,25 @@ const BASEPATH = PUBLICBASE ? PUBLICBASE + '/' : '/';
 
 //配置CDN,HOST
 const HOST = {
-    js: 'j1.58cdn.com.cn',
-    css: 'c.58cdn.com.cn',
-    img: 'img.58cdn.com.cn'
+  js: 'j1.58cdn.com.cn',
+  css: 'c.58cdn.com.cn',
+  img: 'img.58cdn.com.cn'
 };
 const PUBLICPATH = HOST.js ? `//${HOST.js}${BASEPATH}` : BASEPATH;
 const IMGPUBLICPATH = HOST.img ? `//${HOST.img}${BASEPATH}` : BASEPATH;
 const CSSPUBLICPATH = HOST.css ? `//${HOST.css}${BASEPATH}` : BASEPATH;
 
 module.exports = {
-    ROOT_PATH,
-    OUT_PATH,
-    ENTRY_PATH,
-    COPY_PATH,
-    COPY_DEST_PATH,
-    ENTRY,
-    HOST,
-    PUBLICBASE,
-    BASEPATH,
-    PUBLICPATH,
-    IMGPUBLICPATH,
-    CSSPUBLICPATH
+  ROOT_PATH,
+  OUT_PATH,
+  ENTRY_PATH,
+  COPY_PATH,
+  COPY_DEST_PATH,
+  ENTRY,
+  HOST,
+  PUBLICBASE,
+  BASEPATH,
+  PUBLICPATH,
+  IMGPUBLICPATH,
+  CSSPUBLICPATH
 }
