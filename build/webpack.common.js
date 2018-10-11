@@ -75,8 +75,8 @@ module.exports = {
                     options: {
                         name: '[path][name].[ext]',
                         limit: 8192,
-                        publicPath:conf.IMGPUBLICPATH,
-                        emitFile:true
+                        publicPath:process.env.NODE_ENV === 'production' ? conf.IMGPUBLICPATH : conf.BASEPATH,
+                        emitFile:process.env.NODE_ENV === 'production' ? false:true
                     }
                 }]
             }
