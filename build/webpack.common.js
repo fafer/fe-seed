@@ -13,15 +13,14 @@ module.exports = {
         chunkFilename: '[name].js'
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.(jsx?|tsx?)$/,
                 exclude: /node_modules/,
                 enforce: "pre",
                 loader: "eslint-loader",
-                options:{
-                    fix:true,
-                    cache:process.env.NODE_ENV === 'production' ? true : false
+                options: {
+                    fix: true,
+                    cache: process.env.NODE_ENV === 'production' ? true : false
                 }
             },
             {
@@ -30,11 +29,13 @@ module.exports = {
                 use: [{
                         loader: 'babel-loader',
                         options: {
-                            presets: ["@babel/preset-env", "@babel/preset-react","@babel/preset-typescript"],
+                            presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
                             plugins: [
                                 "@babel/plugin-transform-runtime",
                                 //Stage 2
-                                ["@babel/plugin-proposal-decorators", { "legacy": true }],
+                                ["@babel/plugin-proposal-decorators", {
+                                    "legacy": true
+                                }],
                                 "@babel/plugin-proposal-function-sent",
                                 "@babel/plugin-proposal-export-namespace-from",
                                 "@babel/plugin-proposal-numeric-separator",
@@ -42,20 +43,22 @@ module.exports = {
                                 "@babel/plugin-syntax-dynamic-import",
                                 //Stage 3
                                 "@babel/plugin-syntax-import-meta",
-                                ["@babel/plugin-proposal-class-properties", { "loose": false }],
+                                ["@babel/plugin-proposal-class-properties", {
+                                    "loose": false
+                                }],
                                 "@babel/plugin-proposal-json-strings",
-                                ["@babel/plugin-transform-typescript",{isTSX:true}]
+                                ["@babel/plugin-transform-typescript", {
+                                    isTSX: true
+                                }]
                             ]
                         }
                     },
-                    ...(() => process.env.MOCK_DATA === 'mock'? [
-                        {
-                            loader:'mock-loader',
-                            options:{
-                                enable:true
-                            }
+                    ...(() => process.env.MOCK_DATA === 'mock' ? [{
+                        loader: 'mock-loader',
+                        options: {
+                            enable: true
                         }
-                    ]:[])()
+                    }] : [])()
                 ]
             },
             {
@@ -82,8 +85,8 @@ module.exports = {
                     options: {
                         name: '[path][name].[ext]',
                         limit: 8192,
-                        publicPath:process.env.NODE_ENV === 'production' ? conf.IMGPUBLICPATH : conf.BASEPATH,
-                        emitFile:process.env.NODE_ENV === 'production' ? false:true
+                        publicPath: process.env.NODE_ENV === 'production' ? conf.IMGPUBLICPATH : conf.BASEPATH,
+                        emitFile: process.env.NODE_ENV === 'production' ? false : true
                     }
                 }]
             }

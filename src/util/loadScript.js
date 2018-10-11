@@ -5,7 +5,7 @@ function loadScript(url, callback) {
     script.async = true;
     script.type = 'text/javascript';
     script.src = url;
-    script.onload = script.onreadystatechange = function() {
+    script.onload = script.onreadystatechange = function () {
         if (!done && (!this.readyState || /loaded|complete/.test(script.readyState))) {
             done = true;
             if (typeof callback === 'function') {

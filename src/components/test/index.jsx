@@ -12,14 +12,14 @@ export default class Test extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      show:true
+      show: true
     }
     this.show = this.show.bind(this)
   }
 
   show() {
     this.setState((prevState) => {
-      return {show:!prevState.show}
+      return { show: !prevState.show }
     })
   }
   render() {

@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import { render } from 'react-dom';
 import '../../common/rem750';
 import '../../common/base.css';
@@ -10,4 +10,4 @@ class Name extends Component {
   }
 }
 
-render(<Name />,document.getElementById('app'));
+render(<Name />, document.getElementById('app'));

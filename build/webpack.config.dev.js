@@ -15,7 +15,7 @@ if (argv.https) {
     else port = 80;
 }
 
-if(argv.mock) {
+if (argv.mock) {
     process.env.MOCK_DATA = 'mock';
 }
 const CommonConfig = require('./webpack.common.js');

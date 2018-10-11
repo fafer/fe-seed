@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
 export default class Component2 extends Component {
-  
+
   constructor(props) {
     super(props)
     console.log('初始化：Component2')
   }
- 
+
   componentDidMount() {
     console.log('已挂载componentDidMount：Component2')
     this.setState({})
@@ -21,7 +21,7 @@ export default class Component2 extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    console.log(this.props === nextProps?'true':'false')
+    console.log(this.props === nextProps ? 'true' : 'false')
     console.log('是否要更新shouldComponentUpdate：Component2')
     return true
   }
@@ -35,7 +35,7 @@ export default class Component2 extends Component {
   }
 
   componentDidUpdate() {
-    console.log('更新componentDidUpdate：Component2')    
+    console.log('更新componentDidUpdate：Component2')
   }
 
   render() {

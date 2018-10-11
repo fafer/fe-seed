@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
 export default class Component1 extends Component {
-  
+
   constructor(props) {
     super(props)
     console.log('初始化：Component1')
   }
- 
+
   componentDidMount() {
     console.log('已挂载componentDidMount：Component1')
     this.setState({})
@@ -34,12 +34,12 @@ export default class Component1 extends Component {
   }
 
   componentDidUpdate() {
-    console.log('更新componentDidUpdate：Component1')    
+    console.log('更新componentDidUpdate：Component1')
   }
 
   render() {
     console.log('渲染render：Component1')
-    if(!this.props.show) return <div>Component1</div>
+    if (!this.props.show) return <div>Component1</div>
     return <div>{this.props.children}</div>
   }
 }

@@ -1,4 +1,4 @@
-(function(win, lib) {
+(function (win, lib) {
     var doc = win.document;
     var docEl = doc.documentElement;
     var dpr = 0;
@@ -21,23 +21,24 @@
     if (doc.readyState === "complete") {
         doc.body.style.fontSize = 12 + "px"
     } else {
-        doc.addEventListener("DOMContentLoaded", function() {
+        doc.addEventListener("DOMContentLoaded", function () {
             doc.body.style.fontSize = 12 + "px"
         }, false)
     }
+
     function refreshRem() {
         var width = docEl.getBoundingClientRect().width;
-        if(width > 414) width = 414;
+        if (width > 414) width = 414;
         var rem = width / 7.5;
         docEl.style.fontSize = rem + "px";
         flexible.rem = win.rem = rem
     }
-    var evt = "onorientationchange"in window ? "orientationchange" : "resize";
-    win.addEventListener(evt, function() {
+    var evt = "onorientationchange" in window ? "orientationchange" : "resize";
+    win.addEventListener(evt, function () {
         clearTimeout(tid);
         tid = setTimeout(refreshRem, 300)
     }, false);
-    win.addEventListener("pageshow", function(e) {
+    win.addEventListener("pageshow", function (e) {
         if (e.persisted) {
             clearTimeout(tid);
             tid = setTimeout(refreshRem, 300)
@@ -46,15 +47,14 @@
     refreshRem();
     flexible.dpr = win.dpr = dpr;
     flexible.refreshRem = refreshRem;
-    flexible.rem2px = function(d) {
+    flexible.rem2px = function (d) {
         var val = parseFloat(d) * this.rem;
         if (typeof d === "string" && d.match(/rem$/)) {
             val += "px"
         }
         return val
-    }
-    ;
-    flexible.px2rem = function(d) {
+    };
+    flexible.px2rem = function (d) {
         var val = parseFloat(d) / this.rem;
         if (typeof d === "string" && d.match(/px$/)) {
             val += "rem"

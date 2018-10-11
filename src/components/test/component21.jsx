@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 export default class Component21 extends Component {
-  
+
   constructor(props) {
     super(props)
     console.log('初始化：Component21')
   }
- 
+
   componentDidMount() {
     console.log('已挂载componentDidMount：Component21')
     this.setState({})
@@ -33,7 +33,7 @@ export default class Component21 extends Component {
   }
 
   componentDidUpdate() {
-    console.log('更新componentDidUpdate：Component21')    
+    console.log('更新componentDidUpdate：Component21')
   }
 
   render() {
