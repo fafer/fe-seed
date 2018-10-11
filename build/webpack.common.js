@@ -48,7 +48,14 @@ module.exports = {
                             ]
                         }
                     },
-                    'mock-loader'
+                    ...(() => process.env.MOCK_DATA === 'mock'? [
+                        {
+                            loader:'mock-loader',
+                            options:{
+                                enable:true
+                            }
+                        }
+                    ]:[])()
                 ]
             },
             {

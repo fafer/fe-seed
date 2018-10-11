@@ -1,20 +1,11 @@
 var { getOptions } = require('loader-utils');
 var validateOptions = require('schema-utils');
 
-const schema = {
-  type: 'object',
-  properties: {
-    test: {
-      type: 'string'
-    }
-  }
-};
-
 module.exports = function(source) {
-  const options = getOptions(this);
-  // validateOptions(schema, options, 'Example Loader');
+  const options = getOptions(this) || {};
+  validateOptions(require('./options.json'), options, 'Mock Loader');
   // Apply some transformations to the source...
-  if(process.env.MOCK_DATA === 'mock') {
+  if(options.enable) {
     source = source.replace(/\/\/@mock/g, '');
   }
   return source;

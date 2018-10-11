@@ -2,7 +2,6 @@ const conf = require('./conf');
 const path = require('path');
 const webpack = require('webpack');
 const Merge = require('webpack-merge');
-const CommonConfig = require('./webpack.common.js');
 const os = require('os');
 const argv = require('yargs').argv;
 
@@ -15,6 +14,11 @@ if (argv.https) {
     if (os.platform() === 'darwin') port = 8041;
     else port = 80;
 }
+
+if(argv.mock) {
+    process.env.MOCK_DATA = 'mock';
+}
+const CommonConfig = require('./webpack.common.js');
 
 module.exports = Merge(CommonConfig, {
     mode: 'development',
@@ -30,7 +34,7 @@ module.exports = Merge(CommonConfig, {
         disableHostCheck: true, //允许所有host域名访问
         allowedHosts: [], //设置允许访问的域名白名单
         hot: true, //开启热更新
-        hotOnly: true, //编译失败后，再次编译成功，不需要刷新页面更新
+        // hotOnly: true,
         contentBase: [conf.ENTRY_PATH, path.join(conf.ROOT_PATH)], //配置访问静态资源根目录
         compress: true, //请求的资源启用gzip
         publicPath: conf.BASEPATH, //设置打包文件访问地址
