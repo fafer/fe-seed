@@ -34,7 +34,7 @@ module.exports = Merge(CommonConfig, {
         disableHostCheck: true, //允许所有host域名访问
         allowedHosts: [], //设置允许访问的域名白名单
         hot: true, //开启热更新
-        // hotOnly: true,
+        // hotOnly: true,//热更新失败的话，不刷新页面
         contentBase: [conf.ENTRY_PATH, path.join(conf.ROOT_PATH)], //配置访问静态资源根目录
         compress: true, //请求的资源启用gzip
         publicPath: conf.BASEPATH, //设置打包文件访问地址
