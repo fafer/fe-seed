@@ -68,6 +68,7 @@
   "dependencies": {
     "@babel/runtime": "^7.1.2",
     "ajax-promise-simple": "^1.1.2",
+    "classnames": "^2.2.6",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",

@@ -2,12 +2,9 @@ const path = require('path');
 const conf = require('./conf');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const minChunks = Object.keys(conf.ENTRY).length + 1;
 
 module.exports = {
-  entry: Object.assign(conf.ENTRY, {
-    vendor: ['react', 'react-dom']
-  }),
+  entry: Object.assign(conf.ENTRY),
   output: {
     filename: '[name].js',
     chunkFilename: '[name].js'
@@ -110,7 +107,9 @@ module.exports = {
         vendor: {
           name: "vendor",
           chunks: "initial",
-          minChunks: minChunks
+          test:/react|react-dom/,
+          priority:10,
+          enforce:true
         }
       }
     }
