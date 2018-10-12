@@ -42,9 +42,13 @@ npm start -- --https
 ```hash
 http服务
 npm run mock
+或者
+npm start -- --mock
 
 https服务
 npm run mock -- --https
+或者
+npm start -- --https --mock
 ```
 
 - 编译输出生产资源
