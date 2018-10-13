@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: Object.assign(conf.ENTRY),
+  entry: conf.getEntry(),
   output: {
     filename: '[name].js',
     chunkFilename: '[name].js'

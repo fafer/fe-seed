@@ -31,9 +31,6 @@ const COPY_PATH = path.join(__dirname, '../src/lib');
 //copy目标目录
 const COPY_DEST_PATH = path.join(OUT_PATH, 'lib');
 
-//解析entry
-const ENTRY = getEntry(ENTRY_PATH);
-
 const PUBLICBASE = '';
 //根目录base，默认未“/”
 const BASEPATH = PUBLICBASE ? PUBLICBASE + '/' : '/';
@@ -54,7 +51,9 @@ module.exports = {
   ENTRY_PATH,
   COPY_PATH,
   COPY_DEST_PATH,
-  ENTRY,
+  getEntry() {
+    return getEntry(ENTRY_PATH);
+  },
   HOST,
   PUBLICBASE,
   BASEPATH,
