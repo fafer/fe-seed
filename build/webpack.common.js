@@ -106,6 +106,7 @@ module.exports = {
       cacheGroups: {
         vendor: {
           name: "vendor",
+          chunks:'initial',
           test:/react|react-dom/,
           priority:10
         }
