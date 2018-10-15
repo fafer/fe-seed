@@ -5,9 +5,9 @@ import '../../common/base.css';
 
 class Name extends Component {
 
-  render() {
-    return null;
-  }
+	render() {
+		return null;
+	}
 }
 
 render(<Name />, document.getElementById('app'));

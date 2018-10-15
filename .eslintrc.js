@@ -18,6 +18,9 @@ module.exports = {
       "react"
     ],
     "rules": {
+      "no-console":[
+        "warn",
+      ],
       "indent": [
         "error",
         "tab"
