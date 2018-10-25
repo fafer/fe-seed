@@ -6,7 +6,7 @@
 'use strict';
 
 let lastTime = 0;
-let vendors = ['webkit', 'moz'];
+let vendors = ['webkit', 'moz']
 let requestAnimationFrame, cancelAnimationFrame;
 for (let x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
 	requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
