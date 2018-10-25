@@ -67,9 +67,9 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
-    "webpack": "^4.20.2",
+    "webpack": "^4.23.0",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9",
+    "webpack-dev-server": "^3.1.10",
     "webpack-manifest-plugin": "^2.0.4",
     "webpack-merge": "^4.1.4"
   },
@@ -77,8 +77,8 @@
     "@babel/runtime": "^7.1.2",
     "ajax-promise-simple": "^1.1.2",
     "classnames": "^2.2.6",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1"
