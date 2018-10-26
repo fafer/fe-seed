@@ -41,10 +41,10 @@ function createCertificate (attrs) {
 					{
 						type: 7,
 						ip: 'fe80::1'
-          },
-          ...Object.values(conf.HOST).map(d => {
-            return {type:2,value:d}
-          })
+					},
+					...Object.values(conf.HOST).map(d => {
+						return {type:2,value:d};
+					})
 				]
 			}
 		]
@@ -52,19 +52,19 @@ function createCertificate (attrs) {
 }
 
 function ssl(options = {}) {
-  let fakeCert;
-  if (!options.key || !options.cert) {
-    const attrs = [{
-      name: 'commonName',
-      value: 'localhost'
-    }];
-    const pems = createCertificate(attrs);
-    fakeCert = pems.private + pems.cert;
-  }
-  return {
-    key: options.key || fakeCert,
-    cert: options.cert || fakeCert
-  };
+	let fakeCert;
+	if (!options.key || !options.cert) {
+		const attrs = [{
+			name: 'commonName',
+			value: 'localhost'
+		}];
+		const pems = createCertificate(attrs);
+		fakeCert = pems.private + pems.cert;
+	}
+	return {
+		key: options.key || fakeCert,
+		cert: options.cert || fakeCert
+	};
 }
 
 module.exports = ssl;
