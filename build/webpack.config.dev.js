@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const Merge = require('webpack-merge');
 const os = require('os');
 const argv = require('yargs').argv;
-
+const ssl = require('./https/createCertificate');
 let port;
 
 if (argv.https) {
@@ -30,7 +30,7 @@ module.exports = Merge(CommonConfig, {
 		openPage: '', //设置默认打开的页面路径
 		public: 'localhost', //配置服务启动后，打开浏览器访问http://public,优先级最高>useLocalIp>默认
 		useLocalIp: true, //配置服务启动后，打开浏览器访问:http://本地ip:port/,如果失败，转发到public设置
-		https: argv.https ? conf.ssl() : false, //开启https
+		https: argv.https ? ssl() : false, //开启https
 		disableHostCheck: true, //允许所有host域名访问
 		allowedHosts: [], //设置允许访问的域名白名单
 		hot: true, //开启热更新

@@ -1,6 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-const createCertificate = require('./https/createCertificate');
 const resolveExtensions = /\.(jsx?|tsx?)$/;
 
 const getEntry = function (pathname, base = path.basename(pathname), entry = {}) {
@@ -60,20 +59,5 @@ module.exports = {
 	BASEPATH,
 	PUBLICPATH,
 	IMGPUBLICPATH,
-	CSSPUBLICPATH,
-	ssl(options = {}) {
-		let fakeCert;
-		if (!options.key || !options.cert) {
-			const attrs = [{
-				name: 'commonName',
-				value: 'localhost'
-			}];
-			const pems = createCertificate(attrs);
-			fakeCert = pems.private + pems.cert;
-		}
-		return {
-			key: options.key || fakeCert,
-			cert: options.cert || fakeCert
-		};
-	}
+	CSSPUBLICPATH
 };

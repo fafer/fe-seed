@@ -1,9 +1,8 @@
 'use strict';
 
-/* eslint-disable
-  space-before-function-paren
-*/
 const selfsigned = require('selfsigned');
+const conf = require('../conf');
+
 function createCertificate (attrs) {
 	return selfsigned.generate(attrs, {
 		algorithm: 'sha256',
@@ -32,18 +31,6 @@ function createCertificate (attrs) {
 					},
 					{
 						type: 2,
-						value: 'localhost.localdomain'
-					},
-					{
-						type: 2,
-						value: 'lvh.me'
-					},
-					{
-						type: 2,
-						value: '*.lvh.me'
-					},
-					{
-						type: 2,
 						value: '[::1]'
 					},
 					{
@@ -54,15 +41,30 @@ function createCertificate (attrs) {
 					{
 						type: 7,
 						ip: 'fe80::1'
-					},
-					{
-						type: 2,
-						value:'*.58cdn.com.cn'
-					}
+          },
+          ...Object.values(conf.HOST).map(d => {
+            return {type:2,value:d}
+          })
 				]
 			}
 		]
 	});
 }
 
-module.exports = createCertificate;
+function ssl(options = {}) {
+  let fakeCert;
+  if (!options.key || !options.cert) {
+    const attrs = [{
+      name: 'commonName',
+      value: 'localhost'
+    }];
+    const pems = createCertificate(attrs);
+    fakeCert = pems.private + pems.cert;
+  }
+  return {
+    key: options.key || fakeCert,
+    cert: options.cert || fakeCert
+  };
+}
+
+module.exports = ssl;
