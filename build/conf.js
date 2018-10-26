@@ -60,8 +60,8 @@ module.exports = {
 	BASEPATH,
 	PUBLICPATH,
 	IMGPUBLICPATH,
-  CSSPUBLICPATH,
-  ssl(options = {}) {
+	CSSPUBLICPATH,
+	ssl(options = {}) {
 		let fakeCert;
 		if (!options.key || !options.cert) {
 			const attrs = [{
@@ -74,6 +74,6 @@ module.exports = {
 		return {
 			key: options.key || fakeCert,
 			cert: options.cert || fakeCert
-		}
+		};
 	}
 };
