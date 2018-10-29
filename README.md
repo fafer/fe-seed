@@ -5,6 +5,8 @@
 ```hash
 ├── bin                             //存放可执行文件
 ├── build                           //存放构建脚本
+|  └── https                        //目录存放https启动时的证书
+|  └── loaders                      //目录存放webpack的自定义loader
 |  └── script                       //目录存放npm执行的脚本
 |  └── template                     //目录存放html,js静态模版
 |  └── conf.js                      //构建脚本读取的常量配置
@@ -87,7 +89,7 @@ sudo pfctl -e
 
 可以用以上命令做成开机自启动，这样就不用每次重启电脑后，需要手动执行以上命令来启用端口转发
 
-### 通过Charles代理工具配置端口转发
+### 通过Charles代理工具配置端口转发（方法二）
 
 ```hash
 菜单>Proxy>Port Forwarding
