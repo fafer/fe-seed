@@ -1,3 +1,6 @@
+'use strict';
+
+/* eslint no-console: off */
 const conf = require('../conf');
 const path = require('path');
 const fs = require('fs');
