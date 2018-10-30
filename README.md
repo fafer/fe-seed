@@ -22,6 +22,8 @@
 |  └── pages                        //存放页面，这里存放打包入口文件
 |  └── util                         //存放工具api
 ├── test                            //存放测试代码
+├── .eslintignore                   //配置不进行eslint检查的文件
+├── .eslintrc.js                    //配置eslint检查规则
 ```
 
 ## 相关指令
@@ -66,6 +68,21 @@ npm run build
 
 ```hash
 npm run add filename title
+```
+
+- 代码检查
+
+```hash
+npm run eslint
+
+```
+
+- git commit时触发 npm run eslint
+
+```hash
+"pre-commit": [
+  "eslint"
+]
 ```
 
 ## Mac下端口转发配置
