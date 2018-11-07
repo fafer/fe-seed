@@ -5,7 +5,13 @@ module.exports = {
       "es6": true,
       "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      // "plugin:prettier/recommended",
+      // "prettier/react",
+      // "prettier/standard"
+    ],
     "parser":"babel-eslint",
     "parserOptions": {
       "ecmaFeatures": {
@@ -15,15 +21,21 @@ module.exports = {
       "sourceType": "module"
     },
     "plugins": [
-      "react"
+      "react",
+      "prettier"
     ],
+    "settings":{
+      "react":{
+        "version":"16.6.1"
+      }
+    },
     "rules": {
       "no-console":[
-        "warn",
+        "off",
       ],
       "indent": [
         "error",
-        "tab"
+        2
       ],
       "linebreak-style": [
         "error",
@@ -36,6 +48,29 @@ module.exports = {
       "semi": [
         "error",
         "always"
-      ]
+      ],
+      "react/jsx-indent-props":[
+        "warn",
+        2
+      ],
+      "react/prop-types":"off",
+      "react/jsx-boolean-value":[
+        "warn",
+        "always"
+      ],
+      "react/jsx-props-no-multi-spaces":"error",
+      "react/jsx-tag-spacing":[
+        "error",
+        {
+          "closingSlash": "never",
+          "beforeSelfClosing": "always",
+          "afterOpening": "never",
+          "beforeClosing": "allow"
+        }
+      ],
+      // "prettier/prettier": [
+      //   "error",
+      //   {"singleQuote": true}
+      // ]
     }
 };
