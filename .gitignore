@@ -7,3 +7,4 @@ dist
 .project
 .idea
 .vscode
+.vagrant
