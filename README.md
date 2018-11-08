@@ -122,3 +122,9 @@ sudo pfctl -e
 - [https://github.com/prettier/eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
 - [https://github.com/prettier/eslint-config-prettier](https://github.com/prettier/eslint-config-prettier/)
 - [https://prettier.io](https://prettier.io)
+
+### 代码部署到ftp服务器
+
+通过git-ftp工具来部署构建后的资源到ftp上
+
+- [Linux、Mac、Window下的git-ftp安装](https://github.com/git-ftp/git-ftp/blob/master/INSTALL.md)
