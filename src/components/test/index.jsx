@@ -26,7 +26,7 @@ export default class Test extends Component {
       <React.Fragment>
         <span onClick={this.show}>show</span>
         <Component1 show={this.state.show}>
-          <Component11 personal={false} a={1} />
+          <Component11 />
           <Component12 />
         </Component1>
         <Component2>

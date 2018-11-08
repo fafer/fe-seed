@@ -115,7 +115,10 @@ sudo pfctl -e
 
 ## 相关文档
 
+### Eslint相关
+
 - [https://eslint.org](https://eslint.org)
 - [https://github.com/yannickcr/eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)
-- [https://github.com/standard/eslint-config-standard-react](https://github.com/standard/eslint-config-standard-react)
 - [https://github.com/prettier/eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
+- [https://github.com/prettier/eslint-config-prettier](https://github.com/prettier/eslint-config-prettier/)
+- [https://prettier.io](https://prettier.io)

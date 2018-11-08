@@ -8,9 +8,10 @@ module.exports = {
     "extends": [
       "eslint:recommended",
       "plugin:react/recommended",
-      // "plugin:prettier/recommended",
-      // "prettier/react",
-      // "prettier/standard"
+      "plugin:prettier/recommended",
+      "prettier/flowtype",
+      "prettier/react",
+      "prettier/standard"
     ],
     "parser":"babel-eslint",
     "parserOptions": {
@@ -49,6 +50,10 @@ module.exports = {
         "error",
         "always"
       ],
+      "no-extra-boolean-cast":"off",
+      "no-prototype-builtins":"off",
+      "valid-jsdoc":"off",
+      "class-methods-use-this":"off",
       "react/jsx-indent-props":[
         "warn",
         2
@@ -68,9 +73,11 @@ module.exports = {
           "beforeClosing": "allow"
         }
       ],
-      // "prettier/prettier": [
-      //   "error",
-      //   {"singleQuote": true}
-      // ]
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true
+        }
+      ]
     }
 };
