@@ -9,6 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --config ./build/webpack.config.prod.js --progress --profile --colors",
     "add": "node ./build/script/add",
     "eslint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "deploy": "node ./build/script/ftp/index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "pre-commit": [

@@ -54,6 +54,7 @@ module.exports = {
       "no-prototype-builtins":"off",
       "valid-jsdoc":"off",
       "class-methods-use-this":"off",
+      "require-await":"off",
       "react/jsx-indent-props":[
         "warn",
         2
