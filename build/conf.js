@@ -36,7 +36,7 @@ const COPY_PATH = path.join(__dirname, '../src/lib');
 // copy目标目录
 const COPY_DEST_PATH = path.join(OUT_PATH, 'lib');
 
-const PUBLICBASE = '/weitech/test';
+const PUBLICBASE = '';
 // 根目录base，默认未“/”
 const BASEPATH = PUBLICBASE ? PUBLICBASE + '/' : '/';
 
