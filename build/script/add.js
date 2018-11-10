@@ -1,6 +1,5 @@
 'use strict';
 
-/* eslint no-console: off */
 const conf = require('../conf');
 const path = require('path');
 const fs = require('fs');
@@ -34,9 +33,9 @@ function add(name, title = '') {
     .replace(/\$\{base\}/gi, conf.PUBLICBASE)
     .replace(
       /\$\{name\}/gi,
-      `${path.basename(conf.ENTRY_PATH)}/${name}/${scriptTemplate.replace(
-        /\.jsx?$/,
-        ''
+      `${path.basename(conf.ENTRY_PATH)}/${name}/${path.basename(
+        scriptTemplate,
+        '.jsx'
       )}`
     )
     .replace(/\$\{title\}/gi, title);

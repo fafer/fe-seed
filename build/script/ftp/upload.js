@@ -1,4 +1,3 @@
-/* eslint-disable */
 const Client = require('ftp');
 const fs = require('fs');
 const path = require('path');
@@ -9,25 +8,32 @@ const path = require('path');
  * @param {String} dest：ftp目录
  */
 
-function upload(client, src, dest) {
+async function upload(client, src, dest) {
   let files = fs.readdirSync(src);
-  files.forEach(async function(file) {
+  for (let index = 0; index < files.length; index++) {
+    let file = files[index];
     let filePath = path.join(src, file),
-      destPath = path.join(dest, file);
+      destPath = path.posix.join(dest, file);
     if (fs.lstatSync(filePath).isDirectory()) {
-      await new Promise((resolve, reject) => {
+      await new Promise(resolve => {
         client.mkdir(destPath, function(err) {
-          if (err) reject(err);
-          else resolve();
+          if (!err) console.log(`${destPath} 目录创建成功`);
+          resolve();
         });
       });
-      upload(client, filePath, destPath);
+      await upload(client, filePath, destPath);
     } else {
-      client.put(filePath, destPath);
+      await new Promise(resolve => {
+        console.log('put', filePath, destPath);
+        client.put(filePath, destPath, err => {
+          if (!err) console.log(`${destPath} 文件上传成功`);
+          else console.log(`${destPath} 文件上传失败`);
+          resolve();
+        });
+      });
     }
-  });
+  }
 }
-
 
 class Upload {
   constructor(server) {
@@ -36,8 +42,8 @@ class Upload {
   }
 
   put(src, dest) {
-    this.clientInstance.on('ready', () => {
-      upload(this.clientInstance, src, dest);
+    this.clientInstance.on('ready', async () => {
+      await upload(this.clientInstance, src, dest);
       this.clientInstance.end();
     });
     this.clientInstance.connect(this.server);

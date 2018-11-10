@@ -11,4 +11,7 @@ if (
 const server = require('./server.json')[1];
 const Upload = require('./upload');
 const uploaderInstance = new Upload(server);
-uploaderInstance.put(conf.OUT_PATH, path.join(server.path, conf.PUBLICBASE));
+uploaderInstance.put(
+  conf.OUT_PATH,
+  path.posix.join(server.path, conf.PUBLICBASE)
+);
