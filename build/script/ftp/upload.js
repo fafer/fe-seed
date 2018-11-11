@@ -46,7 +46,9 @@ function task(server, fn) {
     }
   });
   clientInstance.on('ready', async () => {
-    spinner.succeed(chalk.green(`connect to ${server.host}:${server.port} succeed`));
+    spinner.succeed(
+      chalk.green(`connect to ${server.host}:${server.port} succeed`)
+    );
     await fn.call(clientInstance);
     clientInstance.end();
     clientInstance = null;
