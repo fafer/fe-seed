@@ -24,7 +24,6 @@ async function upload(client, src, dest) {
       await upload(client, filePath, destPath);
     } else {
       await new Promise(resolve => {
-        console.log('put', filePath, destPath);
         client.put(filePath, destPath, err => {
           if (!err) console.log(`${destPath} 文件上传成功`);
           else console.log(`${destPath} 文件上传失败`);
