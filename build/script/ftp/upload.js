@@ -21,6 +21,7 @@ async function upload(client, src, dest) {
         const spinner = ora(`${destPath}`).start();
         client.mkdir(destPath, function(err) {
           if (!err) spinner.succeed(chalk.green(`${destPath} 目录创建成功`));
+          spinner.stop();
           resolve();
         });
       });
