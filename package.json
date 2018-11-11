@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "fe develop seed project",
   "main": "index.js",
+  "bin": {
+    "deploy": "./build/script/ftp/index.js"
+  },
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.config.dev.js --progress",
     "mock": "cross-env NODE_ENV=development MOCK_DATA=mock webpack-dev-server --config ./build/webpack.config.dev.js --progress",
@@ -79,7 +82,7 @@
     "classnames": "^2.2.6",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
-    "react-redux": "^5.1.0",
+    "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1"
   }
