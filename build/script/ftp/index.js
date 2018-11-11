@@ -25,8 +25,6 @@ cli().then(server => {
 // 	//=> 'unicorns'
 // });
 
-
-
 // const spinner = ora('Loading unicorns').start();
 
 // setTimeout(() => {
@@ -34,12 +32,3 @@ cli().then(server => {
 //   spinner.text = 'Loading rainbows';
 //   spinner.succeed('success')
 // }, 1000);
-
-
-
-
-
-
-
-
-

@@ -3,7 +3,8 @@ const table = require('text-table');
 const servers = require('./server.json');
 const chalk = require('chalk');
 const getStdin = require('get-stdin');
-const cli = meow(`
+const cli = meow(
+  `
 	Usage
 	  $ deploy <serverIndex>, ftp server index,default 0
 
@@ -13,21 +14,23 @@ const cli = meow(`
   Examples
     $ deploy 0
 	  $ deploy --all
-`, {
-	flags: {
-		all: {
-			type: 'boolean',
-			alias: 'a'
-		}
-	}
-});
+`,
+  {
+    flags: {
+      all: {
+        type: 'boolean',
+        alias: 'a'
+      }
+    }
+  }
+);
 
 function getIndex(index) {
   index = new Number(index);
-  if(isNaN(index)) index = 0;
+  if (isNaN(index)) index = 0;
   else {
     index = Number.parseInt(index);
-    if(index>=servers.length || index < 0) {
+    if (index >= servers.length || index < 0) {
       index = 0;
     }
   }
@@ -35,20 +38,19 @@ function getIndex(index) {
 }
 
 const options = {
-  index:getIndex(cli.input[0]),
+  index: getIndex(cli.input[0]),
   all: cli.flags.all
-}
+};
 
-if(cli.flags.help) {
+if (cli.flags.help) {
   cli.showHelp();
   process.exit();
 }
 
 module.exports = async function() {
-  if(options.all) {
+  if (options.all) {
     console.log(chalk.green(table(servers.map(d => Object.values(d)))));
     return servers[getIndex(await getStdin())];
   }
   return servers[options.index];
-}
-
+};

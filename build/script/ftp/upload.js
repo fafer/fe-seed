@@ -39,8 +39,10 @@ async function upload(client, src, dest) {
 function task(server, fn) {
   let clientInstance = new Client();
   clientInstance.on('error', err => {
-    if(err.message === 'Timeout while connecting to server') {
-      spinner.fail(chalk.red(`connect to ${server.host}:${server.port} failed`));
+    if (err.message === 'Timeout while connecting to server') {
+      spinner.fail(
+        chalk.red(`connect to ${server.host}:${server.port} failed`)
+      );
     }
   });
   clientInstance.on('ready', async () => {
@@ -49,7 +51,9 @@ function task(server, fn) {
     clientInstance = null;
   });
   clientInstance.connect(server);
-  const spinner = ora(chalk.green(`connecting to ${server.host}:${server.port} ...`)).start();
+  const spinner = ora(
+    chalk.green(`connecting to ${server.host}:${server.port} ...`)
+  ).start();
 }
 
 class Upload {
