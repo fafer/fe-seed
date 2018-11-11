@@ -129,8 +129,8 @@ sudo pfctl -e
 
 - 通过git-ftp工具来部署构建后的资源到ftp上
 
-[Linux、Mac、Window下的git-ftp安装](https://github.com/git-ftp/git-ftp/blob/master/INSTALL.md)
+  [Linux、Mac、Window下的git-ftp安装](https://github.com/git-ftp/git-ftp/blob/master/INSTALL.md)
 
 - 通过脚本将打包好的资源上传到服务器上
 
-[node-ftp](https://github.com/mscdex/node-ftp)
+  [node-ftp](https://github.com/mscdex/node-ftp)
