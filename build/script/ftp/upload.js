@@ -46,6 +46,7 @@ function task(server, fn) {
     }
   });
   clientInstance.on('ready', async () => {
+    spinner.succeed(`connect to ${server.host}:${server.port} succeed`)
     await fn.call(clientInstance);
     clientInstance.end();
     clientInstance = null;
