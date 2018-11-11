@@ -4,7 +4,9 @@
 const conf = require('../conf');
 const path = require('path');
 const fs = require('fs');
-const process = require('process');
+const chalk = require('chalk');
+const ora = require('ora');
+const meow = require('meow');
 let templateDir = path.join(__dirname, '../template');
 
 let htmlTemplate = 'index.html';
@@ -55,8 +57,35 @@ function add(name, title = '') {
   });
 }
 
-const name = process.argv[2] || '';
+const cli = meow(
+  `
+	Usage
+	  $ npm run add <filename>, create file
 
-const title = process.argv[3] || '';
-if (!name) console.error('please input filename');
-else add(name, title);
+	Options
+	  --title, -t,page title
+
+  Examples
+   $ npm run add test
+	  $ npm run add test --title=test
+`,
+  {
+    flags: {
+      title: {
+        type: 'string',
+        alias: 't'
+      }
+    }
+  }
+);
+
+const options = {
+  filename:cli.input[0],
+  title:cli.flags.title
+}
+
+if (!options.filename) {
+  ora('').fail(chalk.red('please input filename'));
+  cli.showHelp();
+}
+else add(options.filename, options.title);

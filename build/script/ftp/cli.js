@@ -6,14 +6,14 @@ const getStdin = require('get-stdin');
 const cli = meow(
   `
 	Usage
-	  $ deploy <serverIndex>, ftp server index,default 0
+	  $ npm run deploy <serverIndex>, ftp server index,default 0
 
 	Options
 	  --all, -a
 
   Examples
-    $ deploy 0
-	  $ deploy --all
+    $ npm run deploy 0
+	  $ npm run deploy --all
 `,
   {
     flags: {
