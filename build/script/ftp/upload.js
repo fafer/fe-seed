@@ -18,17 +18,19 @@ async function upload(client, src, dest) {
       destPath = path.posix.join(dest, file);
     if (fs.lstatSync(filePath).isDirectory()) {
       await new Promise(resolve => {
+        const spinner = ora(`${destPath}`).start();
         client.mkdir(destPath, function(err) {
-          if (!err) ora('').succeed(chalk.green(`${destPath} 目录创建成功`));
+          if (!err) spinner.succeed(chalk.green(`${destPath} 目录创建成功`));
           resolve();
         });
       });
       await upload(client, filePath, destPath);
     } else {
       await new Promise(resolve => {
+        const spinner = ora(`${destPath}`).start();
         client.put(filePath, destPath, err => {
-          if (!err) ora('').succeed(chalk.green(`${destPath} 文件上传成功`));
-          else ora('').fail(chalk.green(`${destPath} 文件上传失败`));
+          if (!err) spinner.succeed(chalk.green(`${destPath} 文件上传成功`));
+          else spinner.fail(chalk.green(`${destPath} 文件上传失败`));
           resolve();
         });
       });
