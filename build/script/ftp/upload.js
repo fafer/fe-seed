@@ -35,18 +35,28 @@ async function upload(client, src, dest) {
   }
 }
 
+function task(server,fn) {
+  let clientInstance = new Client();
+  clientInstance.on('error',(err) => {
+    console.log(err);
+  });
+  clientInstance.on('ready', async () => {
+    await fn.call(clientInstance);
+    clientInstance.end();
+    clientInstance = null;
+  });
+  clientInstance.connect(server);
+}
+
 class Upload {
   constructor(server) {
-    this.clientInstance = new Client();
     this.server = server;
   }
 
   put(src, dest) {
-    this.clientInstance.on('ready', async () => {
-      await upload(this.clientInstance, src, dest);
-      this.clientInstance.end();
-    });
-    this.clientInstance.connect(this.server);
+    task(this.server,async () => {
+      await upload(this, src, dest);
+    })
   }
 }
 
