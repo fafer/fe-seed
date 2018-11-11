@@ -1,5 +1,7 @@
 # 项目说明
 
+基于webpack打包的前端模版工程
+
 ## 目录结构
 
 ```hash
@@ -125,6 +127,10 @@ sudo pfctl -e
 
 ### 代码部署到ftp服务器
 
-通过git-ftp工具来部署构建后的资源到ftp上
+- 通过git-ftp工具来部署构建后的资源到ftp上
 
-- [Linux、Mac、Window下的git-ftp安装](https://github.com/git-ftp/git-ftp/blob/master/INSTALL.md)
+[Linux、Mac、Window下的git-ftp安装](https://github.com/git-ftp/git-ftp/blob/master/INSTALL.md)
+
+- 通过脚本将打包好的资源上传到服务器上
+
+[node-ftp](https://github.com/mscdex/node-ftp)
