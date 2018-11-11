@@ -80,12 +80,11 @@ const cli = meow(
 );
 
 const options = {
-  filename:cli.input[0],
-  title:cli.flags.title
-}
+  filename: cli.input[0],
+  title: cli.flags.title
+};
 
 if (!options.filename) {
   ora('').fail(chalk.red('please input filename'));
   cli.showHelp();
-}
-else add(options.filename, options.title);
+} else add(options.filename, options.title);
