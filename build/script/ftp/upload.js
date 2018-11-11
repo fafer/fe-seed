@@ -35,9 +35,9 @@ async function upload(client, src, dest) {
   }
 }
 
-function task(server,fn) {
+function task(server, fn) {
   let clientInstance = new Client();
-  clientInstance.on('error',(err) => {
+  clientInstance.on('error', err => {
     console.log(err);
   });
   clientInstance.on('ready', async () => {
@@ -54,9 +54,9 @@ class Upload {
   }
 
   put(src, dest) {
-    task(this.server,async () => {
+    task(this.server, async function() {
       await upload(this, src, dest);
-    })
+    });
   }
 }
 
