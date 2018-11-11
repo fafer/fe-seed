@@ -1,6 +1,8 @@
 const Client = require('ftp');
 const fs = require('fs');
 const path = require('path');
+const chalk = require('chalk');
+const ora = require('ora');
 /**
  *
  * @param {Client} client：ftp客户端实例
@@ -17,7 +19,7 @@ async function upload(client, src, dest) {
     if (fs.lstatSync(filePath).isDirectory()) {
       await new Promise(resolve => {
         client.mkdir(destPath, function(err) {
-          if (!err) console.log(`${destPath} 目录创建成功`);
+          if (!err) ora('').succeed(chalk.green(`${destPath} 目录创建成功`));
           resolve();
         });
       });
@@ -25,8 +27,8 @@ async function upload(client, src, dest) {
     } else {
       await new Promise(resolve => {
         client.put(filePath, destPath, err => {
-          if (!err) console.log(`${destPath} 文件上传成功`);
-          else console.log(`${destPath} 文件上传失败`);
+          if (!err) ora('').succeed(chalk.green(`${destPath} 文件上传成功`));
+          else ora('').fail(chalk.green(`${destPath} 文件上传失败`));
           resolve();
         });
       });
@@ -37,7 +39,9 @@ async function upload(client, src, dest) {
 function task(server, fn) {
   let clientInstance = new Client();
   clientInstance.on('error', err => {
-    console.log(err);
+    if(err.message === 'Timeout while connecting to server') {
+      spinner.fail(chalk.red(`connect to ${server.host}:${server.port} failed`));
+    }
   });
   clientInstance.on('ready', async () => {
     await fn.call(clientInstance);
@@ -45,6 +49,7 @@ function task(server, fn) {
     clientInstance = null;
   });
   clientInstance.connect(server);
+  const spinner = ora(chalk.green(`connecting to ${server.host}:${server.port} ...`)).start();
 }
 
 class Upload {
