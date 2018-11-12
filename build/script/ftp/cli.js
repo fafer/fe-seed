@@ -2,7 +2,7 @@ const meow = require('meow');
 const table = require('text-table');
 const servers = require('./server.json');
 const chalk = require('chalk');
-const getStdin = require('get-stdin');
+const inquirer = require('inquirer');
 const cli = meow(
   `
 	Usage
@@ -50,8 +50,16 @@ if (cli.flags.help) {
 
 module.exports = async function() {
   if (options.all) {
-    console.log(chalk.green(table(servers.map(d => Object.values(d)))));
-    return servers[getIndex(await getStdin())];
+    const choices = table(servers.map(d => Object.values(d))).split('\n');
+    const answer = await inquirer.prompt([
+    {
+      type: 'list',
+      name: 'host',
+      message: 'select ftp server by up and down key',
+      choices:choices 
+    }
+  ]);
+    return servers[getIndex(choices.indexOf(answer))];
   }
   return servers[options.index];
 };
