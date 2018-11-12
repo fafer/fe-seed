@@ -16,7 +16,7 @@ const cli = meow(
 	  $ npm run deploy --all
 `,
   {
-    description:false,
+    description: false,
     flags: {
       all: {
         type: 'boolean',

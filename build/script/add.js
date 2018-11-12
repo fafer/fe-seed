@@ -70,7 +70,7 @@ const cli = meow(
 	  $ npm run add test --title=test
 `,
   {
-    description:false,
+    description: false,
     flags: {
       title: {
         type: 'string',
