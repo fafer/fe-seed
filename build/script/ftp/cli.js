@@ -1,7 +1,6 @@
 const meow = require('meow');
 const table = require('text-table');
 const servers = require('./server.json');
-const chalk = require('chalk');
 const inquirer = require('inquirer');
 const cli = meow(
   `
@@ -52,13 +51,13 @@ module.exports = async function() {
   if (options.all) {
     const choices = table(servers.map(d => Object.values(d))).split('\n');
     const answer = await inquirer.prompt([
-    {
-      type: 'list',
-      name: 'host',
-      message: 'select ftp server by up and down key',
-      choices:choices 
-    }
-  ]);
+      {
+        type: 'list',
+        name: 'host',
+        message: 'select ftp server by up and down key',
+        choices: choices
+      }
+    ]);
     return servers[getIndex(choices.indexOf(answer))];
   }
   return servers[options.index];
