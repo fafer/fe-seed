@@ -16,6 +16,7 @@ const cli = meow(
 	  $ npm run deploy --all
 `,
   {
+    description:false,
     flags: {
       all: {
         type: 'boolean',
@@ -43,7 +44,7 @@ const options = {
 };
 
 if (cli.flags.help) {
-  cli.showHelp();
+  cli.showHelp(0);
   process.exit();
 }
 

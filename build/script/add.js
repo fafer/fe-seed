@@ -70,6 +70,7 @@ const cli = meow(
 	  $ npm run add test --title=test
 `,
   {
+    description:false,
     flags: {
       title: {
         type: 'string',
@@ -86,5 +87,7 @@ const options = {
 
 if (!options.filename) {
   ora('').fail(chalk.red('please input filename'));
-  cli.showHelp();
-} else add(options.filename, options.title);
+  cli.showHelp(0);
+} else {
+  add(options.filename || '', options.title || '');
+}
