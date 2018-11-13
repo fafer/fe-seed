@@ -60,12 +60,22 @@ module.exports = async function() {
         type: 'list',
         name: 'host',
         message: 'FTP Server List',
-        transformer:function() {
-          return ''
+        transformer: function() {
+          return '';
         },
-        choices: [new inquirer.Separator(' '),...choices.map((name,value) => {
-          return {name,value,short:servers[value].host}
-        }),new inquirer.Separator(' '),new inquirer.Separator(chalk.reset('↑ ↓ to select. Enter to start upload. Control-C to cancel.')),new inquirer.Separator(' ')]
+        choices: [
+          new inquirer.Separator(' '),
+          ...choices.map((name, value) => {
+            return { name, value, short: servers[value].host };
+          }),
+          new inquirer.Separator(' '),
+          new inquirer.Separator(
+            chalk.reset(
+              '↑ ↓ to select. Enter to start upload. Control-C to cancel.'
+            )
+          ),
+          new inquirer.Separator(' ')
+        ]
       }
     ]);
     return servers[getIndex(answer.host)];
