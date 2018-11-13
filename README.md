@@ -134,3 +134,11 @@ sudo pfctl -e
 - 通过脚本将打包好的资源上传到服务器上
 
   [node-ftp](https://github.com/mscdex/node-ftp)
+
+### CLI相关
+
+- [chalk，控制命令行输出样式](https://github.com/chalk/chalk)
+- [ora，命令行内容输出](https://github.com/sindresorhus/ora)
+- [meow，接收命令行参数](https://github.com/sindresorhus/meow)
+- [inquirer，交互式命令行控制](https://github.com/SBoudrias/Inquirer.js)
+- [inquirer，使用demo](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/inquirer/examples)
