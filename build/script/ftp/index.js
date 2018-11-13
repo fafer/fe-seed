@@ -19,16 +19,3 @@ cli().then(server => {
     path.posix.join(server.path, conf.PUBLICBASE)
   );
 });
-// const getStdin = require('get-stdin');
-// getStdin().then(str => {
-// 	console.log(str);
-// 	//=> 'unicorns'
-// });
-
-// const spinner = ora('Loading unicorns').start();
-
-// setTimeout(() => {
-// 	spinner.color = 'yellow';
-//   spinner.text = 'Loading rainbows';
-//   spinner.succeed('success')
-// }, 1000);
