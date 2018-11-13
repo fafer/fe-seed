@@ -60,14 +60,16 @@ function add(name, title = '') {
 const cli = meow(
   `
 	Usage
-	  $ npm run add <filename>, create file
+	  $ npm run add -- <filename>, create file
 
 	Options
 	  --title, -t,page title
 
   Examples
-   $ npm run add test
-	  $ npm run add test --title=test
+    $ npm run add -- test
+    $ npm run add -- test --title=test
+  Help
+    $ npm run add -- --help
 `,
   {
     description: false,

@@ -1,18 +1,23 @@
 const meow = require('meow');
 const table = require('text-table');
 const servers = require('./server.json');
+const chalk = require('chalk');
 const inquirer = require('inquirer');
 const cli = meow(
   `
 	Usage
-	  $ npm run deploy <serverIndex>, ftp server index,default 0
+    $ npm run deploy -- <serverIndex>, ftp server index,default 0
+    or
+    $ npm link & deploy <serverIndex>
 
 	Options
 	  --all, -a
 
   Examples
-    $ npm run deploy 0
-	  $ npm run deploy --all
+    $ npm run deploy -- 0
+    $ npm run deploy -- --all
+  Help  
+    $ npm run deploy -- --help
 `,
   {
     description: false,
@@ -54,11 +59,16 @@ module.exports = async function() {
       {
         type: 'list',
         name: 'host',
-        message: 'select ftp server by up and down key',
-        choices: choices
+        message: 'FTP Server List',
+        transformer:function() {
+          return ''
+        },
+        choices: [new inquirer.Separator(' '),...choices.map((name,value) => {
+          return {name,value,short:servers[value].host}
+        }),new inquirer.Separator(' '),new inquirer.Separator(chalk.reset('↑ ↓ to select. Enter to start upload. Control-C to cancel.')),new inquirer.Separator(' ')]
       }
     ]);
-    return servers[getIndex(choices.indexOf(answer))];
+    return servers[getIndex(answer.host)];
   }
   return servers[options.index];
 };
