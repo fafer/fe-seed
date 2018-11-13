@@ -60,9 +60,6 @@ module.exports = async function() {
         type: 'list',
         name: 'host',
         message: 'FTP Server List',
-        transformer: function() {
-          return '';
-        },
         choices: [
           new inquirer.Separator(' '),
           ...choices.map((name, value) => {
