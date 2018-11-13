@@ -32,13 +32,13 @@
 
 - 初始化
 
-```hash
+```bash
 npm i
 ```
 
 - 开发模式
 
-```hash
+```bash
 http服务(mac下1024以内端口是要root权限，所以用8041端口，
 通过pf配置端口转发，80转发到8041，mac下建议配置端口80，443端口转发)
 npm start
@@ -49,7 +49,7 @@ npm start -- --https
 
 - mock数据开发模式
 
-```hash
+```bash
 http服务
 npm run mock
 或者
@@ -63,21 +63,30 @@ npm start -- --https --mock
 
 - 编译输出生产资源
 
-```hash
+```bash
 npm run build
 ```
 
 - 创建一个页面入口,filename（文件名）必选、title（页面title）可选
 
-```hash
-npm run add filename title
+```bash
+npm run add -- filename --title=<title>
+npm run add -- --help
 ```
 
 - 代码检查
 
-```hash
+```bash
 npm run eslint
 
+```
+
+- ftp上传
+
+```bash
+npm run deploy
+npm run deploy -- --all
+npm run deploy -- --help
 ```
 
 - git commit时触发 npm run eslint
