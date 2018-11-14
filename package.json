@@ -23,10 +23,9 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-add": "lint-staged"
     }
   },
-  
   "repository": {
     "type": "git",
     "url": "git@github.com:recmh/fe-seed.git"
