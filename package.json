@@ -15,20 +15,18 @@
     "deploy": "node ./build/script/ftp/index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  // "lint-staged": {
-  //   "*.{js,jsx,ts,tsx}": [
-  //     "eslint --fix",
-  //     "git add"
-  //   ]
-  // },
-  // "husky": {
-  //   "hooks": {
-  //     "pre-commit": "lint-staged"
-  //   }
-  // },
-  "pre-commit": [
-    "eslint"
-  ],
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  
   "repository": {
     "type": "git",
     "url": "git@github.com:recmh/fe-seed.git"
