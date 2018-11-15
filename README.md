@@ -75,10 +75,12 @@ npm run build
 ```bash
 Usage:
 npm run add -- filename --title=<title>
+或者
 node ./build/script/add.js filename --title=<title>
 
 Help:
 npm run add -- --help
+或者
 node ./build/script/add.js --help
 ```
 
@@ -93,22 +95,33 @@ npm run eslint
 
 ```bash
 npm run deploy
+或者
 node ./build/script/ftp/index.js
 
 npm run deploy -- --all
+或者
 node ./build/script/ftp/index.js --all
 
 Help:
 npm run deploy -- --help
+或者
 node ./build/script/ftp/index.js --help
 ```
 
-- git commit时触发 npm run eslint
+- git commit时触发 npm run eslint、git add
 
 ```hash
-"pre-commit": [
-  "eslint"
-]
+"lint-staged": {
+  "*.{js,jsx,ts,tsx}": [
+    "npm run eslint",
+    "git add"
+  ]
+},
+"husky": {
+  "hooks": {
+    "pre-commit": "lint-staged"
+  }
+}
 ```
 
 ## Mac下端口转发配置
@@ -122,7 +135,7 @@ rdr on lo0 inet proto tcp from any to 127.0.0.1 port 80 -> 127.0.0.1 port 8041
 rdr on lo0 inet proto tcp from any to 127.0.0.1 port 80 -> 127.0.0.1 port 8042
 ```
 
-修改后保存，执行一下命令
+修改后保存，执行以下命令
 
 ```hash
 sudo pfctl -d
@@ -169,4 +182,5 @@ sudo pfctl -e
 
 ### 测试
 
-- [jest](https://github.com/facebook/jest) [jest文档](https://jestjs.io/docs/en/cli)
+- [jest](https://github.com/facebook/jest) 
+- [jest文档](https://jestjs.io/docs/en/cli)
