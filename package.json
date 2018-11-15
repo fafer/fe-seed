@@ -17,13 +17,13 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
+      "eslint",
       "git add"
     ]
   },
   "husky": {
     "hooks": {
-      "pre-add": "lint-staged"
+      "pre-commit": "lint-staged"
     }
   },
   "repository": {
