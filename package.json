@@ -16,7 +16,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "lint-staged": {
-    "{src,build}/**/*.{js,jsx,ts,tsx}": [
+    "*.js": [
       "npm run eslint",
       "git add"
     ]
