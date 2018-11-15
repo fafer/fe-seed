@@ -26,6 +26,7 @@
 |  └── pages                        //存放页面，这里存放打包入口文件
 |  └── util                         //存放工具api
 ├── test                            //存放测试代码
+├── .babelrc.js                     //配置babel转换规则
 ├── .eslintignore                   //配置不进行eslint检查的文件
 ├── .eslintrc.js                    //配置eslint检查规则
 ```
@@ -139,7 +140,7 @@ sudo pfctl -e
 
 ## 相关文档
 
-### Eslint相关
+### Eslint
 
 - [https://eslint.org](https://eslint.org)
 - [https://github.com/yannickcr/eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)
@@ -158,10 +159,14 @@ sudo pfctl -e
 
   [node-ftp](https://github.com/mscdex/node-ftp)
 
-### CLI相关
+### CLI
 
 - [chalk，控制命令行输出样式](https://github.com/chalk/chalk)
 - [ora，命令行内容输出](https://github.com/sindresorhus/ora)
 - [meow，接收命令行参数](https://github.com/sindresorhus/meow)
 - [inquirer，交互式命令行控制](https://github.com/SBoudrias/Inquirer.js)
 - [inquirer，使用demo](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/inquirer/examples)
+
+### 测试
+
+- [jest](https://github.com/facebook/jest) [jest文档](https://jestjs.io/docs/en/cli)
