@@ -31,7 +31,7 @@ module.exports = {
       }
     },
     "rules": {
-      "no-console":"error",
+      "no-console":"off",
       "indent": [
         "error",
         2
