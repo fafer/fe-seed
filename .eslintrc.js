@@ -32,7 +32,7 @@ module.exports = {
     },
     "rules": {
       "no-console":[
-        "off",
+        "error",
       ],
       "indent": [
         "error",
