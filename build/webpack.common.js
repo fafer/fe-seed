@@ -1,5 +1,5 @@
 const path = require('path');
-  const conf = require('./conf')
+const conf = require('./conf');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
