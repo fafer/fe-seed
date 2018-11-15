@@ -72,8 +72,13 @@ npm run build
 - 创建一个页面入口,filename（文件名）必选、title（页面title）可选
 
 ```bash
+Usage:
 npm run add -- filename --title=<title>
+node ./build/script/add.js filename --title=<title>
+
+Help:
 npm run add -- --help
+node ./build/script/add.js --help
 ```
 
 - 代码检查
@@ -87,8 +92,14 @@ npm run eslint
 
 ```bash
 npm run deploy
+node ./build/script/ftp/index.js
+
 npm run deploy -- --all
+node ./build/script/ftp/index.js --all
+
+Help:
 npm run deploy -- --help
+node ./build/script/ftp/index.js --help
 ```
 
 - git commit时触发 npm run eslint
@@ -135,6 +146,7 @@ sudo pfctl -e
 - [https://github.com/prettier/eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
 - [https://github.com/prettier/eslint-config-prettier](https://github.com/prettier/eslint-config-prettier/)
 - [https://prettier.io](https://prettier.io)
+- [腾讯alloyteam的eslint规范](https://alloyteam.github.io/eslint-config-alloy/)
 
 ### 代码部署到ftp服务器
 
