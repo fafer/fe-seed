@@ -184,3 +184,8 @@ sudo pfctl -e
 
 - [jest](https://github.com/facebook/jest)
 - [jest文档](https://jestjs.io/docs/en/cli)
+
+### CI
+
+- [travis](https://travis-ci.org)
+- [travis文档,配置](https://docs.travis-ci.com/user/tutorial/)
