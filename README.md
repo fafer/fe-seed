@@ -182,5 +182,5 @@ sudo pfctl -e
 
 ### 测试
 
-- [jest](https://github.com/facebook/jest) 
+- [jest](https://github.com/facebook/jest)
 - [jest文档](https://jestjs.io/docs/en/cli)
