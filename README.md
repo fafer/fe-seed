@@ -180,7 +180,7 @@ sudo pfctl -e
 - [inquirer，交互式命令行控制](https://github.com/SBoudrias/Inquirer.js)
 - [inquirer，使用demo](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/inquirer/examples)
 
-### 测试
+### 测试（项目采用jest）
 
 - [jest](https://github.com/facebook/jest)
 - [jest文档](https://jestjs.io/docs/en/cli)
