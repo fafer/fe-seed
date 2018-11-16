@@ -184,6 +184,7 @@ sudo pfctl -e
 
 - [jest](https://github.com/facebook/jest)
 - [jest文档](https://jestjs.io/docs/en/cli)
+- [karma](https://github.com/karma-runner/karma) + [karma-jasmine](https://github.com/karma-runner/karma-jasmine)+ [jasmine](https://github.com/jasmine/jasmine)
 
 ### CI
 
