@@ -175,7 +175,7 @@ sudo pfctl -e
 ### CLI
 
 - [chalk，控制命令行输出样式](https://github.com/chalk/chalk)
-- [ora，命令行内容输出](https://github.com/sindresorhus/ora)
+- [ora，命令行内容输出](https://github.com/sindresorhus/ora)，ora内部基于[cli-spinners](https://github.com/sindresorhus/cli-spinners)
 - [meow，接收命令行参数](https://github.com/sindresorhus/meow)
 - [inquirer，交互式命令行控制](https://github.com/SBoudrias/Inquirer.js)
 - [inquirer，使用demo](https://github.com/SBoudrias/Inquirer.js/tree/master/packages/inquirer/examples)
