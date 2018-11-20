@@ -10,7 +10,7 @@
 |  └── https                        //目录存放https启动时的证书
 |  └── loaders                      //目录存放webpack的自定义loader
 |  └── script                       //目录存放npm执行的脚本
-|     └── ftp                       //ftp上传dist中内容到服务器
+|     └── ftp                       //ftp上传dist中内容到服务器,此部分已提取到ftp-cli模块中
 |     └── add                       //创建页面
 |  └── template                     //目录存放html,js静态模版
 |  └── conf.js                      //构建脚本读取的常量配置
@@ -26,6 +26,7 @@
 |  └── pages                        //存放页面，这里存放打包入口文件
 |  └── util                         //存放工具api
 ├── test                            //存放测试代码
+├── ftp.config.js                   //ftp server配置列表
 ├── .babelrc.js                     //配置babel转换规则
 ├── .eslintignore                   //配置不进行eslint检查的文件
 ├── .eslintrc.js                    //配置eslint检查规则
@@ -108,6 +109,15 @@ npm run deploy -- --help
 node ./build/script/ftp/index.js --help
 ```
 
+```bash
+npm run ftp
+
+npm run ftp -- --all
+
+如果全局安装了ftp-cli的话，可以用通过ftp
+-cli来代替npm run ftp和npm run deploy。deploy方式逐渐废弃掉
+```
+
 - git commit时触发 npm run eslint、git add
 
 ```hash
@@ -170,6 +180,7 @@ sudo pfctl -e
 
 - 通过脚本将打包好的资源上传到服务器上
 
+  [ftp-cli](https://github.com/recmh/ftp-cli)
   [node-ftp](https://github.com/mscdex/node-ftp)
 
 ### CLI
