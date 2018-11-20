@@ -109,6 +109,8 @@ npm run deploy -- --help
 node ./build/script/ftp/index.js --help
 ```
 
+**推荐使用下面方式**
+
 ```bash
 npm run ftp
 
