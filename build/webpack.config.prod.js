@@ -5,6 +5,8 @@ const Merge = require('webpack-merge');
 const CommonConfig = require('./webpack.common.js');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtraHtmlWebpackPlugin = require('./plugins/extra-html-webpack-plugin');
 const Uglifyjs = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
@@ -38,6 +40,16 @@ module.exports = Merge(CommonConfig, {
         NODE_ENV: JSON.stringify('production')
       }
     }),
+    ...Object.keys(CommonConfig.entry).map(
+      d =>
+        new HtmlWebpackPlugin({
+          filename: `${d}.html`,
+          template: path.join(conf.ENTRY_PATH, `../${d}.html`),
+          minify: false,
+          chunks: [d]
+        })
+    ),
+    new ExtraHtmlWebpackPlugin({ options: true }),
     new ManifestPlugin({
       basePath: conf.BASEPATH,
       generate(seed, files) {
