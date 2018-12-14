@@ -18,8 +18,7 @@ class ExtraHtmlWebpackPlugin {
           preserveLineBreaks: true,
           collapseWhitespace: true,
           minifyCSS: true,
-          minifyJS: true,
-          removeTagWhitespace: true
+          minifyJS: true
         });
         cb(null, data);
       });
