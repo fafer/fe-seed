@@ -46,10 +46,11 @@ module.exports = Merge(CommonConfig, {
           filename: `${d}.html`,
           template: path.join(conf.ENTRY_PATH, `../${d}.html`),
           minify: false,
+          inject: false,
           chunks: [d]
         })
     ),
-    new ExtraHtmlWebpackPlugin({ options: true }),
+    new ExtraHtmlWebpackPlugin(),
     new ManifestPlugin({
       basePath: conf.BASEPATH,
       generate(seed, files) {
