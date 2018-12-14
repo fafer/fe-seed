@@ -9,6 +9,27 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtraHtmlWebpackPlugin = require('./plugins/extra-html-webpack-plugin');
 const Uglifyjs = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const argv = require('yargs').argv;
+
+function htmlPlugin() {
+  let plugins;
+  if (argv.html) {
+    plugins = Object.keys(CommonConfig.entry).map(
+      d =>
+        new HtmlWebpackPlugin({
+          filename: `${d}.html`,
+          template: path.join(conf.ENTRY_PATH, `../${d}.html`),
+          minify: false,
+          inject: false,
+          chunks: [d]
+        })
+    );
+    plugins.push(new ExtraHtmlWebpackPlugin());
+  } else {
+    plugins = [];
+  }
+  return plugins;
+}
 
 module.exports = Merge(CommonConfig, {
   mode: 'production',
@@ -40,17 +61,7 @@ module.exports = Merge(CommonConfig, {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    ...Object.keys(CommonConfig.entry).map(
-      d =>
-        new HtmlWebpackPlugin({
-          filename: `${d}.html`,
-          template: path.join(conf.ENTRY_PATH, `../${d}.html`),
-          minify: false,
-          inject: false,
-          chunks: [d]
-        })
-    ),
-    new ExtraHtmlWebpackPlugin(),
+    ...htmlPlugin(),
     new ManifestPlugin({
       basePath: conf.BASEPATH,
       generate(seed, files) {
