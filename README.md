@@ -69,7 +69,7 @@ npm start -- --https --mock
 
 ```bash
 npm run build
-
+s
 npm run build -- --html
 ```
 
