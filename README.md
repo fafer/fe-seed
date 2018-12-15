@@ -69,6 +69,8 @@ npm start -- --https --mock
 
 ```bash
 npm run build
+
+npm run build -- --html
 ```
 
 - 创建一个页面入口,filename（文件名）必选、title（页面title）可选

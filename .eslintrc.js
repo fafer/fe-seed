@@ -31,11 +31,18 @@ module.exports = {
         "version":"16.6.3"
       }
     },
+    "globals":{
+      "Wbxiaoxiao":true
+    },
     "rules": {
       "no-console":"off",
       "indent": [
         "error",
-        2
+        2,
+        { 
+          "SwitchCase": 1,
+          "flatTernaryExpressions":false
+        }
       ],
       "linebreak-style":"off",
       "quotes": [
@@ -43,7 +50,7 @@ module.exports = {
         "single"
       ],
       "semi": [
-        "error",
+        "off",
         "always"
       ],
       "no-extra-boolean-cast":"off",
@@ -70,6 +77,7 @@ module.exports = {
           "beforeClosing": "allow"
         }
       ],
+      "react/display-name":"off",
       "prettier/prettier": [
         "error",
         {
