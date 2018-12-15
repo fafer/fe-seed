@@ -70,7 +70,6 @@ npm start -- --https --mock
 ```bash
 npm run build
 
-生成html模版
 npm run build -- --html
 ```
 
