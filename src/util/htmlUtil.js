@@ -10,7 +10,7 @@ let escapeMap = {
   '<': '&lt;',
   '>': '&gt;',
   '"': '&quot;',
-  /* eslint-disable */
+/* eslint-disable */
   '\'': '&#x27;',
   /* eslint-enable */
   '`': '&#x60;'
@@ -20,7 +20,7 @@ let unescapeMap = {
   '&lt;': '<',
   '&gt;': '>',
   '&quot;': '"',
-  /* eslint-disable */
+/* eslint-disable */
   '&#x27;': '\'',
   /* eslint-enable */
   '&#x60;': '`'
