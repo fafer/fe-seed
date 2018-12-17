@@ -66,6 +66,7 @@ module.exports = Merge(CommonConfig, {
       basePath: conf.BASEPATH,
       generate(seed, files) {
         return files.reduce((manifest, { name, path }) => {
+          console.log(manifest);
           if (/\.js$/.test(path)) {
             return { ...manifest, [name]: path };
           } else if (/\.css$/.test(path)) {
@@ -73,6 +74,8 @@ module.exports = Merge(CommonConfig, {
               ...manifest,
               [name]: path.replace(conf.PUBLICPATH, conf.CSSPUBLICPATH)
             };
+          } else if (/\.html$/.test(path)) {
+            return manifest;
           }
           return {
             ...manifest,
