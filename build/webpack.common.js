@@ -12,10 +12,19 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(jsx?|tsx?)$/,
-        exclude: /node_modules/,
+        test: /\.jsx?$/,
+        include: [path.join(__dirname, '../src'), __dirname],
         enforce: 'pre',
         loader: 'eslint-loader',
+        options: {
+          fix: true
+        }
+      },
+      {
+        test: /\.tsx?$/,
+        include: [path.join(__dirname, '../src'), __dirname],
+        enforce: 'pre',
+        loader: 'tslint-loader',
         options: {
           fix: true
         }

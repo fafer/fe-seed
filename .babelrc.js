@@ -26,11 +26,13 @@ module.exports = {
         "loose": false
       }
     ],
+    "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-json-strings",
     [
       "@babel/plugin-transform-typescript",
       {
-        "isTSX": true
+        "isTSX": true,
+        "allExtensions":true
       }
     ]
   ]

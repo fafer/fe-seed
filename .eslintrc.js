@@ -32,7 +32,6 @@ module.exports = {
       }
     },
     "globals":{
-      "Wbxiaoxiao":true
     },
     "rules": {
       "no-console":"off",
