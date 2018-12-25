@@ -6,7 +6,7 @@ module.exports = function(source) {
   validateOptions(require('./options.json'), options, 'Mock Loader');
   // Apply some transformations to the source...
   if (options.enable) {
-    source = source.replace(/\/\/@mock/g, '');
+    source = source.replace(/\/\/\s*@mock/g, '');
   }
   return source;
 };

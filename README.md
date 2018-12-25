@@ -186,6 +186,7 @@ sudo pfctl -e
 - [https://prettier.io](https://prettier.io)
 - [腾讯alloyteam的eslint规范](https://alloyteam.github.io/eslint-config-alloy/)
 - [https://palantir.github.io/tslint/](https://palantir.github.io/tslint/)
+- [https://github.com/palantir/tslint-react](https://github.com/palantir/tslint-react)
 - [https://github.com/prettier/tslint-plugin-prettier](https://github.com/prettier/tslint-plugin-prettier)
 - [腾讯alloyteam的tslint规范](https://alloyteam.github.io/tslint-config-alloy/)
 

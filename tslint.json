@@ -14,7 +14,6 @@
     "no-namespace":true,
     "no-non-null-assertion":true,
     "no-reference":true,
-    "semicolon":true,
     "typedef":true,
     "typedef-whitespace":true,
     "unified-signatures":true,
@@ -24,6 +23,15 @@
     "no-conditional-assignment": true,
     "quotemark": [true, "single", "jsx-double"],
     "no-mergeable-namespace": true,
+    "semicolon":false,
+    "trailing-comma":false,
+    "jsx-no-lambda":false,
+    "jsx-no-multiline-js":false,
+    "one-variable-per-declaration":false,
+    "radix":false,
+    "max-line-length":false,
+    "arrow-parens":false,
+    "no-unused-expression":false,
     "no-console":false,
     "no-any":false,
     "no-magic-numbers":false,
@@ -47,6 +55,7 @@
     "prefer-switch":false,
     "prefer-while":false,
     "prefer-method-signature":false,
+    "object-literal-sort-keys":false,
     "prettier": [true, { "singleQuote": true }]
   }
 }
