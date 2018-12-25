@@ -90,8 +90,14 @@ node ./build/script/add.js --help
 - 代码检查
 
 ```bash
+js、jsx:
 npm run eslint
 
+ts、tsx:
+npm run tslint
+
+all:
+npm run lint
 ```
 
 - ftp上传
@@ -122,12 +128,16 @@ npm run ftp -- --all
 -cli来代替npm run ftp和npm run deploy。deploy方式逐渐废弃掉
 ```
 
-- git commit时触发 npm run eslint、git add
+- git commit时触发 npm run eslint、npm run tslint、git add
 
 ```hash
 "lint-staged": {
-  "*.{js,jsx,ts,tsx}": [
+  "*.{js,jsx}": [
     "npm run eslint",
+    "git add"
+  ],
+  "*.{ts,tsx}": [
+    "npm run tslint",
     "git add"
   ]
 },
