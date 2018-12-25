@@ -1,9 +1,52 @@
-{ 
-  "extends":[
-    "tslint:latest",
-    "tslint-config-prettier"
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-plugin-prettier"
   ],
   "rules": {
-    "no-constant-condition": true
+    "adjacent-overload-signatures":true,
+    "member-access":true,
+    "no-empty-interface":true,
+    "no-import-side-effect": [true, {"ignore-module": "(\\.html|\\.s?css|\\.less||\\.sass)$"}],
+    "no-inferrable-types":true,
+    "no-internal-module":true,
+    "no-namespace":true,
+    "no-non-null-assertion":true,
+    "no-reference":true,
+    "semicolon":true,
+    "typedef":true,
+    "typedef-whitespace":true,
+    "unified-signatures":true,
+    "new-parens": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-conditional-assignment": true,
+    "quotemark": [true, "single", "jsx-double"],
+    "no-mergeable-namespace": true,
+    "no-console":false,
+    "no-any":false,
+    "no-magic-numbers":false,
+    "no-parameter-reassignment":false,
+    "no-var-requires":false,
+    "only-arrow-functions":false,
+    "prefer-for-of":false,
+    "promise-function-async":false,
+    "await-promise":false,
+    "interface-name":false,
+    "switch-final-break":false,
+    "no-consecutive-blank-lines": false,
+    "prefer-const":false,
+    "prefer-readonly":false,
+    "binary-expression-operand-order": false,
+    "match-default-export-name":false,
+    "no-boolean-literal-compare":false,
+    "no-unnecessary-callback-wrapper":false,
+    "object-literal-key-quotes":false,
+    "prefer-function-over-method":false,
+    "prefer-switch":false,
+    "prefer-while":false,
+    "prefer-method-signature":false,
+    "prettier": [true, { "singleQuote": true }]
   }
 }

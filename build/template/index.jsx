@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import '../../common/rem750';
+import '../../common/flexible';
 import '../../common/base.css';
 
 class Name extends Component {

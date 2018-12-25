@@ -175,6 +175,9 @@ sudo pfctl -e
 - [https://github.com/prettier/eslint-config-prettier](https://github.com/prettier/eslint-config-prettier/)
 - [https://prettier.io](https://prettier.io)
 - [腾讯alloyteam的eslint规范](https://alloyteam.github.io/eslint-config-alloy/)
+- [https://palantir.github.io/tslint/](https://palantir.github.io/tslint/)
+- [https://github.com/prettier/tslint-plugin-prettier](https://github.com/prettier/tslint-plugin-prettier)
+- [腾讯alloyteam的tslint规范](https://alloyteam.github.io/tslint-config-alloy/)
 
 ### 代码部署到ftp服务器
 
