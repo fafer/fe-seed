@@ -44,14 +44,18 @@ class ExtraHtmlWebpackPlugin {
   processScriptAsset(asset) {
     let src = asset.getAttribute('src');
     if (/^((https?:){0,1}\/\/)/.test(src)) return;
-    if (/^\//.test(src)) asset.setAttribute('src', `//${conf.HOST.js}${src}`);
+    if (/^\//.test(src))
+      asset.setAttribute('src', conf.HOST.js ? `//${conf.HOST.js}${src}` : src);
   }
 
   processLinkAsset(asset) {
     let href = asset.getAttribute('href');
     if (/^((https?:){0,1}\/\/)/.test(href)) return;
     if (/^\//.test(href))
-      asset.setAttribute('href', `//${conf.HOST.css}${href}`);
+      asset.setAttribute(
+        'href',
+        conf.HOST.css ? `//${conf.HOST.css}${href}` : href
+      );
   }
 }
 
