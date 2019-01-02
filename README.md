@@ -30,6 +30,7 @@
 ├── .babelrc.js                     //配置babel转换规则
 ├── .eslintignore                   //配置不进行eslint检查的文件
 ├── .eslintrc.js                    //配置eslint检查规则
+├── tslint.json                     //配置tslint检查规则
 ```
 
 ## 相关指令
