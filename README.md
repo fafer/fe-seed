@@ -129,7 +129,7 @@ npm run ftp -- --all
 -cli来代替npm run ftp和npm run deploy。deploy方式逐渐废弃掉
 ```
 
-- git commit时触发 npm run eslint、npm run tslint、git add
+- git commit时触发 npm run eslint、npm run tslint、validate-commit-msg、git add
 
 ```hash
 "lint-staged": {
@@ -144,9 +144,22 @@ npm run ftp -- --all
 },
 "husky": {
   "hooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "commit-msg": "validate-commit-msg"
   }
 }
+```
+
+- Commit message 的格式（符合Angular格式）
+
+```hash
+建议全局安装
+npm install -g commitizen cz-conventional-changelog
+echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
+
+CLI:
+git cz:可以用来替换git commit
+git commit提交时，会校验msg的格式
 ```
 
 ## Mac下端口转发配置
@@ -190,6 +203,12 @@ sudo pfctl -e
 - [https://github.com/palantir/tslint-react](https://github.com/palantir/tslint-react)
 - [https://github.com/prettier/tslint-plugin-prettier](https://github.com/prettier/tslint-plugin-prettier)
 - [腾讯alloyteam的tslint规范](https://alloyteam.github.io/tslint-config-alloy/)
+
+### cz-cli
+
+- [https://github.com/commitizen/cz-cli](https://github.com/commitizen/cz-cli)
+- [https://github.com/commitizen/cz-conventional-changelog](https://github.com/commitizen/cz-conventional-changelog)
+- [https://github.com/recmh/validate-commit-msg](https://github.com/recmh/validate-commit-msg)
 
 ### 代码部署到ftp服务器
 
