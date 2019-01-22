@@ -17,7 +17,7 @@
     "lint": "npm run eslint && npm run tslint",
     "deploy": "node ./build/script/ftp/index",
     "ftp": "ftp-cli",
-    "test": "jest sum.test"
+    "test": "jest sum.test --coverage"
   },
   "lint-staged": {
     "*.{js,jsx}": [
