@@ -32,7 +32,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "commit-msg":"validate-commit-msg"
+      "commit-msg": "validate-commit-msg"
     }
   },
   "repository": {
