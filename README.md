@@ -209,6 +209,7 @@ sudo pfctl -e
 - [https://github.com/commitizen/cz-cli](https://github.com/commitizen/cz-cli)
 - [https://github.com/commitizen/cz-conventional-changelog](https://github.com/commitizen/cz-conventional-changelog)
 - [https://github.com/recmh/validate-commit-msg](https://github.com/recmh/validate-commit-msg)
+- [http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
 
 ### 代码部署到ftp服务器
 
