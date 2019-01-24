@@ -241,3 +241,8 @@ sudo pfctl -e
 
 - [travis](https://travis-ci.org)
 - [travis文档,配置](https://docs.travis-ci.com/user/tutorial/)
+
+### badge
+
+- [codecov](https://codecov.io)
+- [codecov-doc](https://docs.codecov.io/docs/flags)

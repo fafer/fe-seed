@@ -17,7 +17,8 @@
     "lint": "npm run eslint && npm run tslint",
     "deploy": "node ./build/script/ftp/index",
     "ftp": "ftp-cli",
-    "test": "jest sum.test --coverage"
+    "test": "jest sum.test --coverage",
+    "codecov": "cat ./coverage/lcov.info | ./node_modules/.bin/codecov"
   },
   "lint-staged": {
     "*.{js,jsx}": [
@@ -76,6 +77,7 @@
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "clean-webpack-plugin": "^1.0.1",
+    "codecov": "^3.1.0",
     "copy-webpack-plugin": "^4.6.0",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
