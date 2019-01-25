@@ -1,4 +1,5 @@
 [![codecov](https://codecov.io/gh/fafer/fe-seed/branch/master/graph/badge.svg?token=qH2CescrXN)](https://codecov.io/gh/fafer/fe-seed)
+
 # 项目说明
 
 基于webpack+react打包的前端模版工程
@@ -241,6 +242,7 @@ sudo pfctl -e
 ### CI
 
 - [travis](https://travis-ci.org)
+- [travis-com](https://travis-ci.com)
 - [travis文档,配置](https://docs.travis-ci.com/user/tutorial/)
 
 ### badge
