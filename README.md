@@ -1,4 +1,5 @@
 [![codecov](https://codecov.io/gh/fafer/fe-seed/branch/master/graph/badge.svg?token=qH2CescrXN)](https://codecov.io/gh/fafer/fe-seed)
+
 # 项目说明
 
 基于webpack+react打包的前端模版工程
