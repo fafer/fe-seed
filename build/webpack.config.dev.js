@@ -50,15 +50,15 @@ module.exports = Merge(CommonConfig, {
     proxy: [
       // 配置转发请求代理
       {
-        context: ['/**/*_v*.js', '/**/*_v*.css'],
+        context: ['/**/*_v[0-9]*.js', '/**/*_v[0-9]*.css'],
         secure: false,
         target: `${argv.https ? 'https' : 'http'}://localhost`,
         changeOrigin: true,
         pathRewrite: function(path) {
           if (/\.js$/.test(path)) {
-            return path.replace(/(_v.*\.js)$/i, '.js');
+            return path.replace(/(_v\d*\.js)$/i, '.js');
           } else if (/\.css$/.test(path)) {
-            return path.replace(/(_v.*\.css)$/i, '.css');
+            return path.replace(/(_v\d*\.css)$/i, '.css');
           }
         }
       },
