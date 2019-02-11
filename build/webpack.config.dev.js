@@ -50,7 +50,7 @@ module.exports = Merge(CommonConfig, {
     proxy: [
       // 配置转发请求代理
       {
-        context: ['/**/*_v*.js', '/**/*_v*.' + 'css'],
+        context: ['/**/*_v*.js', '/**/*_v*.css'],
         secure: false,
         target: `${argv.https ? 'https' : 'http'}://localhost`,
         changeOrigin: true,
