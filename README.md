@@ -41,6 +41,8 @@
 
 ```bash
 npm i
+npm i -g commitizen cz-conventional-changelog ftp-cli
+echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 ```
 
 - 开发模式
@@ -156,7 +158,7 @@ npm run ftp -- --all
 
 ```hash
 建议全局安装
-npm install -g commitizen cz-conventional-changelog
+npm i -g commitizen cz-conventional-changelog
 echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 
 CLI:
