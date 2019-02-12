@@ -38,9 +38,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:recmh/fe-seed.git"
+    "url": "git@github.com:fafer/fe-seed.git"
   },
-  "homepage": "https://github.com/recmh/fe-seed#readme",
+  "homepage": "https://github.com/fafer/fe-seed#readme",
   "keywords": [
     "webpack",
     "react"
