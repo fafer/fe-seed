@@ -28,6 +28,7 @@ module.exports = {
     ],
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-json-strings",
+    // TypeScript
     [
       "@babel/plugin-transform-typescript",
       {
