@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import Component1Context from './Component1Context';
 
 export default class Component1 extends Component {
+  static contextType = Component1Context;
+
   constructor(props) {
     super(props);
     console.log('初始化：Component1');
@@ -37,7 +40,7 @@ export default class Component1 extends Component {
   }
 
   render() {
-    console.log('渲染render：Component1');
+    console.log('渲染render：Component1', this.context);
     if (!this.props.show) return <div>Component1</div>;
     return <div>{this.props.children}</div>;
   }

@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import Component1Context from './Component1Context';
+
 export default class Component11 extends Component {
+  static contextType = Component1Context;
+
   constructor(props) {
     super(props);
     console.log('初始化：Component11');
@@ -36,7 +40,7 @@ export default class Component11 extends Component {
   }
 
   render() {
-    console.log('渲染render：Component11');
+    console.log('渲染render：Component11', this.context);
     return <div onClick={() => this.setState({})}>Component11</div>;
   }
 }
