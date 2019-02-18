@@ -1,5 +1,4 @@
 const conf = require('./conf');
-const path = require('path');
 const webpack = require('webpack');
 const Merge = require('webpack-merge');
 const os = require('os');
@@ -35,7 +34,7 @@ module.exports = Merge(CommonConfig, {
     allowedHosts: [], // 设置允许访问的域名白名单
     hot: true, // 开启热更新
     // hotOnly: true,//热更新失败的话，不刷新页面
-    contentBase: [conf.ENTRY_PATH, path.join(conf.ROOT_PATH)], // 配置访问静态资源根目录
+    contentBase: [conf.ENTRY_PATH], // 配置访问静态资源根目录
     compress: true, // 请求的资源启用gzip
     publicPath: conf.BASEPATH, // 设置打包文件访问地址
     // historyApiFallback: true, //historyApi路由404后，转发到index.html

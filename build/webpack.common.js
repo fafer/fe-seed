@@ -71,7 +71,7 @@ module.exports = {
                 process.env.NODE_ENV === 'production'
                   ? conf.IMGPUBLICPATH
                   : conf.BASEPATH,
-              emitFile: process.env.NODE_ENV !== 'production'
+              emitFile: true
             }
           }
         ]
