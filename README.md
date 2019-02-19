@@ -174,7 +174,7 @@ git commit提交时，会校验msg的格式
 
 ```hash
 rdr on lo0 inet proto tcp from any to 127.0.0.1 port 80 -> 127.0.0.1 port 8041
-rdr on lo0 inet proto tcp from any to 127.0.0.1 port 80 -> 127.0.0.1 port 8042
+rdr on lo0 inet proto tcp from any to 127.0.0.1 port 443 -> 127.0.0.1 port 8042
 ```
 
 修改后保存，执行以下命令
