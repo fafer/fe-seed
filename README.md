@@ -21,8 +21,8 @@
 |  └── webpack.config.prod.js       //生产环境构建配置
 ├── dist                            //构建打包输出目录
 ├── doc                             //存放文档
-├── resources                       //存放小的静态资源,例如小图片，打包后，图片会被转成base64。
 ├── src                             //存放代码源文件
+|  └── assets                       //存放小的静态资源,例如小图片，打包后，图片会被转成base64。
 |  └── common                       //存放公共部分
 |  └── components                   //存放组件
 |  └── pages                        //存放页面，这里存放打包入口文件
@@ -251,3 +251,8 @@ sudo pfctl -e
 
 - [codecov](https://codecov.io)
 - [codecov-doc](https://docs.codecov.io/docs/flags)
+
+### 使用lerna拆包
+
+- [lerna](https://lernajs.io/)
+- [lerna github](https://github.com/lerna/lerna#readme)

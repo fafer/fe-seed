@@ -65,7 +65,10 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              name: '[path][name].[ext]',
+              // name: '[path][name].[ext]',
+              name(filePath) {
+                return filePath.replace(conf.SRC_PATH + '/', '');
+              },
               limit: 8192,
               publicPath:
                 process.env.NODE_ENV === 'production'
@@ -84,7 +87,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js', '.json', '.jsx', '.tsx', '.css', '.scss'],
     alias: {
-      '@': path.join(conf.ROOT_PATH, 'src')
+      '@': conf.SRC_PATH
     }
   },
   optimization: {

@@ -21,8 +21,8 @@ const getEntry = function(
   return entry;
 };
 
-// 项目根目录
-const ROOT_PATH = path.join(__dirname, '..');
+// 项目源文件目录
+const SRC_PATH = path.join(__dirname, '../src');
 
 // 打包输出目录
 const OUT_PATH = path.join(__dirname, '../dist');
@@ -51,7 +51,7 @@ const IMGPUBLICPATH = HOST.img ? `//${HOST.img}${BASEPATH}` : BASEPATH;
 const CSSPUBLICPATH = HOST.css ? `//${HOST.css}${BASEPATH}` : BASEPATH;
 
 module.exports = {
-  ROOT_PATH,
+  SRC_PATH,
   OUT_PATH,
   ENTRY_PATH,
   COPY_PATH,
