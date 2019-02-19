@@ -1,6 +1,8 @@
+@import '@/common/rem.scss';
+
 .img {
   background: url('../../assets/img/img-2.png') 0 0 no-repeat;
-  width:114px;
+  width:pxToRem(114);
   height:110px;
 }
 .img1 {
