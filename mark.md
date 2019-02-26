@@ -4,7 +4,7 @@
 框架：react
 编译：babel
 code：es6、jsx、ts、tsx
-css：scss、**postcss**
+css：scss、postcss
 规范：eslint、tslint
 代码格式化：prettier
 单元测试：jest，或者karma+karma-jasmine+jasmine
