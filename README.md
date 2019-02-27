@@ -11,6 +11,7 @@
 ├── build                           //存放构建脚本
 |  └── https                        //目录存放https启动时的证书
 |  └── loaders                      //目录存放webpack的自定义loader
+|  └── plugins                      //目录存放webpack的自定义plugin
 |  └── script                       //目录存放npm执行的脚本
 |     └── ftp                       //ftp上传dist中内容到服务器,此部分已提取到ftp-cli模块中
 |     └── add                       //创建页面
@@ -21,18 +22,21 @@
 |  └── webpack.config.prod.js       //生产环境构建配置
 ├── dist                            //构建打包输出目录
 ├── doc                             //存放文档
+├── packages                        //lerna拆包目录
 ├── src                             //存放代码源文件
 |  └── assets                       //存放小的静态资源,例如小图片，打包后，图片会被转成base64。(保留目录)
 |  └── common                       //存放公共部分
 |  └── components                   //存放组件
 |  └── lib                          //存放三方资源（保留目录）
-|  └── pages                        //存放页面，这里存放打包入口文件
+|  └── pages                        //存放页面，这里存放打包入口文件（保留目录）
 |  └── util                         //存放工具api
 ├── test                            //存放测试代码
 ├── ftp.config.js                   //ftp server配置列表
+├── lerna.json                      //lerna配置
 ├── .babelrc.js                     //配置babel转换规则
 ├── .eslintignore                   //配置不进行eslint检查的文件
 ├── .eslintrc.js                    //配置eslint检查规则
+├── .travis.yml                     //travis CI配置
 ├── tslint.json                     //配置tslint检查规则
 ```
 
