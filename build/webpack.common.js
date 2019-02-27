@@ -41,7 +41,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader
@@ -52,23 +52,17 @@ module.exports = {
               importLoaders: 1
             }
           },
-          'postcss-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: loader => [
+                require('postcss-import')({ root: loader.resourcePath }),
+                require('postcss-preset-env')(),
+                require('cssnano')()
+              ]
+            }
+          },
           'sass-loader'
-        ]
-      },
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1
-            }
-          },
-          'postcss-loader'
         ]
       },
       {
