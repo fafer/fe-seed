@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/fafer/fe-seed/branch/master/graph/badge.svg?token=qH2CescrXN)](https://codecov.io/gh/fafer/fe-seed) [![travis](https://api.travis-ci.com/fafer/fe-seed.svg?token=ePsDEJqEN7Ssqqf9hz24&branch=master)](https://travis-ci.com/fafer/fe-seed/)
+[![license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/fafer/fe-seed) [![NPM version](https://img.shields.io/npm/v/fe-seed.svg)](https://www.npmjs.org/package/fe-seed) [![codecov](https://codecov.io/gh/fafer/fe-seed/branch/master/graph/badge.svg?token=qH2CescrXN)](https://codecov.io/gh/fafer/fe-seed) [![travis](https://api.travis-ci.com/fafer/fe-seed.svg?token=ePsDEJqEN7Ssqqf9hz24&branch=master)](https://travis-ci.com/fafer/fe-seed/) [![NPM Downloads](https://img.shields.io/npm/dm/fe-seed.svg)](https://npmcharts.com/compare/fe-seed?minimal=true)
 
 # 项目说明
 
@@ -262,8 +262,13 @@ sudo pfctl -e
 
 ### badge
 
+- [shields](https://shields.io/)
+
+### 测试覆盖率
+
 - [codecov](https://codecov.io)
 - [codecov-doc](https://docs.codecov.io/docs/flags)
+- [coveralls](https://coveralls.io)
 
 ### 使用lerna拆包
 
