@@ -36,6 +36,7 @@
 ├── .babelrc.js                     //配置babel转换规则
 ├── .eslintignore                   //配置不进行eslint检查的文件
 ├── .eslintrc.js                    //配置eslint检查规则
+├── .stylelintrc.js                 //配置css检查规则
 ├── .travis.yml                     //travis CI配置
 ├── tslint.json                     //配置tslint检查规则
 ```
@@ -105,6 +106,9 @@ npm run eslint
 
 ts、tsx:
 npm run tslint
+
+css、scss:
+npm run stylelint
 
 all:
 npm run lint
@@ -200,7 +204,7 @@ sudo pfctl -e
 
 ## 相关文档
 
-### Eslint
+### Eslint、Tslint、Prettier、Stylelint
 
 - [https://eslint.org](https://eslint.org)
 - [https://github.com/yannickcr/eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)
@@ -212,6 +216,9 @@ sudo pfctl -e
 - [https://github.com/palantir/tslint-react](https://github.com/palantir/tslint-react)
 - [https://github.com/prettier/tslint-plugin-prettier](https://github.com/prettier/tslint-plugin-prettier)
 - [腾讯alloyteam的tslint规范](https://alloyteam.github.io/tslint-config-alloy/)
+- [stylelint](https://github.com/stylelint/stylelint)
+- [stylelint-rules](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/rules.md)
+- [stylelint-build-tool-plugins](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/complementary-tools.md#build-tool-plugins)
 
 ### cz-cli
 
