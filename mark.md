@@ -5,7 +5,7 @@
 编译：babel
 code：es6、jsx、ts、tsx
 css：scss、postcss
-规范：eslint、tslint
+规范：eslint、tslint、stylelint
 代码格式化：prettier
 单元测试：jest，或者karma+karma-jasmine+jasmine
 CI：travis
