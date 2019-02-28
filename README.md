@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/fafer/fe-seed/branch/master/graph/badge.svg?token=qH2CescrXN)](https://codecov.io/gh/fafer/fe-seed)
+[![codecov](https://codecov.io/gh/fafer/fe-seed/branch/master/graph/badge.svg?token=qH2CescrXN)](https://codecov.io/gh/fafer/fe-seed)[![travis](https://api.travis-ci.com/fafer/fe-seed.svg?token=ePsDEJqEN7Ssqqf9hz24&branch=master)](https://travis-ci.com/fafer/fe-seed/)
 
 # 项目说明
 
