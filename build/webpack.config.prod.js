@@ -53,8 +53,8 @@ module.exports = Merge(CommonConfig, {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin([path.basename(conf.OUT_PATH)], {
-      root: path.dirname(conf.OUT_PATH)
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [conf.OUT_PATH]
     }),
     new webpack.DefinePlugin({
       'process.env': {
