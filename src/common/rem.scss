@@ -45,6 +45,9 @@ $browser-default-font-size: 37.5px !default;
   @return $number / ($number * 0 + 1);
 }
 
+/*
+  750的设计稿的话，标注尺寸/2
+*/
 @function pxToRem($px) {
   @return strip-units($px) / strip-units($browser-default-font-size) * 1rem;
 }
