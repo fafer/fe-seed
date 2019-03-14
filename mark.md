@@ -11,6 +11,7 @@ css：scss、postcss
 CI：travis
 命令行：chalk、ora、meow、inquirer
 测试覆盖面
+**e2e**
 拆包：lerna
 构建部分引入html-webpack-plugin
 **提炼构建部分为cli**
