@@ -10,3 +10,7 @@ dist
 .vagrant
 coverage/*
 lerna-debug.log
+/packages/*/node_modules
+/packages/*/LICENSE
+*.log
+*.cache
