@@ -1,0 +1,9 @@
+export const TASK_LIST = 'TASK_LIST'; // 任务列表
+export const TOAST_STATUS = 'TOAST_STATUS'; // toast状态
+export const SHARE_GUIDE_TOGGLE = 'SHARE_GUIDE_TOGGLE'; // 分享引导显隐切换
+export const INITDATA = 'initData';
+export const INFO = 'info';
+export const USERINFO = 'userInfo';
+export const SPRAYLIST = 'sprayList';
+export const CHANGEUSERSTATE = 'changeUserState';
+export const DIALOG = 'dialog';

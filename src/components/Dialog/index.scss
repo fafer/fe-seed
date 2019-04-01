@@ -1,0 +1,64 @@
+@import '../../common/rem.scss';
+
+.dialog-container {
+  position: absolute;
+  z-index: 900;
+
+  &.fadein .dialog-modal {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  .dialog-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0);
+    opacity: 0;
+    transform: scale(0);
+    transition-property: opacity;
+    transition-duration: 0.3s;
+  }
+
+  .dialog-content {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-top: pxtorem(-28);
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  &.fadein .dialog-content-wrap {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .dialog-content-wrap {
+    position: relative;
+    height: 100%;
+    transform-origin: center bottom;
+    transform: scale(0);
+    opacity: 0;
+    transition-property: opacity transform;
+    transition-duration: 0.3s;
+  }
+
+  .dialog-close {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: pxtorem(50/2);
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      background: url('../../assets/img/close@2x.png') 0 0 no-repeat;
+      background-size: pxtorem(34) pxtorem(34);
+      width: pxtorem(35);
+      height: pxtorem(35);
+    }
+  }
+}

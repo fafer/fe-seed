@@ -1,0 +1,26 @@
+@import "../../../common/rem.scss";
+
+.share-guide-wrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  display: none;
+
+  &.show {
+    display: block;
+  }
+
+  .share-guide {
+    float: right;
+    margin: pxtorem(40/2);
+    width: pxtorem(572/2);
+    height: pxtorem(487/2);
+    background: url('//img.58cdn.com.cn/weitech/innovation-activity/share-guide.jpg') center center no-repeat;
+    background-size: 100% auto;
+  }
+}

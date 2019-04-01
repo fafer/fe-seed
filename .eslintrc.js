@@ -28,10 +28,11 @@ module.exports = {
     ],
     "settings":{
       "react":{
-        "version":"16.8.3"
+        "version":"16.8.6"
       }
     },
     "globals":{
+      "window": true
     },
     "rules": {
       "no-console":"off",

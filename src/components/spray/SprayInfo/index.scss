@@ -1,0 +1,336 @@
+@import '@/common/rem.scss';
+
+.activity-spray-info {
+  background: url('//img.58cdn.com.cn/weitech/innovation-activity/activity-spray-bg.png') 0 0 no-repeat;
+  background-size: pxtorem(750/2) pxtorem(1206/2);
+  width: pxtorem(750/2);
+  height: pxtorem(1206/2);
+  position: relative;
+
+  .activity-rule-guide {
+    position: absolute;
+    top: pxtorem(20/2);
+    right: 0;
+    border-radius: pxtorem(27/2) 0 0 pxtorem(27/2);
+    cursor: pointer;
+
+    .activity-rule-guide-bg {
+      opacity: 0.52;
+      width: pxtorem(140/2);
+      height: pxtorem(54/2);
+      border: pxtorem(1.1) solid #fff;
+      border-right: none;
+      border-radius: pxtorem(27/2) 0 0 pxtorem(27/2);
+      box-sizing: border-box;
+    }
+
+    .activity-rule-guide-tip {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: PingFangSC-Semibold;
+      font-size: pxtorem(13);
+      opacity: 0.7;
+      line-height: pxtorem(37/2);
+      color: #fff;
+      letter-spacing: 0;
+      text-align: center;
+    }
+  }
+
+  .activity-bonus-wrap {
+    position: absolute;
+    top: pxtorem(200/2);
+    text-align: center;
+    left: 0;
+    right: 0;
+    font-size: 0;
+
+    .activity-bonus-pool {
+      display: inline-block;
+      width: pxtorem(540/2);
+      height: pxtorem(120/2);
+      background: url('../../../assets/img/bonus-pool-bg@2x.png') 0 0 no-repeat;
+      background-size: pxtorem(540/2) auto;
+      font-family: PingFangSC-Regular;
+      box-sizing: border-box;
+      font-size: pxtorem(32/2);
+      color: #fff;
+      letter-spacing: 0;
+      text-align: center;
+      line-height: pxtorem(120/2);
+    }
+
+    .activity-bonus-tip-wrap {
+      overflow: hidden;
+      width: pxtorem(375);
+      height: pxtorem(37/2);
+      margin-top: pxtorem(-10);
+    }
+
+    ul.activity-bonus-tip {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 300%;
+      height: 100%;
+      list-style: none;
+      animation: tip-slider 10s infinite linear;
+
+      li {
+        float: left;
+        width: pxtorem(375);
+        height: pxtorem(37/2);
+        line-height: pxtorem(37/2);
+        opacity: 0.7;
+        font-family: PingFangSC-Regular;
+        font-size: pxtorem(13);
+        color: #fff;
+        letter-spacing: 0;
+        text-align: center;
+      }
+    }
+  }
+
+  .activity-major {
+    position: absolute;
+    top: pxtorem(325/2);
+    left: 0;
+    right: 0;
+    background: url('//img.58cdn.com.cn/weitech/innovation-activity/major.png?v=1') pxtorem(46/2) 0 no-repeat;
+    background-size: pxtorem(711/2) pxtorem(606/2);
+    height: pxtorem(606/2);
+  }
+
+  .activity-major-change {
+    position: absolute;
+    bottom: pxtorem(273/2);
+    left: 0;
+    right: 0;
+    background: url('//img.58cdn.com.cn/weitech/innovation-activity/change-major.png') pxtorem(15/2) 0 no-repeat;
+    background-size: pxtorem(714/2) pxtorem(550/2);
+    height: pxtorem(550/2);
+  }
+
+  .activity-spray {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 pxtorem(15);
+
+    .activity-spray-items {
+      display: flex;
+      flex: 1;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+
+      .activity-spray-item {
+        background: #fff;
+        border-radius: pxtorem(5);
+        padding: pxtorem(3) pxtorem(3) 0 pxtorem(3);
+        position: relative;
+        cursor: pointer;
+
+        .img-wrap {
+          font-size: 0;
+          width: pxtorem(108/2);
+          height: pxtorem(128/2);
+          background-color: #cecece;
+          background-size: pxtorem(108/2) pxtorem(128/2);
+          background-position: 0 0;
+          background-repeat: no-repeat;
+          border-radius: pxtorem(4);
+          overflow: hidden;
+
+          &.sprayblack1 {
+            background-image: url('../../../assets/img/sprayblack1@2x.png');
+          }
+
+          &.sprayblack2 {
+            background-image: url('../../../assets/img/sprayblack2@2x.png');
+          }
+
+          &.sprayblack3 {
+            background-image: url('../../../assets/img/sprayblack3@2x.png');
+          }
+
+          &.sprayblack4 {
+            background-image: url('../../../assets/img/sprayblack4@2x.png');
+          }
+
+          &.sprayblack5 {
+            background-image: url('../../../assets/img/sprayblack5@2x.png');
+          }
+
+          &.spraychalk1 {
+            background-color: #4b54f5;
+            background-image: url('../../../assets/img/spraychalk1@2x.png');
+          }
+
+          &.spraychalk2 {
+            background-color: #4b54f5;
+            background-image: url('../../../assets/img/spraychalk2@2x.png');
+          }
+
+          &.spraychalk3 {
+            background-color: #4b54f5;
+            background-image: url('../../../assets/img/spraychalk3@2x.png');
+          }
+
+          &.spraychalk4 {
+            background-color: #4b54f5;
+            background-image: url('../../../assets/img/spraychalk4@2x.png');
+          }
+
+          &.spraychalk5 {
+            background-color: #4b54f5;
+            background-image: url('../../../assets/img/spraychalk5@2x.png');
+          }
+        }
+
+        p {
+          font-family: "FZLTZHK--GBK1-0";
+          font-size: pxtorem(11);
+          color: #000;
+          letter-spacing: pxtorem(1);
+          text-align: center;
+          line-height: pxtorem(23);
+          font-weight: 700;
+        }
+
+        i {
+          position: absolute;
+          right: pxtorem(-17/2);
+          top: pxtorem(-7/2);
+          width: pxtorem(17);
+          height: pxtorem(17);
+          font-style: normal;
+          background-color: #ffd113;
+          border: pxtorem(1) solid #fff;
+          border-radius: 50%;
+          box-sizing: border-box;
+          font-family: PingFangSC-Semibold;
+          font-size: pxtorem(11);
+          color: #000;
+          font-weight: 700;
+          letter-spacing: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &.ellipsis {
+            letter-spacing: pxtorem(-1);
+            overflow: hidden;
+
+            span {
+              line-height: 0;
+              margin-top: pxtorem(-5);
+              margin-right: pxtorem(1);
+            }
+          }
+        }
+      }
+    }
+
+    .activity-opt-wrap {
+      margin: 0 pxtorem(-15);
+      background: url('//img.58cdn.com.cn/weitech/innovation-activity/active-btn.png?v=1') 0 0 no-repeat;
+      background-size: pxtorem(750/2) pxtorem(190/2);
+      background-color: transparent;
+      width: pxtorem(750/2);
+      height: pxtorem(190/2);
+      position: relative;
+      font-weight: 700;
+
+      .activity-opt {
+        height: pxtorem(190/2);
+        border-radius: pxtorem(50);
+        -webkit-tap-highlight-color: transparent;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        font-family: "FZLTZHK--GBK1-0";
+        font-size: pxtorem(18);
+        color: #fff;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: pxtorem(18);
+        position: relative;
+        z-index: 2;
+        cursor: pointer;
+
+        &::after {
+          content: '';
+          background: url('../../../assets/img/go@2x.png') 0 0 no-repeat;
+          display: inline-block;
+          width: pxtorem(25);
+          height: pxtorem(25);
+          background-size: pxtorem(25) pxtorem(25);
+          margin-left: pxtorem(5);
+          margin-right: pxtorem(-15);
+        }
+      }
+
+      .activity-opt-time {
+        color: #fff;
+        font-family: PingFangSC-Regular;
+        font-size: pxtorem(13);
+        cursor: default;
+
+        .time {
+          background-color: #ffd113;
+          border-radius: pxtorem(2);
+          width: pxtorem(32);
+          height: pxtorem(32);
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: PingFangSC-Semibold;
+          font-size: pxtorem(16);
+          color: #000;
+          letter-spacing: 0;
+          margin: 0 pxtorem(13/2);
+
+          span {
+            line-height: 0;
+            margin-top: pxtorem(1);
+          }
+        }
+
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
+}
+
+@-webkit-keyframes tip-slider {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: pxtorem(-750);
+  }
+}
+
+@keyframes tip-slider {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: pxtorem(-750);
+  }
+}

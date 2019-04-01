@@ -1,0 +1,195 @@
+@import "../../../common/rem.scss";
+
+.spray-dialog {
+  padding-top: pxtorem(40/2);
+  text-align: center;
+  font-size: 0;
+  border-radius: pxtorem(10);
+  width: pxtorem(540/2);
+
+  .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    pointer-events: none;
+  }
+
+  .content {
+    position: relative;
+    font-size: 0;
+  }
+
+  .title {
+    font-family: PingFangSC-Semibold;
+    font-size: pxtorem(20);
+    color: #fff;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: pxtorem(20);
+    margin-top: pxtorem(10);
+    margin-bottom: pxtorem(17/2);
+    font-weight: 700;
+
+    &.hastip {
+      margin-bottom: 0;
+    }
+  }
+
+  .img {
+    display: inline-block;
+    width: pxtorem(540/2);
+    height: pxtorem(580/2);
+    pointer-events: none;
+  }
+
+  .btn-wrap {
+    margin: pxtorem(10) pxtorem(-15) pxtorem(40/2) 0;
+
+    .btn-default {
+      display: inline-block;
+      width: pxtorem(210/2);
+      height: pxtorem(80/2);
+      line-height: pxtorem(80/2);
+      position: relative;
+      text-align: center;
+      color: #fff;
+      font-family: PingFangSC-Semibold;
+      font-size: pxtorem(15);
+      font-weight: 700;
+      letter-spacing: 0;
+      margin-right: pxtorem(15);
+      cursor: pointer;
+
+      span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #343dd8;
+        border-radius: pxtorem(50);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #2029be;
+        border-radius: pxtorem(50);
+        left: 0;
+        top: pxtorem(10/2);
+        line-height: normal;
+      }
+
+      &.btn-active span {
+        background-color: transparent;
+        background-image: linear-gradient(118deg, #ff56bd 0%, #fd1a80 100%);
+      }
+    }
+
+    &.big {
+      margin-top: pxtorem(13.5);
+
+      .btn-default {
+        width: pxtorem(150);
+      }
+    }
+  }
+
+  .tip {
+    font-family: PingFangSC-Regular;
+    font-size: pxtorem(13);
+    color: #07025d;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: pxtorem(13);
+    margin-top: pxtorem(-13/2);
+    padding-bottom: pxtorem(26/2);
+  }
+
+  .sprayend-info {
+    height: pxtorem(540/2);
+    color: #fff;
+    letter-spacing: 0;
+    text-align: center;
+    position: relative;
+
+    .tip-info-wrap {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      .tip-info {
+        font-family: PingFangSC-Semibold;
+        font-size: pxtorem(17);
+        line-height: pxtorem(24);
+        margin-bottom: pxtorem(5);
+
+        &::before {
+          content: '';
+          display: inline-block;
+          vertical-align: middle;
+          line-height: normal;
+          width: pxtorem(10);
+          border-top: pxtorem(1) solid #fff;
+          margin-right: pxtorem(10);
+          margin-top: pxtorem(-1/2);
+        }
+
+        &::after {
+          content: '';
+          display: inline-block;
+          vertical-align: middle;
+          line-height: normal;
+          width: pxtorem(10);
+          height: pxtorem(1);
+          background-color: #fff;
+          margin-left: pxtorem(10);
+        }
+      }
+
+      .tip-info-tip {
+        margin-bottom: pxtorem(20);
+        font-family: PingFangSC-Regular;
+        font-size: pxtorem(12);
+        line-height: pxtorem(33/2);
+      }
+    }
+  }
+
+  &.end-dialog {
+    height: pxtorem(642/2);
+    box-sizing: border-box;
+
+    .bg {
+      height: auto;
+      pointer-events: auto;
+    }
+
+    .sprayend-info {
+      height: auto;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      .tip-info-wrap {
+        position: static;
+      }
+    }
+
+    .content {
+      position: static;
+    }
+
+    .title.hastip {
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+  }
+}

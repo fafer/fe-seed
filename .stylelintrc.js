@@ -6,6 +6,7 @@ module.exports = {
   ],
   rules:{
     "no-descending-specificity":null,
-    "at-rule-no-unknown":null
+    "at-rule-no-unknown":null,
+    "font-family-no-missing-generic-family-keyword":null
   }
 }

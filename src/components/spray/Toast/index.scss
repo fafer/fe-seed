@@ -1,0 +1,49 @@
+@import '../../../common/rem.scss';
+
+.toast-wrap {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: PingFangSC-Regular;
+  display: none;
+
+  &.show {
+    display: flex;
+  }
+
+  .toast {
+    padding: pxtorem(50/2) pxtorem(28/2);
+    box-sizing: border-box;
+    width: pxtorem(300/2);
+    background-color: rgba($color: #000, $alpha: 0.7);
+    border-radius: pxtorem(10/2);
+  }
+
+  .icon {
+    width: pxtorem(80/2);
+    height: pxtorem(80/2);
+    margin: auto;
+    background: url('../../../assets/img/warn-icon.png') center center no-repeat;
+    background-size: 100% auto;
+
+    &.success {
+      background: url('../../../assets/img/success-icon.png') center center no-repeat;
+      background-size: 100% auto;
+    }
+  }
+
+  .toast-tip {
+    margin-top: pxtorem(22/2);
+    font-weight: lighter;
+    text-align: center;
+    font-size: pxtorem(32/2);
+    line-height: pxtorem(48/2);
+  }
+}
