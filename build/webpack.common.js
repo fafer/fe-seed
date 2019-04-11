@@ -105,7 +105,7 @@ module.exports = {
         vendor: {
           name: 'vendor',
           chunks: 'initial',
-          test: /react|react-dom/,
+          test: /node_modules\/(react|react-dom)\//,
           priority: 10
         }
       }
