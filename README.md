@@ -89,6 +89,7 @@ npm run build -- --html
 ```bash
 Usage:
 npm run add -- filename --title=<title>
+npm run add -- -c=<component>
 或者
 node ./build/script/add.js filename --title=<title>
 

@@ -14,16 +14,16 @@ const argv = require('yargs').argv;
 function htmlPlugin() {
   let plugins;
   if (argv.html) {
-    plugins = Object.keys(CommonConfig.entry).map(
-      d =>
-        new HtmlWebpackPlugin({
-          filename: `${d}.html`,
-          template: path.join(conf.ENTRY_PATH, `../${d}.html`),
-          minify: false,
-          inject: false,
-          chunks: [d]
-        })
-    );
+    plugins = Object.keys(CommonConfig.entry).map(d => {
+      d = d.replace(new RegExp(conf.ENTRY_SEPERATE, 'g'), '/');
+      return new HtmlWebpackPlugin({
+        filename: `${d}.html`,
+        template: path.join(conf.ENTRY_PATH, `../${d}.html`),
+        minify: false,
+        inject: false,
+        chunks: [d]
+      });
+    });
     plugins.push(new ExtraHtmlWebpackPlugin());
   } else {
     plugins = [];
@@ -43,6 +43,9 @@ module.exports = Merge(CommonConfig, {
         sourceMap: false,
         extractComments: false,
         uglifyOptions: {
+          compress: {
+            drop_console: true
+          },
           output: {
             comments: false
           },

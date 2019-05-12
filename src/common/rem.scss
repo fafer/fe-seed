@@ -48,15 +48,15 @@ $browser-default-font-size: 37.5px !default;
 /*
   750的设计稿的话，标注尺寸/2
 */
-@function pxToRem($px) {
+@function pxtorem($px) {
   @return strip-units($px) / strip-units($browser-default-font-size) * 1rem;
 }
 
-@function remToPx($rem) {
+@function remtopx($rem) {
   @return strip-units($rem) * strip-units($browser-default-font-size) * 1px;
 }
 
-@function mulpxToRem($mulpx) {
+@function mulpxtorem($mulpx) {
   $max: length($mulpx);
   $remValues:'';
 

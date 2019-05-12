@@ -22,6 +22,9 @@ const CommonConfig = require('./webpack.common.js');
 module.exports = Merge(CommonConfig, {
   mode: 'development',
   devtool: 'inline-source-map',
+  output: {
+    publicPath: conf.BASEPATH
+  },
   devServer: {
     host: '0.0.0.0', // 允许外网访问，默认值为localhost
     port: port,

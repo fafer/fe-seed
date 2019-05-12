@@ -71,12 +71,13 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              // name: '[path][name].[ext]',
               name(filePath) {
                 return filePath
                   .replace(conf.SRC_PATH, '')
                   .substring(1)
-                  .replace(/\\/g, '/');
+                  .replace(/\\/g, '/')
+                  .replace(/\//g, conf.ENTRY_SEPERATE)
+                  .toLocaleLowerCase();
               },
               limit: 8192,
               publicPath:
@@ -84,6 +85,30 @@ module.exports = {
                   ? conf.IMGPUBLICPATH
                   : conf.BASEPATH,
               emitFile: true
+            }
+          },
+          {
+            loader: 'img-loader',
+            options: {
+              plugins() {
+                if (process.env.NODE_ENV === 'development') return [];
+                return [
+                  require('imagemin-gifsicle')({
+                    interlaced: false
+                  }),
+                  require('imagemin-mozjpeg')({
+                    progressive: true,
+                    arithmetic: false
+                  }),
+                  require('imagemin-pngquant')({
+                    floyd: 0.5,
+                    speed: 2
+                  }),
+                  require('imagemin-svgo')({
+                    plugins: [{ removeTitle: true }, { convertPathData: false }]
+                  })
+                ];
+              }
             }
           }
         ]
@@ -105,7 +130,7 @@ module.exports = {
         vendor: {
           name: 'vendor',
           chunks: 'initial',
-          test: /node_modules\/(react|react-dom)\//,
+          test: /node_modules\/(react|react-dom|@babel\/polyfill)\//,
           priority: 10
         }
       }

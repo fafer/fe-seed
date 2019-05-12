@@ -12,14 +12,21 @@ const getEntry = function(
   let name = '';
   files.forEach(function(file) {
     if (fs.lstatSync(path.join(pathname, file)).isDirectory()) {
-      getEntry(path.join(pathname, file), `${base}/${file}`, entry);
+      getEntry(
+        path.join(pathname, file),
+        `${base}${ENTRY_SEPERATE}${file}`,
+        entry
+      );
     } else if (resolveExtensions.test(file)) {
-      name = `${base}/${file.replace(resolveExtensions, '')}`;
+      name = `${base}${ENTRY_SEPERATE}${file.replace(resolveExtensions, '')}`;
       entry[name] = path.join(pathname, file);
     }
   });
   return entry;
 };
+
+//entry文件分隔符
+const ENTRY_SEPERATE = '/';
 
 // 项目源文件目录
 const SRC_PATH = path.join(__dirname, '../src');
@@ -59,6 +66,7 @@ module.exports = {
   getEntry() {
     return getEntry(ENTRY_PATH);
   },
+  ENTRY_SEPERATE,
   HOST,
   PUBLICBASE,
   BASEPATH,
