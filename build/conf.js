@@ -25,7 +25,7 @@ const getEntry = function(
   return entry;
 };
 
-//entry文件分隔符
+//entry文件分隔符 '/'会生成层级目录、连字符的话，eg：-，会将层级目录以文件名形式显示
 const ENTRY_SEPERATE = '/';
 
 // 项目源文件目录

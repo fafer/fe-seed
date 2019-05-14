@@ -15,7 +15,7 @@ function htmlPlugin() {
   let plugins;
   if (argv.html) {
     plugins = Object.keys(CommonConfig.entry).map(d => {
-      d = d.replace(new RegExp(conf.ENTRY_SEPERATE, 'g'), '/');
+      d = d.replace(new RegExp(conf.ENTRY_SEPERATE, 'g'), '/'); //TODO：逻辑会有些问题，后续优化
       return new HtmlWebpackPlugin({
         filename: `${d}.html`,
         template: path.join(conf.ENTRY_PATH, `../${d}.html`),
