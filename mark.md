@@ -15,6 +15,7 @@ CI：travis
 拆包：lerna
 构建部分引入html-webpack-plugin
 **提炼构建部分为cli**
+**构建版本号**
 接入jenkis
 **引入node的server端**
 **node服务的部署与管理**
