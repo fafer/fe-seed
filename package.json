@@ -19,6 +19,7 @@
     "deploy": "node ./build/script/ftp/index",
     "ftp": "ftp-cli",
     "test": "jest sum.test --coverage",
+    "clean": "git clean -dfqX -- ./node_modules **/{dist,node_modules}/ ./package-lock.json",
     "codecov": "cat ./coverage/lcov.info | ./node_modules/.bin/codecov"
   },
   "lint-staged": {
