@@ -68,7 +68,12 @@ module.exports = Merge(CommonConfig, {
     new ManifestPlugin({
       basePath: conf.BASEPATH,
       generate(seed, files) {
-        return files.reduce((manifest, { name, path }) => {
+        return files.reduce((manifest, { name, path, isChunk, chunk }) => {
+          if (isChunk)
+            path = path.replace(
+              /(\.(js|css))$/g,
+              $0 => '_' + chunk.hash.substring(0, 20) + $0
+            );
           if (/\.js$/.test(path)) {
             return { ...manifest, [name]: path };
           } else if (/\.css$/.test(path)) {
