@@ -2,12 +2,22 @@ let urlUtil = function(url) {
   if (typeof url === 'undefined') url = window.location.href;
   var default_url = url,
     index = url.indexOf('?'),
+    hashIndex = url.indexOf('#'),
     uri = url,
-    search = '';
+    search = '',
+    hash = '';
 
   if (index != -1) {
-    search = url.substr(index + 1);
-    uri = uri.substr(0, index);
+    if (hashIndex != -1) {
+      search = url.substring(index + 1, hashIndex);
+    } else {
+      search = url.substring(index + 1);
+    }
+    uri = uri.substring(0, index);
+  }
+
+  if (hashIndex != -1) {
+    hash = url.substring(hashIndex + 1);
   }
 
   function getParams(searchs) {
@@ -56,7 +66,7 @@ let urlUtil = function(url) {
       return default_url;
     },
     getUrl: function() {
-      return uri + serializeParams(this.__params);
+      return uri + serializeParams(this.__params) + (hash ? '#' + hash : '');
     }
   };
 };
