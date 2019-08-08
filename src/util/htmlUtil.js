@@ -54,3 +54,9 @@ let createEscaper = function(map) {
 
 export let htmlescape = createEscaper(escapeMap);
 export let htmlunescape = createEscaper(unescapeMap);
+export let clearEvent = function(str) {
+  str = str || '';
+  str = str.replace(/((\?on[a-z]+)=)/gi, ' ');
+  str = str.replace(/((on[a-z]+)=)/gi, ' ');
+  return str;
+};
