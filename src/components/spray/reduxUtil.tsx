@@ -127,10 +127,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 export let createApp = component => {
-  return connect(
-    state => state,
-    mapDispatchToProps
-  )(component);
+  return connect(state => state, mapDispatchToProps)(component);
 };
 
 export let createProvider = component => {
