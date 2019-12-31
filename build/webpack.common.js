@@ -2,6 +2,7 @@ const path = require('path');
 const conf = require('./conf');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: conf.getEntry(),
@@ -124,19 +125,10 @@ module.exports = {
       '@': conf.SRC_PATH
     }
   },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          name: 'vendor',
-          chunks: 'initial',
-          test: /node_modules\/(react|react-dom|@babel\/polyfill)\//,
-          priority: 10
-        }
-      }
-    }
-  },
   plugins: [
+    new webpack.DllReferencePlugin({
+      manifest: require(path.join(conf.COPY_PATH, 'vendor-manifest.json'))
+    }),
     new CopyWebpackPlugin([
       {
         from: conf.COPY_PATH,
