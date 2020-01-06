@@ -1,14 +1,15 @@
 let urlUtil = function(url) {
   if (typeof url === 'undefined') url = window.location.href;
-  var default_url = url,
-    index = url.indexOf('?'),
+  let default_url = url,
     hashIndex = url.indexOf('#'),
-    uri = url,
+    _url = hashIndex !== -1 ? url.substring(0, hashIndex) : url,
+    index = _url.indexOf('?'),
+    uri = _url,
     search = '',
     hash = '';
 
-  if (index != -1) {
-    if (hashIndex != -1) {
+  if (index !== -1) {
+    if (hashIndex !== -1) {
       search = url.substring(index + 1, hashIndex);
     } else {
       search = url.substring(index + 1);
@@ -16,24 +17,24 @@ let urlUtil = function(url) {
     uri = uri.substring(0, index);
   }
 
-  if (hashIndex != -1) {
+  if (hashIndex !== -1) {
     hash = url.substring(hashIndex + 1);
   }
 
   function getParams(searchs) {
     if (!searchs) return {};
-    var params = {},
+    let params = {},
       _searchs = searchs.split('&');
-    for (var index = 0; index < _searchs.length; index++) {
-      var temps = _searchs[index].split('=');
+    for (let index = 0; index < _searchs.length; index++) {
+      let temps = _searchs[index].split('=');
       params[temps[0]] = temps[1];
     }
     return params;
   }
 
   function serializeParams(param) {
-    var params = '?';
-    for (var name in param) {
+    let params = '?';
+    for (let name in param) {
       if (param.hasOwnProperty(name)) {
         if (typeof param[name] !== 'undefined')
           params += name + '=' + param[name] + '&';
