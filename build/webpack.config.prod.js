@@ -72,7 +72,7 @@ module.exports = Merge(CommonConfig, {
           if (isChunk)
             path = path.replace(
               /(\.(js|css))$/g,
-              $0 => '_' + chunk.hash.substring(0, 20) + $0
+              $0 => '_' + chunk.hash.substring(0, 8) + $0
             );
           if (/\.js$/.test(path)) {
             return { ...manifest, [name]: path };

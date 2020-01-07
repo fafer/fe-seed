@@ -8,7 +8,7 @@ module.exports = {
   entry: conf.getEntry(),
   output: {
     filename: '[name].js',
-    chunkFilename: '[name].js'
+    chunkFilename: '[name].js?v=[hash:8]'
   },
   module: {
     rules: [
@@ -137,7 +137,7 @@ module.exports = {
     ]),
     new MiniCssExtractPlugin({
       filename: '[name].css',
-      chunkFilename: '[name].css'
+      chunkFilename: '[name].css?v=[hash:8]'
     })
   ]
 };
