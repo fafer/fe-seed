@@ -7,7 +7,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtraHtmlWebpackPlugin = require('./plugins/extra-html-webpack-plugin');
-const Uglifyjs = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const argv = require('yargs').argv;
 
@@ -39,17 +39,17 @@ module.exports = Merge(CommonConfig, {
   },
   optimization: {
     minimizer: [
-      new Uglifyjs({
+      new TerserPlugin({
         sourceMap: false,
         extractComments: false,
-        uglifyOptions: {
-          compress: {
+        terserOptions:{
+          compress:{
             drop_console: true
           },
           output: {
             comments: false
           },
-          warnings: false
+          warnings: false,
         }
       }),
       new OptimizeCSSAssetsPlugin({})
