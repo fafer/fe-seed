@@ -18,7 +18,7 @@ let urlUtil = function(url) {
   } else {
     if (hashIndex != -1) {
       uri = uri.substring(0, hashIndex);
-    } 
+    }
   }
 
   path = uri.replace(/^((https?:)?(\/\/)[^\/]*)/, '');
