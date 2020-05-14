@@ -14,8 +14,8 @@ CI：travis
 **e2e**
 拆包：lerna
 构建部分引入html-webpack-plugin
-**提炼构建部分为cli**
-**构建版本号**
+提炼构建部分为cli
+构建版本号
 接入jenkis
 **引入node的server端**
 **node服务的部署与管理**
@@ -28,4 +28,4 @@ linux部署
 ## 问题
 
 **linux下ssh方式git clone时，出现普通用户失败，root用户能正常拉取代码。https方式则是都正常**
-**是否可以把hash版本号加入进构建脚本中**
+是否可以把hash版本号加入进构建脚本中
