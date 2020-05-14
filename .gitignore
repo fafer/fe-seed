@@ -15,4 +15,4 @@ lerna-debug.log
 *.log
 *.cache
 src/lib/vendor-manifest.json
-src/lib/vendor.json
+src/lib/vendor.js

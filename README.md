@@ -47,8 +47,11 @@
 
 ```bash
 npm i
+
 npm i -g commitizen cz-conventional-changelog ftp-cli
 echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
+or
+npm i -g commitizen
 ```
 
 - 开发模式

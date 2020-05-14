@@ -171,5 +171,10 @@
     "not ie <= 11",
     "maintained node versions",
     "not dead"
-  ]
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
