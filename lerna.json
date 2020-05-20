@@ -2,5 +2,19 @@
   "packages": [
     "packages/*"
   ],
-  "version": "independent"
+  "version": "independent",
+  "command": {
+    "bootstrap": {
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
+    },
+    "publish": {
+      "skipGit": true,
+      "allowBranch": "master",
+      "ignoreChanges": [
+        "*.md"
+      ]
+    }
+  }
 }
