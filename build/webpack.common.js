@@ -88,30 +88,30 @@ module.exports = {
               emitFile: true
             }
           },
-          {
-            loader: 'img-loader',
-            options: {
-              plugins() {
-                if (process.env.NODE_ENV === 'development') return [];
-                return [
-                  require('imagemin-gifsicle')({
-                    interlaced: false
-                  }),
-                  require('imagemin-mozjpeg')({
-                    progressive: true,
-                    arithmetic: false
-                  }),
-                  require('imagemin-pngquant')({
-                    floyd: 0.5,
-                    speed: 2
-                  }),
-                  require('imagemin-svgo')({
-                    plugins: [{ removeTitle: true }, { convertPathData: false }]
-                  })
-                ];
-              }
-            }
-          }
+          // {
+          //   loader: 'img-loader',
+          //   options: {
+          //     plugins() {
+          //       if (process.env.NODE_ENV === 'development') return [];
+          //       return [
+          //         require('imagemin-gifsicle')({
+          //           interlaced: false
+          //         }),
+          //         require('imagemin-mozjpeg')({
+          //           progressive: true,
+          //           arithmetic: false
+          //         }),
+          //         require('imagemin-pngquant')({
+          //           floyd: 0.5,
+          //           speed: 2
+          //         }),
+          //         require('imagemin-svgo')({
+          //           plugins: [{ removeTitle: true }, { convertPathData: false }]
+          //         })
+          //       ];
+          //     }
+          //   }
+          // }
         ]
       }
     ]
