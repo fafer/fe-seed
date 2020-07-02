@@ -28,7 +28,7 @@ module.exports = {
     ],
     "settings":{
       "react":{
-        "version":"16.8.6"
+        "version":"16.13.1"
       }
     },
     "globals":{

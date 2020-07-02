@@ -42,14 +42,14 @@ module.exports = Merge(CommonConfig, {
       new TerserPlugin({
         sourceMap: false,
         extractComments: false,
-        terserOptions:{
-          compress:{
+        terserOptions: {
+          compress: {
             drop_console: true
           },
           output: {
             comments: false
           },
-          warnings: false,
+          warnings: false
         }
       }),
       new OptimizeCSSAssetsPlugin({})
