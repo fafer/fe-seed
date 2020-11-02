@@ -13,7 +13,7 @@ let escapeMap = {
 /* eslint-disable */
   '\'': '&#x27;',
   /* eslint-enable */
-  '`': '&#x60;'
+  '`': '&#x60;',
 };
 let unescapeMap = {
   '&amp;': '&',
@@ -23,7 +23,7 @@ let unescapeMap = {
 /* eslint-disable */
   '&#x27;': '\'',
   /* eslint-enable */
-  '&#x60;': '`'
+  '&#x60;': '`',
 };
 
 function keys(obj) {
@@ -37,14 +37,14 @@ function keys(obj) {
   return keys;
 }
 
-let createEscaper = function(map) {
-  let escaper = function(match) {
+let createEscaper = function (map) {
+  let escaper = function (match) {
     return map[match];
   };
   let source = '(?:' + keys(map).join('|') + ')';
   let testRegexp = RegExp(source);
   let replaceRegexp = RegExp(source, 'g');
-  return function(string) {
+  return function (string) {
     string = string == null ? '' : '' + string;
     return testRegexp.test(string)
       ? string.replace(replaceRegexp, escaper)
@@ -54,7 +54,7 @@ let createEscaper = function(map) {
 
 export let htmlescape = createEscaper(escapeMap);
 export let htmlunescape = createEscaper(unescapeMap);
-export let clearEvent = function(str) {
+export let clearEvent = function (str) {
   str = str || '';
   str = str.replace(/((\?on[a-z]+)=)/gi, ' ');
   str = str.replace(/((on[a-z]+)=)/gi, ' ');

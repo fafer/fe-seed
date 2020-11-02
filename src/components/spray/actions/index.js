@@ -9,7 +9,7 @@ import {
   SPRAYLIST,
   TASK_LIST,
   TOAST_STATUS,
-  USERINFO
+  USERINFO,
 } from '../actionType';
 import {
   DIALOG_END,
@@ -20,7 +20,7 @@ import {
   INFOSTATE_LOTTERYING,
   USERSTATE_CHANGED,
   USERSTATE_FULL,
-  USERSTATE_NOT_FULL
+  USERSTATE_NOT_FULL,
 } from '../sprayUtil';
 const urlUtilInstance = urlUtil();
 const localId = '';
@@ -29,23 +29,23 @@ const DEFAULT_TASK = {
   1: {
     name: '每日签到',
     desc: '每日在此签到可集1个',
-    btnName: '每日签到'
+    btnName: '每日签到',
   },
   2: {
     name: '分享活动页面',
     desc: '点此分享,${totalTimes}人点开可集1个',
-    btnName: '立即分享'
+    btnName: '立即分享',
   },
   3: {
     name: '浏览校园新鲜事',
     desc: '浏览${totalTimes}条帖子详情可集1个',
-    btnName: '立即浏览'
+    btnName: '立即浏览',
   },
   4: {
     name: '分享校校精品帖',
     desc: '点此分享，被点开可集1个',
-    btnName: '立即分享'
-  }
+    btnName: '立即分享',
+  },
 };
 const urlUtilShare = urlUtil();
 urlUtilShare.removeParam('from58');
@@ -53,7 +53,7 @@ const DEFAULT_SHARE = {
   title: '逢考必过喷雾大放送，咦，还有奖学金',
   desc: '考的全会蒙的都对，超常发挥高分不累',
   pic: 'https://img.58cdn.com.cn/weitech/innovation-activity/spray-share.png',
-  link: urlUtilShare.removeParam('action')
+  link: urlUtilShare.removeParam('action'),
 };
 /**
  * 获取任务列表
@@ -66,7 +66,7 @@ export async function getTaskList() {
     data = await getJSON(url);
   } catch (e) {
     data = {
-      taskList: []
+      taskList: [],
     };
     console.log(e);
   }
@@ -74,7 +74,7 @@ export async function getTaskList() {
 }
 
 function receiveTaskList(taskList) {
-  taskList = taskList.map(item => {
+  taskList = taskList.map((item) => {
     item = { ...DEFAULT_TASK[item.type], ...item };
     item.desc = item.desc.replace('${totalTimes}', item.totalTimes);
     if (item.state === 2) {
@@ -88,8 +88,8 @@ function receiveTaskList(taskList) {
   return {
     type: TASK_LIST,
     data: {
-      taskList
-    }
+      taskList,
+    },
   };
 }
 /**
@@ -120,11 +120,11 @@ export function handleTask(index = 0) {
  * index: 点击的索引
  */
 function signIn(index) {
-  return dispatch => {
+  return (dispatch) => {
     let url = `/txactivity/ks/task/checkin?_t=${new Date().getTime()}`;
     // @mock fetchSignIn(url)
     return getJSON(url)
-      .then(data => {
+      .then((data) => {
         dispatch(setTaskList(index, 3, '今日已领取', data));
       })
       .catch(() => {
@@ -143,13 +143,13 @@ function taskShare(index) {
     // @mock shareTask(url)
     return getJSON(url, {
       taskId: type,
-      localId
+      localId,
     })
-      .then(data => {
+      .then((data) => {
         if (type === 2) {
           dispatch(
             shareGuideToggle(true, {
-              link: setUrlFrom(data.jumpUrl, 'task_syhdfx')
+              link: setUrlFrom(data.jumpUrl, 'task_syhdfx'),
             })
           );
         } else {
@@ -177,13 +177,13 @@ function setUrlFrom(url, from) {
  * @param {number} index  任务索引
  */
 function getTaskReward(index, type) {
-  return dispatch => {
+  return (dispatch) => {
     let url = `/txactivity/ks/task/submit?_t=${new Date().getTime()}`;
     // @mock taskReward(url)
     return getJSON(url, {
-      taskId: type
+      taskId: type,
     })
-      .then(data => {
+      .then((data) => {
         dispatch(setTaskList(index, 3, '今日已领取', data));
       })
       .catch(() => {
@@ -201,14 +201,14 @@ function setTaskList(index, state, btnName, data) {
       showDialog({
         spray: data.spray.type,
         type: DIALOG_TASK_HUODE,
-        increase: true
+        increase: true,
       })
     );
     dispatch({
       type: TASK_LIST,
       data: {
-        taskList: [...taskList]
-      }
+        taskList: [...taskList],
+      },
     });
   };
 }
@@ -224,9 +224,9 @@ export function toastToggle(tip, icon = 'warning') {
       toast: {
         show: !!tip,
         tip,
-        icon
-      }
-    }
+        icon,
+      },
+    },
   };
 }
 /**
@@ -237,30 +237,30 @@ export function toastToggle(tip, icon = 'warning') {
 export function shareGuideToggle(
   isShow = false,
   shareConfig = {
-    link: window.location.href
+    link: window.location.href,
   }
 ) {
   const shareConf = {
     ...DEFAULT_SHARE,
-    ...shareConfig
+    ...shareConfig,
   };
   shareConf.link = shareConf.link.replace(/https?:/, window.location.protocol);
   return {
     type: SHARE_GUIDE_TOGGLE,
     data: {
       shareConf,
-      shareShow: isShow
-    }
+      shareShow: isShow,
+    },
   };
 }
 export const initData = () => {
-  return dispatch => {
+  return (dispatch) => {
     Promise.all([
       getInfo(),
       getSprayList(),
       getTaskList(),
-      getDialogInfo()
-    ]).then(res => {
+      getDialogInfo(),
+    ]).then((res) => {
       let data = {},
         infoState = res[0].data.info.state,
         userInfo = res[0].data.info.userInfo || {},
@@ -273,7 +273,7 @@ export const initData = () => {
       ) {
         data.dialog = {
           show: true,
-          type: DIALOG_END
+          type: DIALOG_END,
         };
       } else if (
         (infoState === INFOSTATE_COLLECTEND ||
@@ -281,7 +281,7 @@ export const initData = () => {
         userState !== USERSTATE_NOT_FULL
       ) {
         data.dialog = {
-          show: false
+          show: false,
         };
       } else {
         data = res[3].data;
@@ -294,8 +294,8 @@ export const initData = () => {
           userInfo,
           ...res[1].data,
           ...res[2].data,
-          ...data
-        }
+          ...data,
+        },
       });
     });
   };
@@ -314,8 +314,8 @@ export const getInfo = async () => {
   return {
     type: INFO,
     data: {
-      info: data
-    }
+      info: data,
+    },
   };
 };
 
@@ -332,8 +332,8 @@ export const getUserInfo = async () => {
   return {
     type: USERINFO,
     data: {
-      userInfo: data
-    }
+      userInfo: data,
+    },
   };
 };
 
@@ -348,32 +348,32 @@ export const getSprayList = async () => {
       sprayList: [
         {
           type: 1,
-          count: 0
+          count: 0,
         },
         {
           type: 2,
-          count: 0
+          count: 0,
         },
         {
           type: 3,
-          count: 0
+          count: 0,
         },
         {
           type: 4,
-          count: 0
+          count: 0,
         },
         {
           type: 5,
-          count: 0
-        }
-      ]
+          count: 0,
+        },
+      ],
     };
   }
   return {
     type: SPRAYLIST,
     data: {
-      sprayList: data.sprayList
-    }
+      sprayList: data.sprayList,
+    },
   };
 };
 
@@ -383,7 +383,7 @@ export const changeUserState = () => {
   return (dispatch, getState) => {
     getJSON(url).then(() => {
       let sprayList = getState().sprayList;
-      sprayList = sprayList.map(d => {
+      sprayList = sprayList.map((d) => {
         d.count = d.count - 1;
         return d;
       });
@@ -391,8 +391,8 @@ export const changeUserState = () => {
         type: CHANGEUSERSTATE,
         data: {
           userInfo: { ...getState().userInfo, state: USERSTATE_CHANGED },
-          sprayList
-        }
+          sprayList,
+        },
       });
     });
   };
@@ -406,9 +406,9 @@ export const showDialog = ({ spray, type, show = true, increase = false }) => {
         dialog: {
           show,
           spray,
-          type
-        }
-      }
+          type,
+        },
+      },
     };
     if (increase) {
       const state = getState();
@@ -421,7 +421,7 @@ export const showDialog = ({ spray, type, show = true, increase = false }) => {
       }
       if (userState === USERSTATE_NOT_FULL || userState === USERSTATE_FULL) {
         let temp = true;
-        sprayList.map(d => {
+        sprayList.map((d) => {
           temp = temp && d.count > 0;
         });
         if (temp) {
@@ -440,15 +440,15 @@ export const getDialogInfo = async () => {
   let data = {
       type: DIALOG,
       data: {
-        dialog: {}
-      }
+        dialog: {},
+      },
     },
     url = `/txactivity/ks/action?_t=${new Date().getTime()}`,
     action = urlUtilInstance.getParam('action');
   // @mock dialogInfo(url)
   try {
     let temp = await getJSON(url, {
-      action: action || ''
+      action: action || '',
     });
     if (!temp.type) {
       return data;
@@ -489,9 +489,9 @@ export const send = ({ spray }) => {
       let url = `/txactivity/ks/bottle/confirmgive?_t=${new Date().getTime()}`;
       // @mock sendSpray(url)
       getJSON(url, {
-        action: urlUtilInstance.getParam('action')
+        action: urlUtilInstance.getParam('action'),
       })
-        .then(result => {
+        .then((result) => {
           let data = toastToggle('赠送成功，你已随机获得新喷雾', 'success'),
             dialog = state.dialog;
           dialog.show = false;
@@ -504,7 +504,7 @@ export const send = ({ spray }) => {
               showDialog({
                 spray: result.spray.type,
                 type: result.type,
-                increase: true
+                increase: true,
               })
             );
           }, 1000);
@@ -519,30 +519,30 @@ export const send = ({ spray }) => {
 };
 
 export const share = (shareConfig = {}) => {
-  return dispatch => {
+  return (dispatch) => {
     let action = shareGuideToggle(true, shareConfig);
     action.data.dialog = {
-      show: false
+      show: false,
     };
     dispatch(action);
   };
 };
 
-export const qiu = spray => {
-  return dispatch => {
+export const qiu = (spray) => {
+  return (dispatch) => {
     let url = `/txactivity/ks/bottle/ask?_t=${new Date().getTime()}`;
     // @mock qiuzengurl(url)
     getJSON(url, {
       type: spray,
-      localId
+      localId,
     })
-      .then(result => {
+      .then((result) => {
         const sprayInfo = getSpray(spray);
         dispatch(
           share({
             title: `万能的票圈，求一瓶${sprayInfo.name} 喷雾`,
             desc: '赠人喷雾，考神还会再随机给你一瓶新的哟',
-            link: urlUtil(result.jumpUrl).setParam('from58', 'tc_pwqzs')
+            link: urlUtil(result.jumpUrl).setParam('from58', 'tc_pwqzs'),
           })
         );
       })
@@ -555,16 +555,16 @@ export const qiu = spray => {
 export const collect = () => {
   document.getElementById('task-list').scrollIntoView();
   return showDialog({
-    show: false
+    show: false,
   });
 };
 
 export const openbonus = () => {
-  return dispatch => {
+  return (dispatch) => {
     let url = `/txactivity/ks/openbonus/${localId}?_t=${new Date().getTime()}`;
     //@mock openbonusurl(url)
     getJSON(url)
-      .then(result => {
+      .then((result) => {
         window.location.href = result.jumpUrl;
       })
       .catch(() => {

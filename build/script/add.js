@@ -26,7 +26,7 @@ function addComponent(name) {
     fs.copyFile(
       path.join(componentTemplateDir, 'index.scss'),
       path.join(componentPath, 'index.scss'),
-      function() {}
+      function () {}
     );
     processScript(
       componentPath,
@@ -36,7 +36,7 @@ function addComponent(name) {
     fs.copyFile(
       path.join(componentTemplateDir, 'mock.js'),
       path.join(componentPath, 'mock.js'),
-      function() {}
+      function () {}
     );
   }
 }
@@ -53,7 +53,7 @@ function processHtml(addPath, name, title) {
       }${path.basename(scriptTemplate, '.jsx')}`
     )
     .replace(/\$\{title\}/gi, title);
-  fs.writeFile(path.join(addPath, htmlTemplate), htmlTemp, err => {
+  fs.writeFile(path.join(addPath, htmlTemplate), htmlTemp, (err) => {
     if (err)
       console.error(`write ${path.join(addPath, htmlTemplate)} failed`, err);
   });
@@ -68,7 +68,7 @@ function processScript(addPath, name, templatePath) {
       /\$\{Component\}/gi,
       name.charAt(0).toUpperCase() + name.substring(1)
     );
-  fs.writeFile(path.join(addPath, scriptTemplate), scriptTemp, err => {
+  fs.writeFile(path.join(addPath, scriptTemplate), scriptTemp, (err) => {
     if (err)
       console.error(`write ${path.join(addPath, scriptTemplate)} failed`, err);
   });
@@ -108,20 +108,20 @@ const cli = meow(
     flags: {
       title: {
         type: 'string',
-        alias: 't'
+        alias: 't',
       },
       component: {
         type: 'string',
-        alias: 'c'
-      }
-    }
+        alias: 'c',
+      },
+    },
   }
 );
 
 const options = {
   filename: cli.input[0],
   title: cli.flags.title,
-  component: cli.flags.component
+  component: cli.flags.component,
 };
 
 if (options.component) {

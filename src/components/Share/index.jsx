@@ -32,7 +32,7 @@ export default class Share extends Component {
         if (state == 1) {
           share.callback && share.callback(source);
         }
-      }
+      },
     };
     if (share.path) {
       shareInfo.path = share.path;
@@ -67,7 +67,7 @@ export default class Share extends Component {
               title: shareConf.title,
               summary: shareConf.desc,
               pic: shareConf.imgUrl,
-              url: shareConf.link
+              url: shareConf.link,
             });
         }
       );
@@ -75,7 +75,7 @@ export default class Share extends Component {
     //58同镇分享
     if (getUa().wbxiaoxiao) {
       shareConf.isExtendBtn = true;
-      wbxiaoxiaoShare(shareConf, function(state, source) {
+      wbxiaoxiaoShare(shareConf, function (state, source) {
         //分享回调
         wbxiaoxiaoCallback('', state, source);
       });

@@ -1,4 +1,4 @@
-let urlUtil = function(url) {
+let urlUtil = function (url) {
   if (typeof url === 'undefined') url = window.location.href;
   var default_url = url,
     index = url.indexOf('?'),
@@ -54,29 +54,29 @@ let urlUtil = function(url) {
 
   return {
     __params: getParams(search),
-    removeParam: function(name) {
+    removeParam: function (name) {
       delete this.__params[name];
       return this.getUrl();
     },
-    setParam: function(name, value) {
+    setParam: function (name, value) {
       this.__params[name] = value;
       return this.getUrl();
     },
     getParam: function getParam(name) {
       return this.__params[name];
     },
-    hasParam: function(name) {
+    hasParam: function (name) {
       if (this.__params.hasOwnProperty(name)) return true;
       return false;
     },
-    getDefaultUrl: function() {
+    getDefaultUrl: function () {
       return default_url;
     },
-    getUrl: function() {
+    getUrl: function () {
       return uri + serializeParams(this.__params) + (hash ? '#' + hash : '');
     },
     path,
-    uri
+    uri,
   };
 };
 

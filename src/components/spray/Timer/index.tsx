@@ -8,7 +8,7 @@ export default class Timer extends Component {
       (this.state = {
         hour: '',
         minute: '',
-        second: ''
+        second: '',
       });
   }
 
@@ -48,7 +48,7 @@ export default class Timer extends Component {
     return (
       <div
         className="activity-opt activity-opt-time"
-        ref={dom => (this.dom = dom)}
+        ref={(dom) => (this.dom = dom)}
       />
     );
   }

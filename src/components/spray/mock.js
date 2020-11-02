@@ -1,6 +1,6 @@
 let Mock = require('mockjs');
 // 任务列表
-export const fetchTaskList = url => {
+export const fetchTaskList = (url) => {
   Mock.mock(url, {
     data: {
       'taskList|4': [
@@ -8,50 +8,50 @@ export const fetchTaskList = url => {
           'totalTimes|1-4': 1,
           state: 2,
           'currentTimes|0-1': 0,
-          'type|+1': 1
-        }
+          'type|+1': 1,
+        },
       ],
       date: '',
-      openId: ''
+      openId: '',
     },
     code: 0,
-    msg: ''
+    msg: '',
   });
 };
 // 签到
-export const fetchSignIn = url => {
+export const fetchSignIn = (url) => {
   Mock.mock(url, {
     data: {
       spray: {
-        type: 1
+        type: 1,
       },
-      type: 94
+      type: 94,
     },
     code: 0,
-    msg: ''
+    msg: '',
   });
 };
 // 任务分享
-export const shareTask = url => {
+export const shareTask = (url) => {
   Mock.mock(url, {
     data: {
-      jumpUrl: 'http://mtongzhen.58.com/130129203000'
+      jumpUrl: 'http://mtongzhen.58.com/130129203000',
     },
     code: 0,
-    msg: ''
+    msg: '',
   });
 };
 // 任务领取
-export const taskReward = url => {
+export const taskReward = (url) => {
   Mock.mock(url, {
     data: {
       spray: {
-        type: 1
+        type: 1,
       },
-      type: 1
+      type: 1,
     },
     code: 0,
-    msg: ''
+    msg: '',
   });
 };
 //活动信息
@@ -63,11 +63,11 @@ export const info = (url = '/txactivity/ks/info') => {
       'state|2': 2,
       'bonus|10000-10000000': 1000,
       userInfo: {
-        'state|2': 2
-      }
+        'state|2': 2,
+      },
     },
     code: 0,
-    msg: ''
+    msg: '',
   });
 };
 
@@ -76,10 +76,10 @@ export const userInfo = (url = '/txactivity/ks/userinfo') => {
   Mock.mock(url, {
     data: {
       'state|2': 2,
-      openId: ''
+      openId: '',
     },
     code: 0,
-    msg: ''
+    msg: '',
   });
 };
 
@@ -90,13 +90,13 @@ export const sprayList = (url = '/txactivity/ks/bottle/list') => {
       'sprayList|5': [
         {
           'count|0-100': 0,
-          'type|+1': 1
-        }
+          'type|+1': 1,
+        },
       ],
-      openId: ''
+      openId: '',
     },
     code: 0,
-    msg: ''
+    msg: '',
   });
 };
 
@@ -105,7 +105,7 @@ export const change = (url = '/txactivity/ks/change') => {
   Mock.mock(url, {
     data: {},
     code: 0,
-    msg: ''
+    msg: '',
   });
 };
 
@@ -114,14 +114,14 @@ export const dialogInfo = (url = '/txactivity/ks/action') => {
   Mock.mock(url, {
     data: {
       spray: {
-        'type|1-5': 0
+        'type|1-5': 0,
       },
       action: '',
       'canSend|0-4': 0,
-      'type|1-4': 1
+      'type|1-4': 1,
     },
     code: 0,
-    msg: ''
+    msg: '',
   });
 };
 
@@ -130,12 +130,12 @@ export const sendSpray = (url = '/txactivity/ks/bottle/confirmgive') => {
   Mock.mock(url, {
     data: {
       spray: {
-        'type|1-5': 0
+        'type|1-5': 0,
       },
-      'type|1-4': 1
+      'type|1-4': 1,
     },
     code: 0,
-    msg: ''
+    msg: '',
   });
 };
 
@@ -144,10 +144,10 @@ export const qiuzengurl = (url = '/txactivity/ks/bottle/ask') => {
   Mock.mock(url, {
     data: {
       jumpUrl:
-        'http://tongxiao.58.com/spray.html?action=' + new Date().getTime()
+        'http://tongxiao.58.com/spray.html?action=' + new Date().getTime(),
     },
     code: 0,
-    msg: ''
+    msg: '',
   });
 };
 
@@ -155,9 +155,9 @@ export const qiuzengurl = (url = '/txactivity/ks/bottle/ask') => {
 export const openbonusurl = (url = '/txactivity/ks/openbonus') => {
   Mock.mock(url, {
     data: {
-      jumpUrl: 'http://tongxiao.58.com/openbonus'
+      jumpUrl: 'http://tongxiao.58.com/openbonus',
     },
     code: 0,
-    msg: ''
+    msg: '',
   });
 };

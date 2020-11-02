@@ -15,7 +15,7 @@ export default class ShareGuide extends Component {
       ...shareConf,
       complete: () => {
         hide();
-      }
+      },
     };
   };
 

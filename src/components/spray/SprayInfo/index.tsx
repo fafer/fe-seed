@@ -10,7 +10,7 @@ import {
   USERSTATE_CHANGED,
   USERSTATE_FULL,
   USERSTATE_LOTTERY,
-  USERSTATE_NOT_FULL
+  USERSTATE_NOT_FULL,
 } from '../sprayUtil';
 import Timer from '../Timer';
 import './index.scss';
@@ -114,7 +114,7 @@ export default class SprayInfo extends Component {
                 classnameTemp = classNames({
                   'img-wrap': true,
                   [`sprayblack${d.type}`]: !d.count,
-                  [`spraychalk${d.type}`]: d.count
+                  [`spraychalk${d.type}`]: d.count,
                 });
               return (
                 <div
@@ -125,7 +125,7 @@ export default class SprayInfo extends Component {
                       spray: d.type,
                       type: d.count
                         ? DIALOG_CHANKAN_YIYOU
-                        : DIALOG_CHANKAN_MEIYOU
+                        : DIALOG_CHANKAN_MEIYOU,
                     })
                   }
                 >

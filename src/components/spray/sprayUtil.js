@@ -27,36 +27,36 @@ export function getSpray(type) {
       return {
         name: '考的全会',
         pic: '//img.58cdn.com.cn/weitech/innovation-activity/spray1.png',
-        clickLog: 'jpw_kdqh'
+        clickLog: 'jpw_kdqh',
       };
     case SPRAY_TWO:
       return {
         name: '蒙的都对',
         pic: '//img.58cdn.com.cn/weitech/innovation-activity/spray2.png',
-        clickLog: 'jpw_mddd'
+        clickLog: 'jpw_mddd',
       };
     case SPRAY_THREE:
       return {
         name: '高分不累',
         pic: '//img.58cdn.com.cn/weitech/innovation-activity/spray3.png',
-        clickLog: 'jpw_gfbl'
+        clickLog: 'jpw_gfbl',
       };
     case SPRAY_FOUR:
       return {
         name: '超常发挥',
         pic: '//img.58cdn.com.cn/weitech/innovation-activity/spray4.png',
-        clickLog: 'jpw_ccfh'
+        clickLog: 'jpw_ccfh',
       };
     case SPRAY_FIVE:
       return {
         name: '欧气包围',
         pic: '//img.58cdn.com.cn/weitech/innovation-activity/spray5.png',
-        clickLog: 'jpw_oqbw'
+        clickLog: 'jpw_oqbw',
       };
     default:
       return {
         name: '',
-        pic: ''
+        pic: '',
       };
   }
 }

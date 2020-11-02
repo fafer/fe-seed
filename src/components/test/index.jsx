@@ -12,12 +12,12 @@ export default class Test extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: true
+      show: true,
     };
   }
 
   show = () => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return { show: !prevState.show };
     });
   };

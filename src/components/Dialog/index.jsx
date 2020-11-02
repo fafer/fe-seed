@@ -12,7 +12,7 @@ export default class Dialog extends Component {
     return (
       <div
         className="dialog-container"
-        ref={instance => (this.instance = instance)}
+        ref={(instance) => (this.instance = instance)}
       >
         <div className="dialog-modal" />
         <div

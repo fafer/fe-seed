@@ -14,11 +14,11 @@ const Spray = createProvider(
     public componentDidMount() {
       this.props.initData();
       const { dispatch } = this.props;
-      window.addEventListener('pageshow', e => {
+      window.addEventListener('pageshow', (e) => {
         if (sessionStorage.getItem('go-to-task-share')) {
           sessionStorage.removeItem('go-to-task-share');
           if (e.persisted) {
-            actions.getTaskList().then(data => {
+            actions.getTaskList().then((data) => {
               dispatch(data);
             });
           }

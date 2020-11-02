@@ -18,7 +18,7 @@ function getUa() {
     wyxApp: ua.match(/58WeiYingXiaoApp([\d.]*)/),
     wuba: ua.match(/WUBA([/\d.]*)/),
     wbtown: ua.match(/WBTown([/\d.]*)/),
-    wbxiaoxiao: ua.match(/WBXiaoxiao([/\d.]*)/)
+    wbxiaoxiao: ua.match(/WBXiaoxiao([/\d.]*)/),
   };
 }
 const ua = getUa();

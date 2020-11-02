@@ -13,7 +13,7 @@ import {
   INFOSTATE_COLLECTEND,
   INFOSTATE_LOTTERYEND,
   INFOSTATE_LOTTERYING,
-  INFOSTATE_NOT_START
+  INFOSTATE_NOT_START,
 } from './sprayUtil';
 
 const loggerMiddleware = createLogger();
@@ -56,8 +56,8 @@ function mapDispatchToProps(dispatch) {
       dispatch({
         type: actionType.INFO,
         data: {
-          info: { ...info }
-        }
+          info: { ...info },
+        },
       });
     },
     async changeUserState() {
@@ -118,21 +118,21 @@ function mapDispatchToProps(dispatch) {
       if (!action) {
         jumpPage({
           title: '活动规则',
-          url: 'https://down.58.com/h5/magic/10227/index.html'
+          url: 'https://down.58.com/h5/magic/10227/index.html',
         });
       } else {
         dispatch(action);
       }
-    }
+    },
   };
 }
-export let createApp = component => {
-  return connect(state => state, mapDispatchToProps)(component);
+export let createApp = (component) => {
+  return connect((state) => state, mapDispatchToProps)(component);
 };
 
-export let createProvider = component => {
+export let createProvider = (component) => {
   const App = createApp(component);
-  return props => (
+  return (props) => (
     <Provider store={store}>
       <App {...props} />
     </Provider>

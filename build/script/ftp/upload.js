@@ -18,9 +18,9 @@ async function upload(client, src, dest) {
     let filePath = path.join(src, file),
       destPath = path.posix.join(dest, file);
     if (fs.lstatSync(filePath).isDirectory()) {
-      await new Promise(resolve => {
+      await new Promise((resolve) => {
         const spinner = ora(`${destPath}`).start();
-        client.mkdir(destPath, function(err) {
+        client.mkdir(destPath, function (err) {
           if (!err)
             spinner.succeed(
               `[${moment().format('HH:mm:ss')}] ` +
@@ -33,9 +33,9 @@ async function upload(client, src, dest) {
       });
       await upload(client, filePath, destPath);
     } else {
-      await new Promise(resolve => {
+      await new Promise((resolve) => {
         const spinner = ora(`${destPath}`).start();
-        client.put(filePath, destPath, err => {
+        client.put(filePath, destPath, (err) => {
           if (!err)
             spinner.succeed(
               `[${moment().format('HH:mm:ss')}] ` +
@@ -83,7 +83,7 @@ class Upload {
   }
 
   put(src, dest) {
-    task(this.server, async function() {
+    task(this.server, async function () {
       await upload(this, src, dest);
     });
   }

@@ -13,7 +13,7 @@ import {
   DIALOG_TASK_HUODE,
   DIALOG_ZENGYIDEYI,
   getSpray,
-  INFOSTATE_LOTTERYEND
+  INFOSTATE_LOTTERYEND,
 } from '../sprayUtil';
 import './index.scss';
 const urlUtilInstance = urlUtil();
@@ -76,7 +76,7 @@ export default class SprayDialog extends Component {
               this.props.share({
                 title: `哈哈哈，我又集到一瓶${sprayInfo.name}喷雾，想要求我呀~`,
                 desc: '手慢无',
-                link: defaultUrl
+                link: defaultUrl,
               });
             }}
           >
@@ -110,7 +110,7 @@ export default class SprayDialog extends Component {
               this.props.share({
                 title: `哈哈哈，我又集到一瓶${sprayInfo.name}喷雾，想要求我呀~`,
                 desc: '手慢无',
-                link: defaultUrl
+                link: defaultUrl,
               });
             }}
           >
@@ -202,7 +202,7 @@ export default class SprayDialog extends Component {
     const data = this.getData(spray, type);
     let classname = className('title', { hastip: data.tip });
     let dialogclassname = className('spray-dialog', {
-      'end-dialog': type === DIALOG_END && ua.wx
+      'end-dialog': type === DIALOG_END && ua.wx,
     });
     return (
       <Dialog close={this.close}>

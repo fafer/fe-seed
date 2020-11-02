@@ -11,7 +11,7 @@ if (
   process.exit();
 }
 const cli = require('./cli');
-cli().then(server => {
+cli().then((server) => {
   const Upload = require('./upload');
   const uploaderInstance = new Upload(server);
   uploaderInstance.put(

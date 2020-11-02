@@ -1,7 +1,7 @@
 const path = require('path');
 const conf = require('./conf');
 const webpack = require('webpack');
-const Merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const CommonConfig = require('./webpack.common.js');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
@@ -14,14 +14,14 @@ const argv = require('yargs').argv;
 function htmlPlugin() {
   let plugins;
   if (argv.html) {
-    plugins = Object.keys(CommonConfig.entry).map(d => {
+    plugins = Object.keys(CommonConfig.entry).map((d) => {
       d = d.replace(new RegExp(conf.ENTRY_SEPERATE, 'g'), '/'); //TODO：逻辑会有些问题，后续优化
       return new HtmlWebpackPlugin({
         filename: `${d}.html`,
         template: path.join(conf.ENTRY_PATH, `../${d}.html`),
         minify: false,
         inject: false,
-        chunks: [d]
+        chunks: [d],
       });
     });
     plugins.push(new ExtraHtmlWebpackPlugin());
@@ -31,11 +31,11 @@ function htmlPlugin() {
   return plugins;
 }
 
-module.exports = Merge(CommonConfig, {
+module.exports = merge(CommonConfig, {
   mode: 'production',
   output: {
     publicPath: conf.PUBLICPATH,
-    path: conf.OUT_PATH
+    path: conf.OUT_PATH,
   },
   optimization: {
     minimizer: [
@@ -44,25 +44,25 @@ module.exports = Merge(CommonConfig, {
         extractComments: false,
         terserOptions: {
           compress: {
-            drop_console: true
+            drop_console: true,
           },
           output: {
-            comments: false
+            comments: false,
           },
-          warnings: false
-        }
+          warnings: false,
+        },
       }),
-      new OptimizeCSSAssetsPlugin({})
-    ]
+      new OptimizeCSSAssetsPlugin({}),
+    ],
   },
   plugins: [
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [conf.OUT_PATH]
+      cleanOnceBeforeBuildPatterns: [conf.OUT_PATH],
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
+        NODE_ENV: JSON.stringify('production'),
+      },
     }),
     ...htmlPlugin(),
     new ManifestPlugin({
@@ -72,14 +72,14 @@ module.exports = Merge(CommonConfig, {
           if (isChunk)
             path = path.replace(
               /(\.(js|css))$/g,
-              $0 => '_' + chunk.hash.substring(0, 8) + $0
+              ($0) => '_' + chunk.hash.substring(0, 8) + $0
             );
           if (/\.js$/.test(path)) {
             return { ...manifest, [name]: path };
           } else if (/\.css$/.test(path)) {
             return {
               ...manifest,
-              [name]: path.replace(conf.PUBLICPATH, conf.CSSPUBLICPATH)
+              [name]: path.replace(conf.PUBLICPATH, conf.CSSPUBLICPATH),
             };
           } else if (/\.html$/.test(path)) {
             return manifest;
@@ -89,10 +89,10 @@ module.exports = Merge(CommonConfig, {
             [conf.BASEPATH + path.replace(conf.PUBLICPATH, '')]: path.replace(
               conf.PUBLICPATH,
               conf.IMGPUBLICPATH
-            )
+            ),
           };
         }, seed);
-      }
-    })
-  ]
+      },
+    }),
+  ],
 });

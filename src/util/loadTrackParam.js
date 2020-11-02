@@ -7,7 +7,7 @@ function loadTrackParam() {
     window._trackURL = JSON.stringify({
       fromZZ: window.___json4fe.fromZZ || '',
       fromtype: window.___json4fe.fromtype || '',
-      ...trackParam
+      ...trackParam,
     });
     loadScript('//tracklog.58.com/referrer_m.js');
   }

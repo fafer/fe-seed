@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const resolveExtensions = /\.(jsx?|tsx?)$/;
 
-const getEntry = function(
+const getEntry = function (
   pathname,
   base = path.basename(pathname),
   entry = {}
@@ -10,7 +10,7 @@ const getEntry = function(
   let files = fs.readdirSync(pathname);
 
   let name = '';
-  files.forEach(function(file) {
+  files.forEach(function (file) {
     if (fs.lstatSync(path.join(pathname, file)).isDirectory()) {
       getEntry(
         path.join(pathname, file),
@@ -53,7 +53,7 @@ const VENDOR = ['react', 'react-dom', '@babel/polyfill'];
 const HOST = {
   js: 'j1.58cdn.com.cn',
   css: 'c.58cdn.com.cn',
-  img: 'img.58cdn.com.cn'
+  img: 'img.58cdn.com.cn',
 };
 const PUBLICPATH = HOST.js ? `//${HOST.js}${BASEPATH}` : BASEPATH;
 const IMGPUBLICPATH = HOST.img ? `//${HOST.img}${BASEPATH}` : BASEPATH;
@@ -75,5 +75,5 @@ module.exports = {
   PUBLICPATH,
   IMGPUBLICPATH,
   CSSPUBLICPATH,
-  VENDOR
+  VENDOR,
 };

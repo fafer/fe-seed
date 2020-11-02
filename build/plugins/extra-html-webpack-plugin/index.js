@@ -5,20 +5,20 @@ const minify = require('html-minifier').minify;
 
 class ExtraHtmlWebpackPlugin {
   apply(compiler) {
-    compiler.hooks.compilation.tap('ExtraHtmlWebpackPlugin', compilation => {
+    compiler.hooks.compilation.tap('ExtraHtmlWebpackPlugin', (compilation) => {
       let hook = HtmlWebpackPlugin.getHooks(compilation);
       hook.beforeEmit.tapAsync('ExtraHtmlWebpackPlugin', (data, cb) => {
         let dom = new JSDOM(data.html),
           document = dom.window.document;
         let assets = this.queryAsset(document);
-        assets.forEach(asset => this.processAsset(asset));
+        assets.forEach((asset) => this.processAsset(asset));
         data.html = minify(dom.serialize(), {
           removeComments: true,
           trimCustomFragments: true,
           preserveLineBreaks: true,
           collapseWhitespace: true,
           minifyCSS: true,
-          minifyJS: true
+          minifyJS: true,
         });
         cb(null, data);
       });

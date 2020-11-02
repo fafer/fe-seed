@@ -1,6 +1,6 @@
 const conf = require('./conf');
 const webpack = require('webpack');
-const Merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const os = require('os');
 const argv = require('yargs').argv;
 const ssl = require('./https/createCertificate');
@@ -19,11 +19,11 @@ if (argv.mock) {
 }
 const CommonConfig = require('./webpack.common.js');
 
-module.exports = Merge(CommonConfig, {
+module.exports = merge(CommonConfig, {
   mode: 'development',
   devtool: 'inline-source-map',
   output: {
-    publicPath: conf.BASEPATH
+    publicPath: conf.BASEPATH,
   },
   devServer: {
     host: '0.0.0.0', // 允许外网访问，默认值为localhost
@@ -44,7 +44,7 @@ module.exports = Merge(CommonConfig, {
     stats: 'errors-only', // 控制编译过程控制台输出
     watchOptions: {
       // 有些文件系统下，需要手动开启轮询监视文件变化
-      poll: true
+      poll: true,
     },
     // setup(app) {},              //服务启动时执行中间件
     // before(app) {},              //拦截请求
@@ -56,13 +56,13 @@ module.exports = Merge(CommonConfig, {
         secure: false,
         target: `${argv.https ? 'https' : 'http'}://localhost`,
         changeOrigin: true,
-        pathRewrite: function(path) {
+        pathRewrite: function (path) {
           if (/\.js$/.test(path)) {
             return path.replace(/(_v\d*\.js)$/i, '.js');
           } else if (/\.css$/.test(path)) {
             return path.replace(/(_v\d*\.css)$/i, '.css');
           }
-        }
+        },
       },
       {
         context: [
@@ -72,12 +72,12 @@ module.exports = Merge(CommonConfig, {
           '/accountmanage/**',
           '/dashboard/**',
           '/special/**',
-          '/wos/**'
+          '/wos/**',
         ],
         target: 'http://sl.g.58.com',
-        changeOrigin: true
-      }
-    ]
+        changeOrigin: true,
+      },
+    ],
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [new webpack.HotModuleReplacementPlugin()],
 });

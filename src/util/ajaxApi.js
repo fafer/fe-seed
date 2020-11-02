@@ -15,7 +15,7 @@ export let getJSON = (url, params) => {
   else promise = ajax.getJSON(url);
   return new Promise((resolve, reject) => {
     promise
-      .then(data => {
+      .then((data) => {
         if (data.code === 0) {
           try {
             if (typeof data.data === 'string')
@@ -26,7 +26,7 @@ export let getJSON = (url, params) => {
           }
         } else throw new Error(data.code);
       })
-      .catch(err => {
+      .catch((err) => {
         reject(err);
       });
   });

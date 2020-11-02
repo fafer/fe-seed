@@ -36,7 +36,7 @@ export default class TaskList extends Component {
       }
     }
   };
-  public handleTask = index => {
+  public handleTask = (index) => {
     const { taskList, dispatch } = this.props;
     const { state, type } = taskList[index];
     if (state === 3) {
@@ -79,7 +79,7 @@ export default class TaskList extends Component {
                   className={classnames('item-btn', {
                     finish: item.state === 2,
                     done: item.state === 3,
-                    android: this.android
+                    android: this.android,
                   })}
                   onClick={this.handleTask.bind(this, index)}
                 >

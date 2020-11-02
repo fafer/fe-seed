@@ -24,9 +24,9 @@ const cli = meow(
     flags: {
       all: {
         type: 'boolean',
-        alias: 'a'
-      }
-    }
+        alias: 'a',
+      },
+    },
   }
 );
 
@@ -44,7 +44,7 @@ function getIndex(index) {
 
 const options = {
   index: getIndex(cli.input[0]),
-  all: cli.flags.all
+  all: cli.flags.all,
 };
 
 if (cli.flags.help) {
@@ -52,9 +52,9 @@ if (cli.flags.help) {
   process.exit();
 }
 
-module.exports = async function() {
+module.exports = async function () {
   if (options.all) {
-    const choices = table(servers.map(d => Object.values(d))).split('\n');
+    const choices = table(servers.map((d) => Object.values(d))).split('\n');
     const answer = await inquirer.prompt([
       {
         type: 'list',
@@ -71,9 +71,9 @@ module.exports = async function() {
               '↑ ↓ to select. Enter to start upload. Control-C to cancel.'
             )
           ),
-          new inquirer.Separator(' ')
-        ]
-      }
+          new inquirer.Separator(' '),
+        ],
+      },
     ]);
     return servers[getIndex(answer.host)];
   }
