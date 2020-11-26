@@ -33,7 +33,7 @@
       "npm run tslint"
     ],
     "*.{css,scss}": [
-      "npm run stylelint",
+      "npm run stylelint"
     ]
   },
   "husky": {
