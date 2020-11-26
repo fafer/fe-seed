@@ -7,13 +7,13 @@
     "deploy": "./build/script/ftp/index.js"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.config.dev.js --progress",
-    "mock": "cross-env NODE_ENV=development MOCK_DATA=mock webpack-dev-server --config ./build/webpack.config.dev.js --progress",
+    "start": "webpack-dev-server --config ./build/webpack.config.dev.js --progress",
+    "mock": "cross-env MOCK_DATA=mock webpack-dev-server --config ./build/webpack.config.dev.js --progress",
     "prebuild": "npm run build:dll",
-    "build": "cross-env NODE_ENV=production webpack --config ./build/webpack.config.prod.js --progress --profile --colors",
+    "build": "webpack --config ./build/webpack.config.prod.js --progress --profile --colors",
     "build:types": "tsc --emitDeclarationOnly",
     "build:ftp": "npm run build && npm run ftp",
-    "build:dll": "cross-env NODE_ENV=production webpack --config ./build/webpack.dll.js --progress --profile --colors",
+    "build:dll": "webpack --config ./build/webpack.dll.js --progress --profile --colors",
     "add": "node ./build/script/add",
     "eslint": "eslint . --ext .js,.jsx --fix",
     "tslint": "tslint src/**/*.{ts,tsx} --fix",
