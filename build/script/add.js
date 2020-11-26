@@ -20,7 +20,10 @@ let htmlTemplatePath = path.join(pageTemplateDir, htmlTemplate);
 let scriptTemplatePath = path.join(pageTemplateDir, scriptTemplate);
 
 function addComponent(name) {
-  let componentPath = path.join(conf.SRC_PATH, `components/${name}`);
+  let componentPath = path.join(
+    conf.SRC_PATH,
+    `components/${name.charAt(0).toUpperCase() + name.substring(1)}`
+  );
   if (!fs.existsSync(componentPath)) {
     fs.mkdirSync(componentPath);
     fs.copyFile(
