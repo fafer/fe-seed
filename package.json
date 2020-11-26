@@ -27,16 +27,13 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "npm run eslint",
-      "git add"
+      "npm run eslint"
     ],
     "*.{ts,tsx}": [
-      "npm run tslint",
-      "git add"
+      "npm run tslint"
     ],
     "*.{css,scss}": [
       "npm run stylelint",
-      "git add"
     ]
   },
   "husky": {
