@@ -47,13 +47,13 @@ const PUBLICBASE = '';
 // 根目录base，默认未“/”
 const BASEPATH = PUBLICBASE ? PUBLICBASE + '/' : '/';
 
-const VENDOR = ['react', 'react-dom', '@babel/polyfill'];
+const VENDOR = ['react', 'react-dom', 'axios'];
 
 // 配置CDN,HOST
 const HOST = {
-  js: 'j1.58cdn.com.cn',
-  css: 'c.58cdn.com.cn',
-  img: 'img.58cdn.com.cn',
+  js: '',
+  css: '',
+  img: '',
 };
 const PUBLICPATH = HOST.js ? `//${HOST.js}${BASEPATH}` : BASEPATH;
 const IMGPUBLICPATH = HOST.img ? `//${HOST.img}${BASEPATH}` : BASEPATH;

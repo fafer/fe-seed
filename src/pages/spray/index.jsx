@@ -4,8 +4,6 @@ import '../../common/flexible';
 import '../../common/base.css';
 import Spray from '../../components/spray';
 import envLibUtil from '../../util/envLibUitl';
-import loadTrackParam from '../../util/loadTrackParam';
-loadTrackParam();
 
 const app = document.getElementById('app');
 envLibUtil().finally(() => {

@@ -1,5 +1,5 @@
 function getUa() {
-  let ua = navigator.userAgent;
+  const ua = navigator.userAgent;
   return {
     wx:
       !!ua.match(/MicroMessenger\/([\d.]+)/) &&
@@ -13,12 +13,7 @@ function getUa() {
       (ua.indexOf('iPhone') > -1 &&
         (screen.height === 812 || screen.height === 896)),
     iPad: ua.indexOf('iPad') > -1,
-    // qq: ua.match(/QQ\/([\d.]+)/),
     qq: ua.match(/QQ/i),
-    wyxApp: ua.match(/58WeiYingXiaoApp([\d.]*)/),
-    wuba: ua.match(/WUBA([/\d.]*)/),
-    wbtown: ua.match(/WBTown([/\d.]*)/),
-    wbxiaoxiao: ua.match(/WBXiaoxiao([/\d.]*)/),
   };
 }
 const ua = getUa();

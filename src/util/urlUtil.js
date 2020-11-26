@@ -1,6 +1,6 @@
 let urlUtil = function (url) {
   if (typeof url === 'undefined') url = window.location.href;
-  var default_url = url,
+  let default_url = url,
     index = url.indexOf('?'),
     hashIndex = url.indexOf('#'),
     uri = url,
@@ -29,18 +29,18 @@ let urlUtil = function (url) {
 
   function getParams(searchs) {
     if (!searchs) return {};
-    var params = {},
+    let params = {},
       _searchs = searchs.split('&');
-    for (var index = 0; index < _searchs.length; index++) {
-      var temps = _searchs[index].split('=');
+    for (let index = 0; index < _searchs.length; index++) {
+      let temps = _searchs[index].split('=');
       params[temps[0]] = temps[1];
     }
     return params;
   }
 
   function serializeParams(param) {
-    var params = '?';
-    for (var name in param) {
+    let params = '?';
+    for (let name in param) {
       if (param.hasOwnProperty(name)) {
         if (typeof param[name] !== 'undefined')
           params += name + '=' + param[name] + '&';

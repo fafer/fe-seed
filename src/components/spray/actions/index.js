@@ -1,4 +1,4 @@
-import { getJSON } from '../../../util/ajaxApi';
+import api from '../../../util/api';
 import urlUtil from '../../../util/urlUtil';
 import {
   CHANGEUSERSTATE,
@@ -63,7 +63,7 @@ export async function getTaskList() {
   // @mock fetchTaskList(url)
   let data;
   try {
-    data = await getJSON(url);
+    data = await api.get(url);
   } catch (e) {
     data = {
       taskList: [],
@@ -123,7 +123,8 @@ function signIn(index) {
   return (dispatch) => {
     let url = `/txactivity/ks/task/checkin?_t=${new Date().getTime()}`;
     // @mock fetchSignIn(url)
-    return getJSON(url)
+    return api
+      .get(url)
       .then((data) => {
         dispatch(setTaskList(index, 3, '今日已领取', data));
       })
@@ -141,10 +142,11 @@ function taskShare(index) {
     const { type } = getState().taskList[index];
     let url = `/txactivity/ks/task/start?_t=${new Date().getTime()}`;
     // @mock shareTask(url)
-    return getJSON(url, {
-      taskId: type,
-      localId,
-    })
+    return api
+      .get(url, {
+        taskId: type,
+        localId,
+      })
       .then((data) => {
         if (type === 2) {
           dispatch(
@@ -180,9 +182,10 @@ function getTaskReward(index, type) {
   return (dispatch) => {
     let url = `/txactivity/ks/task/submit?_t=${new Date().getTime()}`;
     // @mock taskReward(url)
-    return getJSON(url, {
-      taskId: type,
-    })
+    return api
+      .get(url, {
+        taskId: type,
+      })
       .then((data) => {
         dispatch(setTaskList(index, 3, '今日已领取', data));
       })
@@ -306,7 +309,7 @@ export const getInfo = async () => {
   // @mock info(url)
   let data;
   try {
-    data = await getJSON(url);
+    data = await api.get(url);
   } catch (e) {
     data = {};
     console.log(e);
@@ -324,7 +327,7 @@ export const getUserInfo = async () => {
   // @mock userInfo(url)
   let data;
   try {
-    data = await getJSON(url);
+    data = await api.get(url);
   } catch (e) {
     data = {};
     console.log(e);
@@ -342,7 +345,7 @@ export const getSprayList = async () => {
   // @mock sprayList(url)
   let data;
   try {
-    data = await getJSON(url);
+    data = await api.get(url);
   } catch (e) {
     data = {
       sprayList: [
@@ -381,7 +384,7 @@ export const changeUserState = () => {
   let url = `/txactivity/ks/change?_t=${new Date().getTime()}`;
   // @mock change(url)
   return (dispatch, getState) => {
-    getJSON(url).then(() => {
+    api.get(url).then(() => {
       let sprayList = getState().sprayList;
       sprayList = sprayList.map((d) => {
         d.count = d.count - 1;
@@ -447,7 +450,7 @@ export const getDialogInfo = async () => {
     action = urlUtilInstance.getParam('action');
   // @mock dialogInfo(url)
   try {
-    let temp = await getJSON(url, {
+    let temp = await api.get(url, {
       action: action || '',
     });
     if (!temp.type) {
@@ -488,9 +491,10 @@ export const send = ({ spray }) => {
     if (sprayInfo && sprayInfo.count > 0) {
       let url = `/txactivity/ks/bottle/confirmgive?_t=${new Date().getTime()}`;
       // @mock sendSpray(url)
-      getJSON(url, {
-        action: urlUtilInstance.getParam('action'),
-      })
+      api
+        .get(url, {
+          action: urlUtilInstance.getParam('action'),
+        })
         .then((result) => {
           let data = toastToggle('赠送成功，你已随机获得新喷雾', 'success'),
             dialog = state.dialog;
@@ -532,10 +536,11 @@ export const qiu = (spray) => {
   return (dispatch) => {
     let url = `/txactivity/ks/bottle/ask?_t=${new Date().getTime()}`;
     // @mock qiuzengurl(url)
-    getJSON(url, {
-      type: spray,
-      localId,
-    })
+    api
+      .get(url, {
+        type: spray,
+        localId,
+      })
       .then((result) => {
         const sprayInfo = getSpray(spray);
         dispatch(
@@ -563,7 +568,8 @@ export const openbonus = () => {
   return (dispatch) => {
     let url = `/txactivity/ks/openbonus/${localId}?_t=${new Date().getTime()}`;
     //@mock openbonusurl(url)
-    getJSON(url)
+    api
+      .get(url)
       .then((result) => {
         window.location.href = result.jumpUrl;
       })

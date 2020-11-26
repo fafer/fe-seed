@@ -5,7 +5,12 @@ module.exports = {
     "@babel/preset-typescript"
   ],
   "plugins": [
-    "@babel/plugin-transform-runtime",
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": 3 
+      }
+    ],
     // Stage 2
     [
       "@babel/plugin-proposal-decorators",

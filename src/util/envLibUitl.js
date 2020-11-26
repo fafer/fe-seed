@@ -2,12 +2,7 @@ import ua from './ua';
 import loadJS from './loadJS';
 
 export default function envLibUtil() {
-  // loadJS('//j1.58cdn.com.cn/ds/shop/lib/vconsole.min.js');
-  if (ua.wbxiaoxiao) {
-    return loadJS(
-      '//j1.58cdn.com.cn/weitech/innovation-activity/lib/wbxiaoxiaosdk.js'
-    );
-  } else if (ua.wx) {
+  if (ua.wx) {
     return loadJS(
       '//j1.58cdn.com.cn/weitech/innovation-activity/lib/wxjs-1.4.0.js'
     );

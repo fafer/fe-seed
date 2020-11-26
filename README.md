@@ -27,7 +27,7 @@
 |  └── assets                       //存放小的静态资源,例如小图片，打包后，图片会被转成base64。(保留目录)
 |  └── common                       //存放公共部分
 |  └── components                   //存放组件
-|  └── lib                          //存放三方资源（保留目录）
+|  └── lib                          //存放三方资源, npm run build:dll 打出的vendor.js
 |  └── pages                        //存放页面，这里存放打包入口文件（保留目录）
 |  └── util                         //存放工具api
 ├── test                            //存放测试代码
@@ -48,10 +48,7 @@
 ```bash
 npm i
 
-npm i -g commitizen cz-conventional-changelog ftp-cli
-echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
-or
-npm i -g commitizen
+npm i -g commitizen 
 ```
 
 - 开发模式

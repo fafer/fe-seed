@@ -30,7 +30,7 @@ module.exports = merge(CommonConfig, {
     port: port,
     open: true, // 服务启动后，打开浏览器默认访问：http://host:port/
     openPage: '', // 设置默认打开的页面路径
-    public: 'localhost', // 配置服务启动后，打开浏览器访问http://public,优先级最高>useLocalIp>默认
+    public: `localhost:${port}`, // 配置服务启动后，打开浏览器访问http://public,优先级最高>useLocalIp>默认
     useLocalIp: true, // 配置服务启动后，打开浏览器访问:http://本地ip:port/,如果失败，转发到public设置
     https: argv.https ? ssl() : false, // 开启https
     disableHostCheck: true, // 允许所有host域名访问
@@ -46,8 +46,8 @@ module.exports = merge(CommonConfig, {
       // 有些文件系统下，需要手动开启轮询监视文件变化
       poll: true,
     },
-    // setup(app) {},              //服务启动时执行中间件
-    // before(app) {},              //拦截请求
+    // setup(app) {},            //服务启动时执行中间件
+    // before(app) {},           //拦截请求
     // after(app) {},            //请求输出时处理
     proxy: [
       // 配置转发请求代理
@@ -65,16 +65,8 @@ module.exports = merge(CommonConfig, {
         },
       },
       {
-        context: [
-          '/exchange/**',
-          '/common/**',
-          '/user/**',
-          '/accountmanage/**',
-          '/dashboard/**',
-          '/special/**',
-          '/wos/**',
-        ],
-        target: 'http://sl.g.58.com',
+        context: ['/api/**'],
+        target: 'http://localhost',
         changeOrigin: true,
       },
     ],

@@ -1,7 +1,7 @@
 function loadScript(url, callback) {
-  var head = document.getElementsByTagName('head')[0];
-  var script = document.createElement('script');
-  var done = false;
+  let head = document.getElementsByTagName('head')[0];
+  let script = document.createElement('script');
+  let done = false;
   script.async = true;
   script.type = 'text/javascript';
   script.src = url;
