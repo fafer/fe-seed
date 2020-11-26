@@ -126,11 +126,11 @@ const options = {
 
 if (options.component) {
   addComponent(options.component);
-  return;
-}
-if (!options.filename) {
-  ora('').fail(chalk.red('please input filename'));
-  cli.showHelp(0);
 } else {
-  add(options.filename || '', options.title || '');
+  if (!options.filename) {
+    ora('').fail(chalk.red('please input filename'));
+    cli.showHelp(0);
+  } else {
+    add(options.filename || '', options.title || '');
+  }
 }
