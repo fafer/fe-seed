@@ -70,6 +70,9 @@ module.exports = merge(CommonConfig, {
         changeOrigin: true,
       },
     ],
+    historyApiFallback: {
+      rewrites: [{ from: /.*/g, to: '/index.html' }],
+    },
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
 });
