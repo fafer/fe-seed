@@ -14,5 +14,4 @@ lerna-debug.log
 /packages/*/LICENSE
 *.log
 *.cache
-src/lib/vendor-manifest.json
-src/lib/vendor.js
+vendor.js.LICENSE.txt
