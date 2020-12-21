@@ -9,7 +9,6 @@
   "scripts": {
     "start": "webpack-dev-server --config ./build/webpack.config.dev.js --progress",
     "mock": "cross-env MOCK_DATA=mock webpack-dev-server --config ./build/webpack.config.dev.js --progress",
-    "prebuild": "npm run build:dll",
     "build": "webpack --config ./build/webpack.config.prod.js --progress --profile --colors",
     "build:types": "tsc --emitDeclarationOnly",
     "build:ftp": "npm run build && npm run ftp",
@@ -91,8 +90,8 @@
     "css-loader": "^5.0.1",
     "cssnano": "^4.1.10",
     "cz-conventional-changelog": "^3.2.0",
-    "eslint": "^7.15.0",
-    "eslint-config-prettier": "^7.0.0",
+    "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.1.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-react": "^7.20.3",
