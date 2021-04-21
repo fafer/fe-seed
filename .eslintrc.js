@@ -10,14 +10,13 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
-    'prettier/flowtype',
-    'prettier/react',
-    'prettier/standard',
+    'prettier',
   ],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
+      legacyDecorators: true,
     },
     ecmaVersion: 2018,
     sourceType: 'module',
@@ -25,7 +24,7 @@ module.exports = {
   plugins: ['react', 'prettier'],
   settings: {
     react: {
-      version: '17.0.1',
+      version: '17.0.2',
     },
   },
   globals: {
