@@ -26,15 +26,9 @@
     "codecov": "cat ./coverage/lcov.info | ./node_modules/.bin/codecov"
   },
   "lint-staged": {
-    "*.{js,jsx}": [
-      "npm run eslint"
-    ],
-    "*.{ts,tsx}": [
-      "npm run tslint"
-    ],
-    "*.{css,scss}": [
-      "npm run stylelint"
-    ]
+    "*.{js,jsx}": "eslint --fix",
+    "*.{ts,tsx}": "tslint --fix",
+    "*.{css,scss}": "stylelint --fix"
   },
   "husky": {
     "hooks": {

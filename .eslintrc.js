@@ -33,7 +33,7 @@ module.exports = {
   rules: {
     'no-console': 'off',
     indent: [
-      'error',
+      'off',
       2,
       {
         SwitchCase: 1,
@@ -41,7 +41,7 @@ module.exports = {
       },
     ],
     'linebreak-style': 'off',
-    quotes: ['error', 'single'],
+    quotes: ['off', 'single'],
     semi: ['off', 'always'],
     'require-atomic-updates': 'off',
     'no-extra-boolean-cast': 'off',
@@ -116,6 +116,7 @@ module.exports = {
     'no-restricted-imports': 'off',
     'prefer-destructuring': 'off',
     'prefer-rest-params': 'off',
+    'react/jsx-no-target-blank': 'off',
     'react/jsx-indent-props': ['warn', 2],
     'react/prop-types': 'off',
     'react/jsx-boolean-value': ['warn', 'always'],
@@ -131,7 +132,7 @@ module.exports = {
     ],
     'react/display-name': 'off',
     'prettier/prettier': [
-      'error',
+      'warn',
       {
         singleQuote: true,
       },
